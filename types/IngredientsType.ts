@@ -1,0 +1,3 @@
+type IngredientsType = {
+  title?: string;
+};
