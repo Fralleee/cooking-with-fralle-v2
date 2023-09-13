@@ -93,6 +93,9 @@ module.exports = {
         "cozy-start": "#ff8570",
         "cozy-end": "#ff8bf3",
       },
+      transitionProperty: {
+        link: "box-shadow, transform",
+      },
       transitionTimingFunction: {
         InOutQuadratic: "cubic-bezier(0.455, 0.03, 0.515, 0.955)",
         OutBack: "cubic-bezier(0.34, 1.56, 0.64, 1)",
