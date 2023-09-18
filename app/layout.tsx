@@ -1,9 +1,9 @@
 import { cn } from '@/lib/utils';
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter, Oleo_Script } from 'next/font/google'
+import { Roboto, Oleo_Script } from 'next/font/google'
 
-const font = Inter({ subsets: ['latin'] })
+const font = Roboto({ subsets: ['latin'], weight: ["400", "700"] })
 const titleFont = Oleo_Script({ subsets: ['latin'], weight: '700', variable: "--font-header" });
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function Layout({
 }) {
   return (
     <html lang="en">
-      <body className={cn(titleFont.variable, font.className)}>
+      <body className={cn("antialiased", titleFont.variable, font.className)}>
         {children}
       </body>
     </html>

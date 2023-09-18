@@ -38,7 +38,7 @@ export default function Page({ params, searchParams }: Props) {
   return (
     <>
       <RecipeTitle title={recipe.title} />
-      <main className="flex flex-col items-center justify-between p-7">
+      <main className="flex flex-col items-center justify-between p-7 text-stone-700">
         <ServingsCalculator servings={servings} />
         {recipe.ingredients.map(ingredientsType => (
           <IngredientsList key={ingredientsType.label} title={ingredientsType.label}>

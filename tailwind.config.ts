@@ -80,10 +80,15 @@ module.exports = {
           "0%": { opacity: "0", transform: "translateY(100px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        "animate-scale": {
+          "0%": { transform: "scale(1.15)" },
+          "100%": { transform: "scale(1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        scale: "animate-scale 200ms ease-out",
         title: "gradient 5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite, animateUp 600ms 50ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
       },
       backgroundColor: {
