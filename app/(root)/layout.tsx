@@ -1,9 +1,9 @@
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <header className="relative capitalize font-bold w-full text-center py-14 lg:py-24 bg-header">
+      <header className="relative capitalize font-bold w-full text-center py-10 lg:py-20 bg-header">
         <h1
-          className="text-6xl md:text-7xl lg:text-9xl animate-title bg-gradient-to-r from-cozy-start to-cozy-end bg-300 bg-clip-text opacity-0 ease-in-out"
+          className="text-6xl md:text-7xl lg:text-9xl animate-title py-4 bg-gradient-to-r from-cozy-start to-cozy-end bg-300 bg-clip-text opacity-0 ease-in-out"
           style={{
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
@@ -25,7 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           WITH FRALLE
         </h2>
       </header>
-      <main className="flex flex-col items-center justify-between p-7">
+      <main className="flex flex-col items-center justify-between bg-white">
         {children}
       </main>
     </>

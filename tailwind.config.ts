@@ -17,7 +17,7 @@ module.exports = {
         header: "repeating-linear-gradient(to right, #99d2db, #99d2db 3rem, #90c7d0 3rem, #90c7d0 6rem)",
       },
       backgroundSize: {
-        "300": "300%",
+        full: "300%",
       },
       boxShadow: {
         plain: "4px 6px 0 3px rgba(0,0,0,.05)",

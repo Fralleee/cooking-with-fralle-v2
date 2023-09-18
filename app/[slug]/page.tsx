@@ -6,6 +6,7 @@ import IngredientsList from "@/components/ingredients-list";
 import { getIngredient, getServingsFromSearchParams } from "@/helpers/recipeUtils";
 import RecipeTitle from "@/components/recipe-title";
 import InstructionsList from "@/components/instructions-list";
+import Image from "next/image";
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   return {
@@ -38,7 +39,12 @@ export default function Page({ params, searchParams }: Props) {
   return (
     <>
       <RecipeTitle title={recipe.title} />
-      <main className="flex flex-col items-center justify-between p-7 text-stone-700">
+      <main className="flex flex-col transition-all py-6 px-2 sm:px-8 text-stone-700 max-w-2xl mx-auto flex-auto w-full bg-white rounded-3xl rounded-b-none">
+
+
+        <div className="border-4 border-pink-300 rounded-full mx-auto relative -top-28 -mb-24 w-48 h-48 p-2 bg-pink-100 grid place-items-center">
+          <Image src="/cupcake.webp" alt="cupcake" width={128} height={128} />
+        </div>
         <ServingsCalculator servings={servings} />
         {recipe.ingredients.map(ingredientsType => (
           <IngredientsList key={ingredientsType.label} title={ingredientsType.label}>
