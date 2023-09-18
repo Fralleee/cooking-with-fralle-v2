@@ -2,10 +2,10 @@ import { bakingKeywords } from "@/data/keywords";
 
 const ApplePie: Recipe = {
   title: "Äppelpaj",
-  url: "/apple-pie",
+  slug: "apple-pie",
   color: "brown",
   keywords: ["äpple", "äppel", "apple", "paj", "pie", ...bakingKeywords],
-  defaultPortions: 8,
+  defaultServings: 8,
   ingredients: [
     {
       label: "Fyllning",

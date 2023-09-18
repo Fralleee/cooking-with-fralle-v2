@@ -2,10 +2,10 @@ import { foodKeywords } from "@/data/keywords";
 
 const SaldDressing: Recipe = {
   title: "Salladsdressing",
-  url: "/salad-dressing",
+  slug: "salad-dressing",
   color: "red",
   keywords: ["sallad", "dressing", ...foodKeywords],
-  defaultPortions: 2,
+  defaultServings: 2,
   ingredients: [
     {
       label: "",

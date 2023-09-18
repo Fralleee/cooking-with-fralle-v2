@@ -2,10 +2,10 @@ import { foodKeywords } from "@/data/keywords";
 
 const BurgerSauce: Recipe = {
   title: "Hamburgersås",
-  url: "/burger-sauce",
+  slug: "burger-sauce",
   color: "teal",
   keywords: ["hamburgare", "burgare", "sås", "dressing", "dip", ...foodKeywords],
-  defaultPortions: 8,
+  defaultServings: 8,
   ingredients: [
     {
       label: "",

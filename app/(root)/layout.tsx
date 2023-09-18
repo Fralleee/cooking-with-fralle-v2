@@ -1,17 +1,7 @@
-import { cn } from '@/lib/utils';
-import { Oleo_Script } from 'next/font/google';
-
-const font = Oleo_Script({ subsets: ['latin'], weight: '700' });
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <header
-        className={cn(
-          'relative capitalize font-bold w-full text-center py-14 lg:py-24 bg-header',
-          font.className
-        )}
-      >
+      <header className="relative capitalize font-bold w-full text-center py-14 lg:py-24 bg-header">
         <h1
           className="text-6xl md:text-7xl lg:text-9xl animate-title bg-gradient-to-r from-cozy-start to-cozy-end bg-300 bg-clip-text opacity-0 ease-in-out"
           style={{

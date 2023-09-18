@@ -2,10 +2,10 @@ import { foodKeywords } from "@/data/keywords";
 
 const BerlinSauce: Recipe = {
   title: "Berlinsås",
-  url: "/berlin-sauce",
+  slug: "berlin-sauce",
   color: "red",
   keywords: ["berlin", "sauce", "kebab", ...foodKeywords],
-  defaultPortions: 2,
+  defaultServings: 2,
   ingredients: [
     {
       label: "",

@@ -2,10 +2,10 @@ import { bakingKeywords } from "@/data/keywords";
 
 const MudCake: Recipe = {
   title: "Kladdkaka",
-  url: "/mud-cake",
+  slug: "mud-cake",
   color: "midnight",
   keywords: ["kladdkaka", "mudcake", ...bakingKeywords],
-  defaultPortions: 8,
+  defaultServings: 8,
   ingredients: [
     {
       label: "",

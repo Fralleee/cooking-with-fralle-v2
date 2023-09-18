@@ -2,10 +2,10 @@ import { bakingKeywords } from "@/data/keywords";
 
 const Pancakes: Recipe = {
   title: "Pannkakor",
-  url: "/pancakes",
+  slug: "pancakes",
   color: "midnight",
   keywords: ["pannkakor", "pancakes", ...bakingKeywords],
-  defaultPortions: 6,
+  defaultServings: 6,
   ingredients: [
     {
       label: "",

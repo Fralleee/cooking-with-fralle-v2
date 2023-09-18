@@ -1,8 +1,8 @@
 type Recipe = {
   title: string;
-  url: string;
+  slug: string;
   color: string;
-  defaultPortions: number;
+  defaultServings: number;
   keywords: string[];
   ingredients: {
     label: string;

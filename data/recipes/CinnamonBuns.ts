@@ -2,10 +2,10 @@ import { bakingKeywords } from "@/data/keywords";
 
 const CinnamonBuns: Recipe = {
   title: "Kanelbullar",
-  url: "/cinnamon-buns",
+  slug: "cinnamon-buns",
   color: "fizzy-light",
   keywords: ["kanel", "bullar", ...bakingKeywords],
-  defaultPortions: 12,
+  defaultServings: 12,
   ingredients: [
     {
       label: "Pre dough",
