@@ -1,7 +1,11 @@
-type Recipe = {
+import { RecipeImages } from "@/data/images";
+import { themes } from "@/helpers/tailwindUtils";
+
+export type Recipe = {
   title: string;
   slug: string;
-  color: string;
+  image: keyof typeof RecipeImages;
+  color: keyof typeof themes;
   defaultServings: number;
   keywords: string[];
   ingredients: {

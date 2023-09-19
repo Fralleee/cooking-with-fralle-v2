@@ -18,7 +18,7 @@ export default function Layout({
 }) {
   return (
     <html lang="en">
-      <body className={cn("antialiased bg-header flex flex-col", titleFont.variable, font.className)}>
+      <body className={cn("flex flex-col", titleFont.variable, font.className)}>
         {children}
       </body>
     </html>

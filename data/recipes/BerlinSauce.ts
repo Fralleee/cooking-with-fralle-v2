@@ -1,8 +1,10 @@
 import { foodKeywords } from "@/data/keywords";
+import { Recipe } from "@/types/Recipe";
 
 const BerlinSauce: Recipe = {
   title: "Berlinsås",
   slug: "berlin-sauce",
+  image: "bun",
   color: "red",
   keywords: ["berlin", "sauce", "kebab", ...foodKeywords],
   defaultServings: 2,

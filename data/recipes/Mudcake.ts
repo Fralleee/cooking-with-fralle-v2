@@ -1,9 +1,11 @@
 import { bakingKeywords } from "@/data/keywords";
+import { Recipe } from "@/types/Recipe";
 
 const MudCake: Recipe = {
   title: "Kladdkaka",
   slug: "mud-cake",
-  color: "midnight",
+  color: "brown",
+  image: "mudcake",
   keywords: ["kladdkaka", "mudcake", ...bakingKeywords],
   defaultServings: 8,
   ingredients: [

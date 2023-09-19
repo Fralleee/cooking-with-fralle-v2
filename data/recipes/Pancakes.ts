@@ -1,9 +1,11 @@
 import { bakingKeywords } from "@/data/keywords";
+import { Recipe } from "@/types/Recipe";
 
 const Pancakes: Recipe = {
   title: "Pannkakor",
   slug: "pancakes",
-  color: "midnight",
+  color: "yellow",
+  image: "pancakes",
   keywords: ["pannkakor", "pancakes", ...bakingKeywords],
   defaultServings: 6,
   ingredients: [

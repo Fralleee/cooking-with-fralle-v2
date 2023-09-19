@@ -1,9 +1,11 @@
 import { drinkKeywords } from "@/data/keywords";
+import { Recipe } from "@/types/Recipe";
 
 const DijonTravolta: Recipe = {
   title: "Dijon Travolta",
   slug: "dijon-travolta",
-  color: "red",
+  color: "amber",
+  image: "cocktail",
   keywords: ["dijon", "travolta", "tequila", "citron", ...drinkKeywords],
   defaultServings: 2,
   ingredients: [

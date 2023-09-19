@@ -1,9 +1,11 @@
 import { bakingKeywords } from "@/data/keywords";
+import { Recipe } from "@/types/Recipe";
 
-const CinnamonBuns: Recipe = {
+const CinnamonRolls: Recipe = {
   title: "Kanelbullar",
-  slug: "cinnamon-buns",
-  color: "fizzy-light",
+  slug: "cinnamon-rolls",
+  color: "orange",
+  image: "cinnamonroll",
   keywords: ["kanel", "bullar", ...bakingKeywords],
   defaultServings: 12,
   ingredients: [
@@ -56,4 +58,4 @@ const CinnamonBuns: Recipe = {
   ],
 };
 
-export default CinnamonBuns;
+export default CinnamonRolls;

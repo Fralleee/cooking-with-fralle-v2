@@ -1,9 +1,11 @@
 import { bakingKeywords } from "@/data/keywords";
+import { Recipe } from "@/types/Recipe";
 
 const Cupcakes: Recipe = {
   title: "Muffins",
   slug: "cupcakes",
-  color: "fizzy-light",
+  color: "rose",
+  image: "cupcake",
   keywords: ["muffins", "cupcakes", ...bakingKeywords],
   defaultServings: 12,
   ingredients: [
@@ -11,7 +13,7 @@ const Cupcakes: Recipe = {
       label: "",
       data: [
         { label: "vetemjöl", amount: 213, measurement: "weight" },
-        { label: "socker (blanda fritt: farin | muscavado | vanilj)", amount: 150, measurement: "weight" },
+        { label: "socker", amount: 150, measurement: "weight" },
         { label: "bakpulver", amount: 10, measurement: "volume" },
         { label: "salt", amount: 5, measurement: "volume" },
         { label: "mjölk", amount: 180, measurement: "volume" },

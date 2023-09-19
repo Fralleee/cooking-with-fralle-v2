@@ -11,7 +11,11 @@ interface ButtonProps {
 
 const Button = ({ href, Icon }: ButtonProps) => {
   return (
-    <Link href={href} className={cn(buttonVariants({ variant: "outline" }), "group hover:scale-110 active:scale-90 hover:border-sky-600 transition-all ease-out")}>
+    <Link
+      href={href}
+      replace
+      scroll={false}
+      className={cn(buttonVariants({ variant: "outline" }), "group hover:scale-110 active:scale-90 hover:border-sky-600 transition-all ease-out")}>
       <Icon className="transition-all group-hover:text-sky-600" />
     </Link>
   )
@@ -23,7 +27,7 @@ interface Props {
 const ServingsCalculator = ({ servings }: Props) => {
 
   return (
-    <div className="flex justify-between items-center mx-auto my-4 max-w-md min-w-[300px]">
+    <div className="flex justify-between items-center my-4 max-w-md min-w-[300px]">
       <Button href={`?${new URLSearchParams({ servings: (servings - 2).toString() })}`} Icon={FaMinus} />
 
       <h2 key={servings} className="text-3xl text-center animate-scale duration-200 ease-outBack">{`${servings} portioner`}</h2>

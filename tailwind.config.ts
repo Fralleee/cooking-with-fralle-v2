@@ -1,9 +1,10 @@
 /** @type {import('tailwindcss').Config} */
-const { keyframes } = require("tailwindcss/plugin");
+import { themes } from "./helpers/tailwindUtils";
 
 module.exports = {
   darkMode: ["class"],
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  safelist: Object.values(themes).flatMap(theme => Object.values(theme)),
   theme: {
     container: {
       center: true,
@@ -14,7 +15,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        header: "repeating-linear-gradient(to right, #99d2db, #99d2db 3rem, #90c7d0 3rem, #90c7d0 6rem)",
+        header: "repeating-linear-gradient(to right, #11223310, #11223310 3rem, #11223330 3rem, #11223330 6rem)",
       },
       backgroundSize: {
         full: "300%",

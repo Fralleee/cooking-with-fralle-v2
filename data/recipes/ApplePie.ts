@@ -1,9 +1,11 @@
 import { bakingKeywords } from "@/data/keywords";
+import { Recipe } from "@/types/Recipe";
 
 const ApplePie: Recipe = {
   title: "Äppelpaj",
   slug: "apple-pie",
-  color: "brown",
+  image: "pie",
+  color: "yellow",
   keywords: ["äpple", "äppel", "apple", "paj", "pie", ...bakingKeywords],
   defaultServings: 8,
   ingredients: [

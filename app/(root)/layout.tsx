@@ -1,6 +1,6 @@
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <>
+    <div className="bg-sky-200">
       <header className="relative capitalize font-bold w-full text-center py-10 lg:py-20 bg-header">
         <h1
           className="text-6xl md:text-7xl lg:text-9xl animate-title py-4 bg-gradient-to-r from-cozy-start to-cozy-end bg-300 bg-clip-text opacity-0 ease-in-out"
@@ -28,6 +28,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className="flex flex-col items-center justify-between bg-white">
         {children}
       </main>
-    </>
+    </div>
   );
 }
