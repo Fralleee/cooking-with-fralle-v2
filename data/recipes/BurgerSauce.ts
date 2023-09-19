@@ -5,6 +5,7 @@ const BurgerSauce: Recipe = {
   title: "Hamburgersås",
   slug: "burger-sauce",
   color: "teal",
+  image: "sauce2",
   keywords: ["hamburgare", "burgare", "sås", "dressing", "dip", ...foodKeywords],
   defaultServings: 8,
   ingredients: [

@@ -5,3 +5,5 @@
 - cupcake with frosting, black outlines, simple, vector, svg, white background --no complexity, --no shadow
 
 - baked pie, black outlines, simple, vector, svg, minimalistic, minimalist, white background --no complexity, --no shadow
+
+- bowl of cartoon sauce, black outlines, --no shadow

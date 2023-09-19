@@ -5,7 +5,7 @@ const CinnamonRolls: Recipe = {
   title: "Kanelbullar",
   slug: "cinnamon-rolls",
   color: "orange",
-  image: "cinnamonroll",
+  image: "bun",
   keywords: ["kanel", "bullar", ...bakingKeywords],
   defaultServings: 12,
   ingredients: [

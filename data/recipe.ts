@@ -1,4 +1,6 @@
-const requireModule = (require as any).context("./recipes", false, /\.ts$/);
+import { Recipe } from "@/types/Recipe";
+
+const requireModule = (require as any).context("data/recipes", false, /^data\/recipes\/.*\.ts$/);
 const modules: Recipe[] = [];
 
 requireModule.keys().forEach((filename: string) => {

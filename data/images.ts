@@ -6,4 +6,7 @@ export enum RecipeImages {
   cocktail = "/cocktail.webp",
   cinnamonroll = "/cinnamonroll.webp",
   mudcake = "/mudcake.webp",
+  saladdressing = "/saladdressing.webp",
+  sauce = "/sauce.webp",
+  sauce2 = "/sauce2.webp",
 }

@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import recipes from "@/data/recipes"
+import recipes from "@/data/recipe"
 import { slugToTitle } from "@/helpers/stringUtils";
 import ServingsCalculator from "@/components/servings-controls";
 import IngredientsList from "@/components/ingredients-list";
@@ -46,15 +46,8 @@ export default function Page({ params, searchParams }: Props) {
 
         <RecipeTitle title={recipe.title} />
         <main className="flex flex-col transition-all py-6 px-2 sm:px-8 text-stone-700 max-w-2xl mx-auto flex-auto w-full bg-white rounded-3xl rounded-b-none">
-
-
-          {/* <div className={cn(
-            "relative -left-16 -top-28 -mb-28 -rotate-12"
-          )}>
-          </div> */}
-
           <div className="relative flex flex-col items-center md:flex-row">
-            <Image src={RecipeImages[recipe.image]} alt={recipe.title} width={192} height={192} className="relative md:absolute top-0 right-0" />
+            <Image src={RecipeImages[recipe.image]} alt={recipe.title} width={256} height={256} className="relative md:absolute top-0 right-0" />
             <ServingsCalculator servings={servings} />
           </div>
           {recipe.ingredients.map(ingredientsType => (

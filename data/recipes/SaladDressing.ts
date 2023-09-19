@@ -5,6 +5,7 @@ const SaldDressing: Recipe = {
   title: "Salladsdressing",
   slug: "salad-dressing",
   color: "red",
+  image: "saladdressing",
   keywords: ["sallad", "dressing", ...foodKeywords],
   defaultServings: 2,
   ingredients: [
