@@ -1,6 +1,23 @@
-interface Themes {
-  [key: string]: RecipeTheme;
-}
+type ThemeKey =
+  | "red"
+  | "orange"
+  | "amber"
+  | "yellow"
+  | "lime"
+  | "green"
+  | "emerald"
+  | "teal"
+  | "cyan"
+  | "sky"
+  | "blue"
+  | "indigo"
+  | "violet"
+  | "purple"
+  | "fuchsia"
+  | "pink"
+  | "rose";
+
+type ThemesTest = Record<ThemeKey, RecipeTheme>;
 
 interface RecipeTheme {
   background: string;
@@ -8,10 +25,9 @@ interface RecipeTheme {
   imageBackground: string;
 }
 
-export const themes: Themes = {
+export const themes: ThemesTest = {
   red: { background: "bg-red-200", imageBorder: "border-red-300", imageBackground: "bg-red-100" },
   orange: { background: "bg-orange-200", imageBorder: "border-orange-300", imageBackground: "bg-orange-100" },
-  brown: { background: "bg-yellow-600", imageBorder: "border-yellow-700", imageBackground: "bg-yellow-600" },
   amber: { background: "bg-amber-200", imageBorder: "border-amber-300", imageBackground: "bg-amber-100" },
   yellow: { background: "bg-yellow-200", imageBorder: "border-yellow-300", imageBackground: "bg-yellow-100" },
   lime: { background: "bg-lime-200", imageBorder: "border-lime-300", imageBackground: "bg-lime-100" },

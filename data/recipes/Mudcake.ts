@@ -4,7 +4,7 @@ import { Recipe } from "@/types/Recipe";
 const MudCake: Recipe = {
   title: "Kladdkaka",
   slug: "mud-cake",
-  color: "brown",
+  color: "purple",
   image: "mudcake",
   keywords: ["kladdkaka", "mudcake", ...bakingKeywords],
   defaultServings: 8,

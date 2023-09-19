@@ -4,7 +4,7 @@ import { Recipe } from "@/types/Recipe";
 const BerlinSauce: Recipe = {
   title: "Berlinsås",
   slug: "berlin-sauce",
-  color: "red",
+  color: "blue",
   image: "sauce",
   keywords: ["berlin", "sauce", "kebab", ...foodKeywords],
   defaultServings: 2,
