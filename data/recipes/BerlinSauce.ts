@@ -1,5 +1,5 @@
 import { foodKeywords } from "@/data/keywords";
-import { Recipe } from "@/types/Recipe";
+import { Recipe } from "@/types/recipe";
 
 const BerlinSauce: Recipe = {
   title: "Berlinsås",

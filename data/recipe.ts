@@ -1,4 +1,4 @@
-import { Recipe } from "@/types/Recipe";
+import { Recipe } from "@/types/recipe";
 
 const requireModule = (require as any).context("data/recipes", false, /^data\/recipes\/.*\.ts$/);
 const modules: Recipe[] = [];

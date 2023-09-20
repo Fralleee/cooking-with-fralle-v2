@@ -22,7 +22,7 @@ export default function NotFound() {
         >
           Not found
         </h1>
-        <div className="bg-white mt-12 max-w-max mx-auto p-12 rounded-3xl flex flex-col gap-6">
+        <div className="bg-stone-100 mt-12 max-w-max mx-auto p-12 rounded-3xl flex flex-col gap-6">
           <p>Could not find requested resource</p>
           <Link href="/" className={buttonVariants({ variant: "outline" })}>
             Browse recipes

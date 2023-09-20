@@ -1,5 +1,5 @@
 import { drinkKeywords } from "@/data/keywords";
-import { Recipe } from "@/types/Recipe";
+import { Recipe } from "@/types/recipe";
 
 const DijonTravolta: Recipe = {
   title: "Dijon Travolta",

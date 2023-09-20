@@ -15,7 +15,7 @@ const Button = ({ href, Icon }: ButtonProps) => {
       href={href}
       replace
       scroll={false}
-      className={cn(buttonVariants({ variant: "outline" }), "group hover:scale-110 active:scale-90 hover:border-sky-600 transition-all ease-out")}>
+      className={cn(buttonVariants({ variant: "outline" }), "bg-stone-50 border-stone-300 group hover:scale-110 active:scale-90 hover:border-sky-600 transition-all ease-out")}>
       <Icon className="transition-all group-hover:text-sky-600" />
     </Link>
   )

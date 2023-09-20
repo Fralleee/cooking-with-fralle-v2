@@ -9,7 +9,7 @@ import InstructionsList from "@/components/instructions-list";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { themes } from "@/helpers/tailwindUtils";
-import { Recipe } from "@/types/Recipe";
+import { Recipe } from "@/types/recipe";
 import { RecipeImages } from "@/data/images";
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
@@ -45,7 +45,7 @@ export default function Page({ params, searchParams }: Props) {
       <div className="bg-header h-full flex flex-col">
 
         <RecipeTitle title={recipe.title} />
-        <main className="flex flex-col transition-all py-6 px-2 sm:px-8 text-stone-700 max-w-2xl mx-auto flex-auto w-full bg-white rounded-3xl rounded-b-none">
+        <main className="flex flex-col transition-all py-6 px-2 sm:px-8 text-stone-700 max-w-2xl mx-auto flex-auto w-full bg-stone-100 rounded-3xl rounded-b-none">
           <div className="relative flex flex-col items-center md:flex-row">
             <Image src={RecipeImages[recipe.image]} alt={recipe.title} width={256} height={256} className="relative md:absolute top-0 right-0" />
             <ServingsCalculator servings={servings} />
