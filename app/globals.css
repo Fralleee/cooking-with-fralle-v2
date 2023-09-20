@@ -8,6 +8,21 @@ body,
   height: 100%;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body>div {
+  min-height: 100vh;
+}
+
+
+:root {
+  scrollbar-gutter: stable;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

@@ -42,12 +42,12 @@ export default function Page({ params, searchParams }: Props) {
 
   return (
     <div className={cn("flex-auto", themes[recipe.color].background)}>
-      <div className="bg-header h-full flex flex-col">
+      <div className="flex flex-col min-h-screen bg-header">
 
         <RecipeTitle title={recipe.title} />
         <main className="flex flex-col transition-all py-6 px-2 sm:px-8 text-stone-700 max-w-2xl mx-auto flex-auto w-full bg-stone-100 rounded-3xl rounded-b-none">
           <div className="relative flex flex-col items-center md:flex-row">
-            <Image src={RecipeImages[recipe.image]} alt={recipe.title} width={256} height={256} className="relative md:absolute top-0 right-0" />
+            <Image src={RecipeImages[recipe.image]} alt={recipe.title} width={256} height={256} className="w-64 h-auto relative md:absolute top-0 right-0" priority />
             <ServingsCalculator servings={servings} />
           </div>
           {recipe.ingredients.map(ingredientsType => (
