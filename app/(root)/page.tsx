@@ -1,3 +1,4 @@
+"use client";
 import recipes from "@/data/recipe";
 import RecipeLink from "@/components/recipe-link";
 import Link from "next/link";
