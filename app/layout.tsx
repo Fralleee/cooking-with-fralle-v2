@@ -22,7 +22,7 @@ export default function Layout(props: { children: React.ReactNode }) {
             <body
                 suppressHydrationWarning={true}
                 className={cn(
-                    "flex flex-col",
+                    "flex flex-col bg-stone-100",
                     titleFont.variable,
                     font.className,
                 )}
