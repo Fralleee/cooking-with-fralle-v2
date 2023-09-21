@@ -4,7 +4,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <div className="bg-sky-300">
             <header className="relative grid min-h-0 w-full place-items-center bg-header py-4 text-center font-bold capitalize sm:min-h-[440px] lg:py-8">
-                <div className="relative max-w-fit animate-title rounded-full bg-stone-100">
+                <div className="relative max-w-fit animate-title rounded-full bg-stone-100 opacity-0">
                     <Image
                         src={"/logo.webp"}
                         alt={"Cooking with Fralle"}
