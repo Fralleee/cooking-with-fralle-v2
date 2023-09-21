@@ -16,7 +16,7 @@ export async function generateMetadata({
     params: { slug: string };
 }) {
     return {
-        title: slugToTitle(params.slug),
+        title: `${slugToTitle(params.slug)} | Cooking with Fralle`,
     };
 }
 
