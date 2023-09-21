@@ -1,3 +1,0 @@
-type IngredientsType = {
-  title?: string;
-};

@@ -1,21 +1,3 @@
-export const getServingsFromSearchParams = (
-    searchParams: {
-        [key: string]: string | string[] | undefined;
-    },
-    defaultServings: number,
-) => {
-    let servings: number;
-
-    if (searchParams.servings) {
-        let parsedServings = parseInt(searchParams.servings.toString());
-        servings = !isNaN(parsedServings) ? parsedServings : 2;
-    } else {
-        servings = defaultServings;
-    }
-
-    return Math.max(2, servings);
-};
-
 import Fraction from "fraction.js";
 
 const convertToMeasurement = (volume: number, measurement: number): string => {

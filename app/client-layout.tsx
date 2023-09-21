@@ -1,9 +1,8 @@
 "use client";
-
 import FrozenRouter from "@/components/frozen-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSelectedLayoutSegment } from "next/navigation";
-import { Children, ElementRef, forwardRef } from "react";
+import { ElementRef, forwardRef } from "react";
 
 const Child = forwardRef<
     ElementRef<typeof motion.div>,
