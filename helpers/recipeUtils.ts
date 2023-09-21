@@ -1,3 +1,4 @@
+import { IngredientType } from "@/types/recipe";
 import Fraction from "fraction.js";
 
 const convertToMeasurement = (volume: number, measurement: number): string => {

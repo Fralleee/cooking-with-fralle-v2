@@ -1,7 +1,7 @@
 import { RecipeImages } from "@/data/images";
 import { themes } from "@/helpers/tailwindUtils";
 
-type IngredientType = {
+export type IngredientType = {
     label: string;
     amount?: number;
     measurement?: "weight" | "volume" | "pieces" | "drinkvolume";
