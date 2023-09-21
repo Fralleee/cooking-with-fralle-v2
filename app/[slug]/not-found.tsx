@@ -16,7 +16,7 @@ export default function NotFound() {
         <>
             <main className="h-full w-full py-14 text-center lg:py-24">
                 <h1
-                    className="bg-300 animate-title bg-gradient-to-r from-cozy-start to-cozy-end bg-clip-text text-6xl opacity-0 ease-in-out md:text-7xl lg:text-9xl"
+                    className="bg-300 scale-0 animate-title bg-gradient-to-r from-cozy-start to-cozy-end bg-clip-text text-6xl ease-in-out md:text-7xl lg:text-9xl"
                     style={{
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
