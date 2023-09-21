@@ -13,6 +13,7 @@ const RecipeLink = ({ recipe }: Props) => {
     return (
         <Link
             href={`/${encodeURIComponent(recipe.slug)}`}
+            prefetch
             className={cn(
                 "group relative grid h-64 w-64 transform-none place-items-center rounded-3xl bg-red-400 p-8 shadow-none transition-link duration-200 ease-OutBackLarge sm:hover:rotate-3 sm:hover:scale-105 sm:hover:shadow-plain",
                 themes[recipe.color].background,
