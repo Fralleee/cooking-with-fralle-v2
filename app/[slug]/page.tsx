@@ -16,21 +16,21 @@ import { themes } from "@/helpers/tailwindUtils";
 import { Recipe } from "@/types/recipe";
 import { RecipeImages } from "@/data/images";
 
-export async function generateMetadata({
-    params,
-}: {
-    params: { slug: string };
-}) {
-    return {
-        title: slugToTitle(params.slug),
-    };
-}
+// export async function generateMetadata({
+//     params,
+// }: {
+//     params: { slug: string };
+// }) {
+//     return {
+//         title: slugToTitle(params.slug),
+//     };
+// }
 
-export async function generateStaticParams() {
-    return recipes.map((recipe) => ({
-        slug: recipe.slug,
-    }));
-}
+// export async function generateStaticParams() {
+//     return recipes.map((recipe) => ({
+//         slug: recipe.slug,
+//     }));
+// }
 
 interface Props {
     params: { slug: string };
