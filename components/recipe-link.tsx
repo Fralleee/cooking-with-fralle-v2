@@ -13,12 +13,13 @@ type Props = {
 const RecipeLink = ({ recipe, delay }: Props) => {
     return (
         <div
-            className="animate-recipe origin-top scale-50 transform-gpu opacity-0"
+            className="origin-top scale-50 transform-gpu animate-recipe opacity-0"
             style={{ animationDelay: `${delay}ms` }}
         >
             <Link
                 href={`/${encodeURIComponent(recipe.slug)}`}
                 prefetch
+                scroll={false}
                 draggable={false}
                 className={cn(
                     "group relative grid h-64 w-64 transform-none place-items-center rounded-3xl p-8 shadow-none transition-all duration-200 ease-OutBackLarge",

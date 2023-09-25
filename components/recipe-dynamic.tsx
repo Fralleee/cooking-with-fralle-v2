@@ -2,8 +2,8 @@
 import ServingsCalculator from "@/components/servings-controls";
 import IngredientsList from "@/components/ingredients-list";
 import { getIngredient } from "@/helpers/recipeUtils";
-import { Ingredients, Recipe } from "@/types/recipe";
-import { useState } from "react";
+import { Ingredients } from "@/types/recipe";
+import { useEffect, useState } from "react";
 
 interface Props {
     defaultServings: number;
@@ -13,6 +13,12 @@ interface Props {
 export default function RecipeDynamic({ defaultServings, ingredients }: Props) {
     const [servings, setServings] = useState(defaultServings);
 
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    }, []);
     const handleServings = (input: number) => {
         setServings(Math.max(input, 2));
     };
