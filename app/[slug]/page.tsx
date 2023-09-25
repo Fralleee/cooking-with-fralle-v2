@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import recipes from "@/data/recipe";
-import { slugToTitle } from "@/helpers/stringUtils";
+import { slugToTitle } from "@/helpers/slugToTitle";
 import RecipeTitle from "@/components/recipe-title";
 import InstructionsList from "@/components/instructions-list";
 import Image from "next/image";

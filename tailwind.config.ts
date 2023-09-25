@@ -90,11 +90,22 @@ module.exports = {
                     "0%": { transform: "scale(1.15)" },
                     "100%": { transform: "scale(1)" },
                 },
+                "animate-recipe": {
+                    "0%": {
+                        transform: "scale(0.5)",
+                        opacity: 0,
+                    },
+                    "100%": {
+                        transform: "scale(1)",
+                        opacity: 1,
+                    },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
                 scale: "animate-scale 200ms ease-out",
+                recipe: "animate-recipe 200ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
                 title: "gradient 5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite, animateUp 600ms 50ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
             },
             backgroundColor: {
@@ -103,9 +114,6 @@ module.exports = {
             gradientColorStops: {
                 "cozy-start": "#ff8570",
                 "cozy-end": "#ff8bf3",
-            },
-            transitionProperty: {
-                link: "box-shadow, transform, outline-offset",
             },
             transitionTimingFunction: {
                 InOutQuadratic: "cubic-bezier(0.455, 0.03, 0.515, 0.955)",
