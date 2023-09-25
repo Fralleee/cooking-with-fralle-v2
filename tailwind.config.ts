@@ -105,7 +105,7 @@ module.exports = {
                 "cozy-end": "#ff8bf3",
             },
             transitionProperty: {
-                link: "box-shadow, transform",
+                link: "box-shadow, transform, outline-offset",
             },
             transitionTimingFunction: {
                 InOutQuadratic: "cubic-bezier(0.455, 0.03, 0.515, 0.955)",
