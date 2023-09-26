@@ -4,6 +4,7 @@ import Image from "next/image";
 import { RecipeImages } from "@/data/images";
 import { cn } from "@/lib/utils";
 import { themes } from "@/helpers/tailwindUtils";
+import { changeBodyBackground } from "@/helpers/changeBodyBackground";
 
 type Props = {
     recipe: Recipe;
@@ -11,6 +12,10 @@ type Props = {
 };
 
 const RecipeLink = ({ recipe, delay }: Props) => {
+    const handleClick = () => {
+        changeBodyBackground(themes[recipe.color].background);
+    };
+
     return (
         <div
             className="origin-top scale-50 transform-gpu animate-recipe opacity-0"
@@ -21,6 +26,7 @@ const RecipeLink = ({ recipe, delay }: Props) => {
                 prefetch
                 scroll={false}
                 draggable={false}
+                onClick={handleClick}
                 className={cn(
                     "group relative grid h-64 w-64 transform-none place-items-center rounded-3xl p-8 shadow-none transition-all duration-200 ease-OutBackLarge",
                     "sm:hover:rotate-3 sm:hover:scale-105 sm:hover:shadow-plain",

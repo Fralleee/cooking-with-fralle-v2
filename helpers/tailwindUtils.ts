@@ -1,4 +1,4 @@
-type ThemeKey =
+export type ThemeKey =
     | "red"
     | "orange"
     | "amber"
