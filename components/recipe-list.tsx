@@ -2,15 +2,20 @@
 import allRecipes from "@/data/recipe";
 import RecipeLink from "@/components/recipe-link";
 import { Input } from "@/components/ui/input";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { FcSearch } from "react-icons/fc";
 import { search } from "@/helpers/search";
 import { Recipe } from "@/types/recipe";
 import { debounce } from "@/helpers/debounce";
+import { changeBodyBackground } from "@/helpers/changeBodyBackground";
 
 export default function RecipeList() {
     const [searchTerm, setSearchTerm] = useState<string>("");
     const [recipes, setRecipes] = useState<Recipe[]>(allRecipes);
+
+    useEffect(() => {
+        changeBodyBackground();
+    }, []);
 
     const debouncedSearch = useMemo(
         () =>
