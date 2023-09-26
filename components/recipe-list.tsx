@@ -46,7 +46,7 @@ export default function RecipeList() {
                 />
                 <FcSearch className="absolute left-2 top-2 h-6 w-6 opacity-75 transition-opacity group-focus-within:opacity-100" />
             </div>
-            <div className="flex flex-wrap justify-center gap-7">
+            <div className="flex flex-1 flex-wrap justify-center gap-7">
                 {recipes.map((recipe, i) => (
                     <RecipeLink
                         key={recipe.title + i}
