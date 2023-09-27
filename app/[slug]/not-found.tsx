@@ -1,41 +1,39 @@
 import Link from "next/link";
+import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
-
-export async function generateMetadata({
-    params,
-}: {
-    params: { slug: string };
-}) {
-    return {
-        title: "Not found",
-    };
-}
+import { cn } from "@/lib/utils";
+import { FaArrowLeft } from "react-icons/fa";
 
 export default function NotFound() {
     return (
-        <>
-            <main className="h-full w-full py-14 text-center lg:py-24">
-                <h1
-                    className="bg-300 scale-0 animate-title bg-gradient-to-r from-cozy-start to-cozy-end bg-clip-text text-6xl ease-in-out md:text-7xl lg:text-9xl"
-                    style={{
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                        WebkitTextStrokeWidth: "2px",
-                        WebkitTextStrokeColor: "rgba(0, 0, 0, 0.3)",
-                    }}
-                >
-                    Not found
-                </h1>
-                <div className="mx-auto mt-12 flex max-w-max flex-col gap-6 rounded-3xl bg-stone-100 p-12">
-                    <p>Could not find requested resource</p>
-                    <Link
-                        href="/"
-                        className={buttonVariants({ variant: "outline" })}
-                    >
-                        Browse recipes
-                    </Link>
-                </div>
-            </main>
-        </>
+        <main className="flex h-full w-full flex-col items-center gap-8 bg-header py-14 text-center lg:py-24">
+            <h1
+                className="bg-300 scale-0 animate-title bg-gradient-to-r from-cozy-start to-cozy-end bg-clip-text text-6xl ease-in-out md:text-7xl lg:text-8xl"
+                style={{
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    WebkitTextStrokeWidth: "2px",
+                    WebkitTextStrokeColor: "rgba(0, 0, 0, 0.3)",
+                }}
+            >
+                Muffin to see here!
+            </h1>
+            <Image
+                src={"/notfound.webp"}
+                alt={"Recipe not found"}
+                width={384}
+                height={384}
+                priority
+            />
+            <Link
+                href="/"
+                className={cn(
+                    buttonVariants({ variant: "outline" }),
+                    "w-64 border-stone-300 bg-stone-50 transition-all ease-out hover:scale-110 hover:border-sky-600 active:scale-90",
+                )}
+            >
+                <FaArrowLeft className="mr-3" /> Browse recipes
+            </Link>
+        </main>
     );
 }
