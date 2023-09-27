@@ -48,7 +48,7 @@ export default function Header() {
                     }}
                 >
                     <Image
-                        src={"/logo.webp"}
+                        src={"/images/logo.webp"}
                         alt={"Cooking with Fralle"}
                         width={320}
                         height={320}

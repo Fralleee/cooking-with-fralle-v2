@@ -19,7 +19,7 @@ export default function NotFound() {
                 Muffin to see here!
             </h1>
             <Image
-                src={"/notfound.webp"}
+                src={"/images/notfound.webp"}
                 alt={"Recipe not found"}
                 width={384}
                 height={384}
