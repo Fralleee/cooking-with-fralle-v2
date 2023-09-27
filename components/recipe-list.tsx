@@ -43,6 +43,8 @@ export default function RecipeList() {
         <div className="mx-auto flex w-full max-w-5xl flex-col justify-center gap-8 py-8">
             <div className="group relative mx-auto w-full max-w-[300px]">
                 <Input
+                    name="search"
+                    type="text"
                     className="pl-10 text-lg"
                     onChange={handleChange}
                     onKeyDown={handleKeyDown}
