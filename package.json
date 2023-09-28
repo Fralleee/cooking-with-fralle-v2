@@ -20,7 +20,6 @@
     "eslint-config-next": "^13.5.2",
     "framer-motion": "^10.16.4",
     "fuse.js": "^6.6.2",
-    "lucide-react": "^0.276.0",
     "next": "^13.5.2",
     "postcss": "8.4.29",
     "react": "18.2.0",
