@@ -13,10 +13,9 @@
   Your go-to recipe app for all your favorite dishes. Easily adjust portions and ingredients on the fly and explore a wide range of recipes, from mouth-watering pizzas and fluffy muffins to refreshing drinks.
 
   [Live](#live) •
-  [Usage](#usage) •
-  [Configuration](#configuration) •
-  [Roadmap](#project-roadmap) •
-  [Contributing](#contributing)
+  [Technologies](#technologies) •
+  [Contributing](#contributing) •
+  [Links](#links)
 
 </div>
 
