@@ -13,7 +13,7 @@ export default function Header() {
 
     const handleResize = () => {
         if (headerRef.current) {
-            setMaxScroll(headerRef.current.clientHeight);
+            setMaxScroll(Math.max(366, headerRef.current.clientHeight));
         }
     };
 
