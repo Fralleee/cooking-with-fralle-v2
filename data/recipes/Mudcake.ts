@@ -16,7 +16,6 @@ const MudCake: Recipe = {
         { label: "Mörk choklad", amount: 100, measurement: "weight" },
         { label: "Ägg", amount: 4, measurement: "pieces" },
         { label: "Strösocker", amount: 350, measurement: "volume" },
-        { label: "Kakao", amount: 150, measurement: "volume" },
         { label: "Vetemjöl", amount: 200, measurement: "volume" },
         { label: "Ljus sirap", amount: 100, measurement: "volume" },
         { label: "Vaniljpulver", amount: 10, measurement: "volume" },
