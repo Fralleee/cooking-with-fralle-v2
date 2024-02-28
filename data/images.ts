@@ -1,5 +1,6 @@
 export enum RecipeImages {
     bun = "/images/bun.webp",
+    brittle = "/images/brittle.webp",
     cupcake = "/images/cupcake.webp",
     pie = "/images/pie.webp",
     pancakes = "/images/pancakes.webp",
