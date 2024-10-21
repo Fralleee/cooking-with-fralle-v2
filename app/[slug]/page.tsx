@@ -11,15 +11,29 @@ import { RecipeImages } from "@/data/images";
 import RecipeDynamic from "@/components/recipe-dynamic";
 import BackButton from "@/components/back-button";
 
-interface Props {
-  params: { slug: string };
+interface RouteProps {
+  params: {
+    slug: string;
+  };
 }
 
-export async function generateMetadata({ params }: Props) {
+interface PageProps {
+  params: {
+    recipe: Recipe;
+  };
+}
+
+export async function generateMetadata({ params }: RouteProps) {
   return { title: `${slugToTitle(params.slug)} | Cooking with Fralle` };
 }
 
-export default function Page({ params }: Props) {
+export async function generateStaticParams() {
+  return recipes.map((recipe) => ({
+    slug: recipe.slug,
+  }));
+}
+
+export default function Page({ params }: RouteProps) {
   const recipe = recipes.find((recipe) => recipe.slug === params.slug) as Recipe;
 
   if (!recipe) {

@@ -66,10 +66,7 @@ export const metadata: Metadata = {
 export default function Layout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body
-        suppressHydrationWarning={true}
-        className={cn("flex flex-col bg-stone-100", titleFont.variable, font.className)}
-      >
+      <body suppressHydrationWarning={true} className={cn("flex flex-col bg-stone-100", titleFont.variable, font.className)}>
         <ClientLayout {...props} />
       </body>
     </html>
