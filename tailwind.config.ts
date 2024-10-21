@@ -118,5 +118,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("tailwindcss-view-transitions")],
+  plugins: [require("tailwindcss-animate")],
 };
