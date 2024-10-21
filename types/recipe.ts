@@ -12,13 +12,14 @@ export type Ingredients = {
   data: IngredientType[];
 };
 
+export type Instructions = Record<string, string[]>;
+
 export type Recipe = {
-  title: string;
   slug: string;
   image: keyof typeof recipeImages;
   color: keyof typeof themes;
   defaultServings: number;
   keywords: string[];
   ingredients: Ingredients[];
-  instructions: string[];
+  instructions: Instructions;
 };

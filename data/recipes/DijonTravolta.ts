@@ -2,7 +2,6 @@ import { drinkKeywords } from "@/data/keywords";
 import { Recipe } from "@/types/recipe";
 
 const DijonTravolta: Recipe = {
-  title: "Dijon Travolta",
   slug: "dijon-travolta",
   color: "orange",
   image: "cocktail",
@@ -12,21 +11,29 @@ const DijonTravolta: Recipe = {
     {
       label: "",
       data: [
-        { label: "Tequila", amount: 160, measurement: "drinkvolume" },
-        { label: "Cointreau", amount: 80, measurement: "drinkvolume" },
-        { label: "Agavesirap", amount: 40, measurement: "drinkvolume" },
-        { label: "Tonic", amount: 400, measurement: "drinkvolume" },
-        { label: "Citroner", amount: 2, measurement: "pieces" },
-        { label: "Is" },
+        { label: "tequila", amount: 160, measurement: "drinkvolume" },
+        { label: "cointreau", amount: 80, measurement: "drinkvolume" },
+        { label: "agave-syrup", amount: 40, measurement: "drinkvolume" },
+        { label: "tonic", amount: 400, measurement: "drinkvolume" },
+        { label: "lemons", amount: 2, measurement: "pieces" },
+        { label: "ice" },
       ],
     },
   ],
-  instructions: [
-    "Blanda alla ingredienser utom tonic och is i en shaker.",
-    "Skaka väl ihop med en stor isbit.",
-    "Fyll drinkglas med is och häll i blandningen.",
-    "Toppa med tonic.",
-  ],
+  instructions: {
+    en: [
+      "Mix all the ingredients except tonic and ice in a shaker.",
+      "Shake well with a large ice cube.",
+      "Fill the glass with ice and pour in the mixture.",
+      "Top with tonic.",
+    ],
+    sv: [
+      "Blanda alla ingredienser utom tonic och is i en shaker.",
+      "Skaka väl ihop med en stor isbit.",
+      "Fyll drinkglas med is och häll i blandningen.",
+      "Toppa med tonic.",
+    ],
+  },
 };
 
 export default DijonTravolta;

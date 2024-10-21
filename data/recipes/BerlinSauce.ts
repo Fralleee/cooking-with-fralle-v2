@@ -2,7 +2,6 @@ import { foodKeywords } from "@/data/keywords";
 import { Recipe } from "@/types/recipe";
 
 const BerlinSauce: Recipe = {
-  title: "Berlinsås",
   slug: "berlin-sauce",
   color: "blue",
   image: "sauce",
@@ -12,18 +11,21 @@ const BerlinSauce: Recipe = {
     {
       label: "",
       data: [
-        { label: "Majonnäs", amount: 100, measurement: "volume" },
-        { label: "Sweet chilisås", amount: 10, measurement: "volume" },
-        { label: "Oystersås", amount: 15, measurement: "volume" },
-        { label: "Paprika", amount: 5, measurement: "volume" },
-        { label: "Gurkmeja", amount: 5, measurement: "volume" },
-        { label: "Dill", amount: 2.5, measurement: "volume" },
-        { label: "Vitpeppar", amount: 2.5, measurement: "volume" },
-        { label: "Svartpeppar", amount: 2.5, measurement: "volume" },
+        { label: "mayonnaise", amount: 100, measurement: "volume" },
+        { label: "sweet-chili-sauce", amount: 10, measurement: "volume" },
+        { label: "oyster-sauce", amount: 15, measurement: "volume" },
+        { label: "paprika", amount: 5, measurement: "volume" },
+        { label: "turmeric", amount: 5, measurement: "volume" },
+        { label: "dill", amount: 2.5, measurement: "volume" },
+        { label: "white-pepper", amount: 2.5, measurement: "volume" },
+        { label: "black-pepper", amount: 2.5, measurement: "volume" },
       ],
     },
   ],
-  instructions: ["Blanda ihop alla ingredienser och rör om väl.", "Låta gärna stå 30-60 minuter."],
+  instructions: {
+    en: ["Mix all ingredients and stir well.", "Let stand for 30-60 minutes."],
+    sv: ["Blanda ihop alla ingredienser och rör om väl.", "Låta gärna stå 30-60 minuter."],
+  },
 };
 
 export default BerlinSauce;

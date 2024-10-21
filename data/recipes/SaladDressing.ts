@@ -2,7 +2,6 @@ import { foodKeywords } from "@/data/keywords";
 import { Recipe } from "@/types/recipe";
 
 const SaldDressing: Recipe = {
-  title: "Salladsdressing",
   slug: "salad-dressing",
   color: "green",
   image: "saladdressing",
@@ -12,16 +11,19 @@ const SaldDressing: Recipe = {
     {
       label: "",
       data: [
-        { label: "Olja", amount: 15, measurement: "volume" },
-        { label: "Majonnäs", amount: 15, measurement: "volume" },
-        { label: "Senap", amount: 30, measurement: "volume" },
-        { label: "Vinäger", amount: 30, measurement: "volume" },
-        { label: "Knorr grekisk dressing", amount: 1, measurement: "pieces" },
-        { label: "Svartpeppar" },
+        { label: "oil", amount: 15, measurement: "volume" },
+        { label: "mayonnaise", amount: 15, measurement: "volume" },
+        { label: "mustard", amount: 30, measurement: "volume" },
+        { label: "vinegar", amount: 30, measurement: "volume" },
+        { label: "knorr-greek-dressing", amount: 1, measurement: "pieces" },
+        { label: "black-pepper" },
       ],
     },
   ],
-  instructions: ["Blanda ihop alla ingredienser och rör om väl.", "Låta gärna stå 30-60 minuter."],
+  instructions: {
+    en: ["Mix all ingredients and stir well.", "Let stand for 30-60 minutes."],
+    sv: ["Blanda ihop alla ingredienser och rör om väl.", "Låta gärna stå 30-60 minuter."],
+  },
 };
 
 export default SaldDressing;

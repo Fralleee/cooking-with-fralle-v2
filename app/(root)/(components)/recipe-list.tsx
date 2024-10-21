@@ -1,6 +1,6 @@
 "use client";
 import allRecipes from "@/data/recipe";
-import RecipeLink from "@/app/(root)/(components)/recipe-link";
+import RecipeLink from "./recipe-link";
 import { Input } from "@/components/ui/input";
 import { useEffect, useMemo, useState } from "react";
 import { FcSearch } from "react-icons/fc";
@@ -8,10 +8,12 @@ import { search } from "@/helpers/search";
 import { Recipe } from "@/types/recipe";
 import { debounce } from "@/helpers/debounce";
 import { changeBodyBackground } from "@/helpers/changeBodyBackground";
+import { useTranslations } from "next-intl";
 
 export default function RecipeList() {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [recipes, setRecipes] = useState<Recipe[]>(allRecipes);
+  const t = useTranslations("base");
 
   useEffect(() => {
     changeBodyBackground();
@@ -48,14 +50,14 @@ export default function RecipeList() {
           className="pl-10 text-lg"
           onChange={handleChange}
           onKeyDown={handleKeyDown}
-          placeholder="Search recipes"
+          placeholder={t("search-placeholder")}
           value={searchTerm}
         />
         <FcSearch className="absolute left-2 top-2 h-6 w-6 opacity-75 transition-opacity group-focus-within:opacity-100" />
       </div>
       <div className="flex flex-1 flex-wrap justify-center gap-7">
-        {recipes.map((recipe, i) => (
-          <RecipeLink key={recipe.title + i} recipe={recipe} delay={Math.min(400, i * 100)} />
+        {recipes.map((recipe) => (
+          <RecipeLink key={recipe.slug} recipe={recipe} />
         ))}
       </div>
     </div>

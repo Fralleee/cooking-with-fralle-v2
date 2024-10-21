@@ -1,6 +1,7 @@
 import NumberFlow from "@number-flow/react";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 
 interface Props {
   servings: number;
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const ServingsCalculator = ({ servings, handleServings }: Props) => {
+  const t = useTranslations("base");
   return (
     <div className="my-4 flex min-w-[300px] max-w-md items-center justify-between">
       <Button
@@ -22,7 +24,7 @@ const ServingsCalculator = ({ servings, handleServings }: Props) => {
         <h2 className="m-0 p-0 text-center text-3xl">
           <NumberFlow value={servings} />
         </h2>
-        <em>portioner</em>
+        <em>{t("servings")}</em>
       </div>
 
       <Button

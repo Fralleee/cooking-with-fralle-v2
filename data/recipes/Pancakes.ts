@@ -2,7 +2,6 @@ import { bakingKeywords } from "@/data/keywords";
 import { Recipe } from "@/types/recipe";
 
 const Pancakes: Recipe = {
-  title: "Pannkakor",
   slug: "pancakes",
   color: "cyan",
   image: "pancakes",
@@ -12,22 +11,25 @@ const Pancakes: Recipe = {
     {
       label: "",
       data: [
-        { label: "ägg", amount: 2, measurement: "pieces" },
-        { label: "vetemjöl", amount: 200, measurement: "volume" },
-        { label: "mjölk", amount: 200, measurement: "volume" },
-        { label: "smält smör", amount: 30, measurement: "volume" },
-        { label: "socker", amount: 30, measurement: "volume" },
+        { label: "eggs", amount: 2, measurement: "pieces" },
+        { label: "flour", amount: 200, measurement: "volume" },
+        { label: "milk", amount: 200, measurement: "volume" },
+        { label: "melted-butter", amount: 30, measurement: "volume" },
+        { label: "sugar", amount: 30, measurement: "volume" },
         { label: "salt", amount: 2, measurement: "volume" },
       ],
     },
   ],
-  instructions: [
-    "Mix dry ingredients",
-    "Add in melted butter",
-    "Add in eggs",
-    "Slowly whisk in the milk to prevent clumps",
-    "Fry it baby!",
-  ],
+  instructions: {
+    en: ["Mix the dry ingredients.", "Add the melted butter.", "Add the eggs.", "Slowly whisk in the milk to prevent lumps.", "Fry them!"],
+    sv: [
+      "Mixa de torra ingredienserna",
+      "Lägg in det smälta smöret",
+      "Lägg till äggen",
+      "Rör i mjölken försiktigt för att förhindra klumpar",
+      "Stek dem baby!",
+    ],
+  },
 };
 
 export default Pancakes;

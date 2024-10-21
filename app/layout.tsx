@@ -1,9 +1,11 @@
 import { cn } from "@/lib/utils";
-import "./globals.css";
+import "@/app/globals.css";
 import type { Metadata } from "next";
 import { Roboto, Oleo_Script } from "next/font/google";
 import { PropsWithChildren } from "react";
 import { ViewTransitions } from "next-view-transitions";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 
 const font = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 const titleFont = Oleo_Script({
@@ -64,11 +66,16 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function Layout({ children }: PropsWithChildren<unknown>) {
+export default async function Layout({ children }: PropsWithChildren<unknown>) {
+  const messages = await getMessages();
+  const locale = await getLocale();
+
   return (
     <ViewTransitions>
-      <html lang="en">
-        <body className={cn("flex flex-col bg-stone-100", titleFont.variable, font.className)}>{children}</body>
+      <html lang={locale}>
+        <body className={cn("flex flex-col bg-stone-100", titleFont.variable, font.className)}>
+          <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        </body>
       </html>
     </ViewTransitions>
   );

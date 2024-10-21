@@ -1,9 +1,10 @@
 "use client";
-import ServingsCalculator from "@/app/[slug]/(components)/servings-controls";
-import IngredientsList from "@/app/[slug]/(components)/ingredients-list";
+import ServingsCalculator from "./servings-controls";
+import IngredientsList from "./ingredients-list";
 import { getIngredient } from "@/helpers/recipeUtils";
 import { Ingredients } from "@/types/recipe";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 interface Props {
   defaultServings: number;
@@ -12,6 +13,8 @@ interface Props {
 
 export default function RecipeDynamic({ defaultServings, ingredients }: Props) {
   const [servings, setServings] = useState(defaultServings);
+  const t = useTranslations("ingredients");
+  const tm = useTranslations("measurements");
 
   const handleServings = (input: number) => {
     setServings(Math.max(input, 2));
@@ -24,9 +27,13 @@ export default function RecipeDynamic({ defaultServings, ingredients }: Props) {
         <IngredientsList key={ingredientsType.label} title={ingredientsType.label}>
           {ingredientsType.data.map((ingredient, i) => {
             const { amount, label } = getIngredient(ingredient, defaultServings, servings);
+            const [count, unit] = amount || [];
             return (
               <li key={i}>
-                {amount && <strong>{amount}</strong>} {label}
+                <strong>
+                  {count} {unit && tm(unit)}
+                </strong>{" "}
+                {t(label, { count })}
               </li>
             );
           })}

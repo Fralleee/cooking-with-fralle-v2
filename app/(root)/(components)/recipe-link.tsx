@@ -4,15 +4,16 @@ import { recipeImages } from "@/data/images";
 import { cn } from "@/lib/utils";
 import { themes } from "@/helpers/tailwindUtils";
 import { Link } from "next-view-transitions";
+import { useTranslations } from "next-intl";
 
 type Props = {
   recipe: Recipe;
-  delay: number;
 };
 
-const RecipeLink = ({ recipe, delay }: Props) => {
+const RecipeLink = ({ recipe }: Props) => {
+  const t = useTranslations("recipe-names");
   return (
-    <div className="origin-top transform-gpu" style={{ animationDelay: `${delay}ms` }}>
+    <div>
       <Link href={`/${encodeURIComponent(recipe.slug)}`}>
         <div
           className={cn(
@@ -26,7 +27,7 @@ const RecipeLink = ({ recipe, delay }: Props) => {
           <Image
             src={recipeImages[recipe.image]}
             data-view-transition={`recipe-image-${recipe.slug}`}
-            alt={recipe.title}
+            alt={`Image of ${t(recipe.slug)}`}
             width={160}
             height={160}
             draggable={false}
@@ -36,7 +37,7 @@ const RecipeLink = ({ recipe, delay }: Props) => {
             className="-mt-6 h-auto w-full scale-90 opacity-80 transition-transform duration-200 ease-OutBackLarge group-hover:scale-100 group-hover:opacity-100 group-active:scale-100 group-active:opacity-100"
           />
 
-          <h2 className="header-stroke absolute bottom-3 z-10 text-center text-3xl text-stone-100 drop-shadow-md">{recipe.title}</h2>
+          <h2 className="header-stroke absolute bottom-3 z-10 text-center text-3xl text-stone-100 drop-shadow-md">{t(recipe.slug)}</h2>
         </div>
       </Link>
     </div>
