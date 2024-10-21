@@ -26,7 +26,7 @@ const MudCake: Recipe = {
   instructions: [
     "Sätt på ugnen på 175 grader.",
     "Smält smör och choklad under omrörning i en kastrull. ",
-    "Tillsätt övriga ingredienser till kakan och rör till en jämn smet.", 
+    "Tillsätt övriga ingredienser till kakan och rör till en jämn smet.",
     "Smörj och bröa en form med löstagbar kant.",
     "Häll smeten i formen och grädda i mitten av ugnen ca 25 min.",
     "Låt svalna helt innan du frossar.",

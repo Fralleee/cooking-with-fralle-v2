@@ -21,7 +21,13 @@ const Pancakes: Recipe = {
       ],
     },
   ],
-  instructions: ["Mix dry ingredients", "Add in melted butter", "Add in eggs", "Slowly whisk in the milk to prevent clumps", "Fry it baby!"],
+  instructions: [
+    "Mix dry ingredients",
+    "Add in melted butter",
+    "Add in eggs",
+    "Slowly whisk in the milk to prevent clumps",
+    "Fry it baby!",
+  ],
 };
 
 export default Pancakes;
