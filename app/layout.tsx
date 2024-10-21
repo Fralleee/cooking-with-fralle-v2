@@ -2,7 +2,8 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto, Oleo_Script } from "next/font/google";
-import ClientLayout from "./client-layout";
+import { PropsWithChildren } from "react";
+import { ViewTransitions } from "next-view-transitions";
 
 const font = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 const titleFont = Oleo_Script({
@@ -63,12 +64,12 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function Layout(props: { children: React.ReactNode }) {
+export default function Layout({ children }: PropsWithChildren<unknown>) {
   return (
-    <html lang="en">
-      <body suppressHydrationWarning={true} className={cn("flex flex-col bg-stone-100", titleFont.variable, font.className)}>
-        <ClientLayout {...props} />
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="en">
+        <body className={cn("flex flex-col bg-stone-100", titleFont.variable, font.className)}>{children}</body>
+      </html>
+    </ViewTransitions>
   );
 }

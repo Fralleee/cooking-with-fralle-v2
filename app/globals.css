@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@view-transition {
+  navigation: auto;
+  types: slide, forwards;
+}
+
+.view-transition {
+  view-transition-name: test;
+}
+
 html,
 body,
 :root {

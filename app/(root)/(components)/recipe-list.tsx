@@ -1,6 +1,6 @@
 "use client";
 import allRecipes from "@/data/recipe";
-import RecipeLink from "@/components/recipe-link";
+import RecipeLink from "@/app/(root)/(components)/recipe-link";
 import { Input } from "@/components/ui/input";
 import { useEffect, useMemo, useState } from "react";
 import { FcSearch } from "react-icons/fc";

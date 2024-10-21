@@ -1715,6 +1715,11 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
+next-view-transitions@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/next-view-transitions/-/next-view-transitions-0.3.2.tgz#c5c44a9680970066b6b2128d6f42f7e91807454c"
+  integrity sha512-77QRvHjKDQHBDbe/qTVh/p9zbx2AWUFvlmLpHZQtc+q0/a+QWn5fejU9TqrJdrHvwuc9rzqL6K5xpkRtyjQajw==
+
 next@^14.0.1:
   version "14.0.1"
   resolved "https://registry.yarnpkg.com/next/-/next-14.0.1.tgz#1375d94c5dc7af730234af48401be270e975cb22"
@@ -2303,6 +2308,11 @@ tailwindcss-animate@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/tailwindcss-animate/-/tailwindcss-animate-1.0.7.tgz#318b692c4c42676cc9e67b19b78775742388bef4"
   integrity sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==
+
+tailwindcss-view-transitions@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/tailwindcss-view-transitions/-/tailwindcss-view-transitions-0.1.1.tgz#8b07156064d804ae00f91ba76988f12903a72686"
+  integrity sha512-YIiZAoYDSwcUC6kt/TD7knkOkiDyyQArUN3fgYAvrRIF7zzta7/olQM44z9zeuGRBMSWpkbP1slYH67gEMMIKA==
 
 tailwindcss@3.3.3:
   version "3.3.3"

@@ -47,14 +47,7 @@ export default function Header() {
             opacity,
           }}
         >
-          <Image
-            src={"/images/logo.webp"}
-            alt={"Cooking with Fralle"}
-            width={320}
-            height={320}
-            priority
-            className="h-auto w-full"
-          />
+          <Image src={"/images/logo.webp"} alt={"Cooking with Fralle"} width={320} height={320} priority className="h-auto w-full" />
         </div>
       </div>
     </header>

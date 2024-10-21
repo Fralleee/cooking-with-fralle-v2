@@ -1,6 +1,6 @@
 "use client";
-import ServingsCalculator from "@/components/servings-controls";
-import IngredientsList from "@/components/ingredients-list";
+import ServingsCalculator from "@/app/[slug]/(components)/servings-controls";
+import IngredientsList from "@/app/[slug]/(components)/ingredients-list";
 import { getIngredient } from "@/helpers/recipeUtils";
 import { Ingredients } from "@/types/recipe";
 import { useState } from "react";
