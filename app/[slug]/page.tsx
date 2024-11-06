@@ -10,6 +10,7 @@ import BackButton from "./(components)/back-button";
 import { recipeImages } from "@/data/images";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
+import { BackgroundChanger } from "./(components)/background-changer";
 
 interface RouteProps {
   params: {
@@ -39,6 +40,7 @@ export default function Page({ params }: RouteProps) {
   return (
     <>
       <BackButton />
+      <BackgroundChanger color={themes[recipe.color].background} />
       <div className={cn("flex-auto", themes[recipe.color].background)}>
         <div className="flex min-h-screen flex-col bg-header">
           <RecipeTitle title={t(recipe.slug)} />
