@@ -5,7 +5,7 @@ const allowedLocales = ["en", "sv"] as const;
 type AllowedLocale = (typeof allowedLocales)[number];
 
 export default getRequestConfig(async () => {
-	const headersList = headers();
+	const headersList = await headers();
 	const acceptLanguage = headersList.get("accept-language");
 
 	let locale: AllowedLocale = "en"; // Default locale

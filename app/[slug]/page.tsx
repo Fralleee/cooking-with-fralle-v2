@@ -11,15 +11,15 @@ import { recipeImages } from "@/data/images";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { BackgroundChanger } from "./(components)/background-changer";
+import { getTranslations } from "next-intl/server";
 
 interface RouteProps {
-	params: {
-		slug: string;
-	};
+	params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({ params }: RouteProps) {
-	return { title: `${slugToTitle(params.slug)} | Cooking with Fralle` };
+	const { slug } = await params;
+	return { title: `${slugToTitle(slug)} | Cooking with Fralle` };
 }
 
 export async function generateStaticParams() {
@@ -28,10 +28,11 @@ export async function generateStaticParams() {
 	}));
 }
 
-export default function Page({ params }: RouteProps) {
-	const t = useTranslations("recipe-names");
+export default async function Page({ params }: RouteProps) {
+	const t = await getTranslations("ProfilePage");
 	const locale = useLocale();
-	const recipe = recipes.find((recipe) => recipe.slug === params.slug);
+	const { slug } = await params;
+	const recipe = recipes.find(async (recipe) => recipe.slug === slug);
 
 	if (!recipe) {
 		notFound();

@@ -1,15 +1,18 @@
-type Func = (...args: any[]) => any;
+type Func<T extends unknown[], R> = (...args: T) => R;
 
-export function debounce(func: Func, wait: number) {
-	let timeout: NodeJS.Timeout | null;
+export function debounce<T extends unknown[], R>(
+	func: Func<T, R>,
+	wait: number,
+) {
+	let timeout: NodeJS.Timeout | null = null;
 
-	return function executedFunction(...args: any[]) {
+	return function executedFunction(...args: T) {
 		const later = () => {
-			clearTimeout(timeout!);
+			if (timeout) clearTimeout(timeout);
 			func(...args);
 		};
 
-		clearTimeout(timeout!);
+		if (timeout) clearTimeout(timeout);
 		timeout = setTimeout(later, wait);
 	};
 }

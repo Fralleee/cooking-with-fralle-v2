@@ -34,7 +34,7 @@ export default function RecipeDynamic({ defaultServings, ingredients }: Props) {
 							defaultServings,
 							servings,
 						);
-						const [count, unit] = amount || [];
+						const [count = 1, unit] = amount || [];
 						return (
 							<li key={i}>
 								<strong>

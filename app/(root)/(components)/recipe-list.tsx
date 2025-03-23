@@ -1,5 +1,5 @@
 "use client";
-import allRecipes from "@/data/recipe";
+import allRecipes from "../../../data/recipe";
 import RecipeLink from "./recipe-link";
 import { Input } from "@/components/ui/input";
 import { useMemo, useState } from "react";
