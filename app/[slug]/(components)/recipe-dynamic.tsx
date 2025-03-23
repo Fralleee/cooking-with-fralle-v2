@@ -36,7 +36,8 @@ export default function RecipeDynamic({ defaultServings, ingredients }: Props) {
 						);
 						const [count = 1, unit] = amount || [];
 						return (
-							<li key={i}>
+							<li key={i} className="flex items-center gap-2">
+								<div className="h-3 w-3 rounded-full bg-orange-400" />
 								<strong>
 									{count} {unit && tm(unit)}
 								</strong>{" "}
