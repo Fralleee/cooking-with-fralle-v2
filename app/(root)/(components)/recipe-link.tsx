@@ -19,8 +19,8 @@ const RecipeLink = ({ recipe }: Props) => {
 					className={cn(
 						"group relative grid h-64 w-64 transform-none place-items-center rounded-3xl p-8 shadow-none transition-all duration-200 ease-OutBackLarge",
 						"sm:hover:rotate-3 sm:hover:scale-105 sm:hover:shadow-plain",
-						"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-						"active:!scale-95 sm:active:rotate-3 sm:active:shadow-plain",
+						"focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+						"active:scale-95! sm:active:rotate-3 sm:active:shadow-plain",
 						themes[recipe.color].background,
 					)}
 				>

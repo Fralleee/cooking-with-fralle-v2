@@ -1,34 +1,54 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@view-transition {
-	navigation: auto;
-	types: slide, forwards;
+@config '../tailwind.config.ts';
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
 }
 
-.view-transition {
-	view-transition-name: test;
-}
+@layer utilities {
+  @view-transition {
+    navigation: auto;
+    types: slide, forwards;
+  }
 
-html,
-body,
-:root {
-	height: 100%;
-}
+  .view-transition {
+    view-transition-name: test;
+  }
 
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
+  html,
+  body,
+  :root {
+    height: 100%;
+  }
 
-body > div {
-	min-height: 100vh;
-}
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-:root {
-	scrollbar-gutter: stable;
+  body > div {
+    min-height: 100vh;
+  }
+
+  :root {
+    scrollbar-gutter: stable;
+  }
 }
 
 @layer base {
@@ -116,5 +136,5 @@ h6 {
 
 .header-stroke {
 	-webkit-text-stroke-width: 1.25px;
-	-webkit-text-stroke-color: theme("colors.stone.700");
+	-webkit-text-stroke-color: var(--color-stone-700);
 }
