@@ -9,9 +9,8 @@ import RecipeDynamic from "./(components)/recipe-dynamic";
 import BackButton from "./(components)/back-button";
 import { recipeImages } from "@/data/images";
 import Image from "next/image";
-import { useTranslations, useLocale } from "next-intl";
 import { BackgroundChanger } from "./(components)/background-changer";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 
 interface RouteProps {
 	params: Promise<{ slug: string }>;
@@ -29,10 +28,10 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: RouteProps) {
-	const t = await getTranslations("ProfilePage");
-	const locale = useLocale();
+	const t = await getTranslations("recipe-names");
+	const locale = await getLocale();
 	const { slug } = await params;
-	const recipe = recipes.find(async (recipe) => recipe.slug === slug);
+	const recipe = recipes.find((recipe) => recipe.slug === slug);
 
 	if (!recipe) {
 		notFound();
@@ -64,7 +63,12 @@ export default async function Page({ params }: RouteProps) {
 						</div>
 						<InstructionsList>
 							{recipe.instructions[locale].map((instruction, i) => (
-								<li key={i}>{instruction}</li>
+								<li key={i} className="flex">
+									<div className="flex-shrink-0 w-8 h-8 rounded-full bg-orange-400 flex items-center justify-center text-white font-bold">
+										{i + 1}
+									</div>
+									{instruction}
+								</li>
 							))}
 						</InstructionsList>
 					</main>
