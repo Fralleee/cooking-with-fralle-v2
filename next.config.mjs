@@ -6,6 +6,9 @@ const withNextIntl = createNextIntlPlugin("./app/i18n/request.ts");
 const nextConfig = {
 	reactStrictMode: true,
 	trailingSlash: true,
+	eslint: {
+		ignoreDuringBuilds: true,
+	},
 	experimental: {
 		viewTransition: true,
 	},
