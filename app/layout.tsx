@@ -3,7 +3,6 @@ import "@/app/globals.css";
 import type { Metadata } from "next";
 import { Roboto, Oleo_Script } from "next/font/google";
 import type { PropsWithChildren } from "react";
-import { ViewTransitions } from "next-view-transitions";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 
@@ -72,20 +71,18 @@ export default async function Layout({ children }: PropsWithChildren<unknown>) {
 	const locale = await getLocale();
 
 	return (
-		<ViewTransitions>
-			<html lang={locale}>
-				<body
-					className={cn(
-						"flex flex-col bg-stone-100",
-						titleFont.variable,
-						font.className,
-					)}
-				>
-					<NextIntlClientProvider messages={messages}>
-						{children}
-					</NextIntlClientProvider>
-				</body>
-			</html>
-		</ViewTransitions>
+		<html lang={locale}>
+			<body
+				className={cn(
+					"flex flex-col bg-stone-100",
+					titleFont.variable,
+					font.className,
+				)}
+			>
+				<NextIntlClientProvider messages={messages}>
+					{children}
+				</NextIntlClientProvider>
+			</body>
+		</html>
 	);
 }

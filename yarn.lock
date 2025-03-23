@@ -859,11 +859,6 @@ next-intl@^4.0.2:
     negotiator "^1.0.0"
     use-intl "^4.0.2"
 
-next-view-transitions@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/next-view-transitions/-/next-view-transitions-0.3.2.tgz#c5c44a9680970066b6b2128d6f42f7e91807454c"
-  integrity sha512-77QRvHjKDQHBDbe/qTVh/p9zbx2AWUFvlmLpHZQtc+q0/a+QWn5fejU9TqrJdrHvwuc9rzqL6K5xpkRtyjQajw==
-
 next@^15.2.3:
   version "15.2.3"
   resolved "https://registry.yarnpkg.com/next/-/next-15.2.3.tgz#1ac803c08076d47eb5b431cb625135616c6bec7e"

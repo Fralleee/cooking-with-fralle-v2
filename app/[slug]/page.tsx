@@ -11,6 +11,7 @@ import { recipeImages } from "@/data/images";
 import Image from "next/image";
 import { BackgroundChanger } from "./(components)/background-changer";
 import { getTranslations, getLocale } from "next-intl/server";
+import { unstable_ViewTransition as ViewTransition } from "react";
 
 interface RouteProps {
 	params: Promise<{ slug: string }>;
@@ -50,16 +51,15 @@ export default async function Page({ params }: RouteProps) {
 								defaultServings={recipe.defaultServings}
 								ingredients={recipe.ingredients}
 							/>
-							<Image
-								src={recipeImages[recipe.image]}
-								alt={`Image of ${t(recipe.slug)}`}
-								width={256}
-								height={256}
-								priority
-								style={{
-									viewTransitionName: `image-${recipe.slug}`,
-								}}
-							/>
+							<ViewTransition name={`recipe-image-${recipe.slug}`}>
+								<Image
+									src={recipeImages[recipe.image]}
+									alt={`Image of ${t(recipe.slug)}`}
+									width={256}
+									height={256}
+									priority
+								/>
+							</ViewTransition>
 						</div>
 						<InstructionsList>
 							{recipe.instructions[locale].map((instruction, i) => (
