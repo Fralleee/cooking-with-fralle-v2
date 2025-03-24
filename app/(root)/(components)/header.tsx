@@ -7,18 +7,17 @@ export default function Header() {
 	const [scrollY, setScrollY] = useState(0);
 	const [maxScroll, setMaxScroll] = useState(400);
 
-	const handleScroll = () => {
-		setScrollY(window.scrollY);
-	};
-
-	const handleResize = () => {
-		if (headerRef.current) {
-			setMaxScroll(Math.max(366, headerRef.current.clientHeight));
-		}
-	};
-
-	// biome-ignore lint/correctness/useExhaustiveDependencies: TODO
 	useLayoutEffect(() => {
+		const handleScroll = () => {
+			setScrollY(window.scrollY);
+		};
+
+		const handleResize = () => {
+			if (headerRef.current) {
+				setMaxScroll(Math.max(366, headerRef.current.clientHeight));
+			}
+		};
+
 		window.addEventListener("scroll", handleScroll);
 		window.addEventListener("resize", handleResize);
 
@@ -54,7 +53,7 @@ export default function Header() {
 						width={320}
 						height={320}
 						priority
-						className="h-auto w-full"
+						className="h-[320px] w-[320px]"
 					/>
 				</div>
 			</div>
