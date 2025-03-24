@@ -1,9 +1,7 @@
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
-
-import dynamic from "next/dynamic";
-const NumberFlow = dynamic(() => import("@number-flow/react"), { ssr: false });
+import NumberFlow from "@number-flow/react";
 
 interface Props {
 	servings: number;
