@@ -8,7 +8,7 @@ export default function NotFound() {
 	return (
 		<main className="flex h-full w-full flex-col items-center gap-8 bg-header py-14 text-center lg:py-24">
 			<h1
-				className="bg-300 scale-0 animate-title bg-linear-to-r from-cozy-start to-cozy-end bg-clip-text text-6xl ease-in-out md:text-7xl lg:text-8xl"
+				className="bg-300 animate-title bg-linear-to-r from-cozy-start to-cozy-end bg-clip-text text-6xl ease-in-out md:text-7xl lg:text-8xl"
 				style={{
 					WebkitBackgroundClip: "text",
 					WebkitTextFillColor: "transparent",

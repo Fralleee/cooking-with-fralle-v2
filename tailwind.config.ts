@@ -84,7 +84,7 @@ module.exports = {
 			},
 			animation: {
 				title:
-					"gradient 5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite, animateUp 600ms 50ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
+					"gradient 5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite, animateUp 600ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
 			},
 			backgroundColor: {
 				cozy: "#ff8570",
