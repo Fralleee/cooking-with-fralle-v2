@@ -28,12 +28,11 @@ const RecipeLink = ({ recipe }: Props) => {
 					<ViewTransition name={`recipe-image-${recipe.slug}`}>
 						<Image
 							src={recipeImages[recipe.image]}
-							// data-view-transition={`recipe-image-${recipe.slug}`}
 							alt={`Image of ${t(recipe.slug)}`}
 							width={160}
 							height={160}
 							draggable={false}
-							className="-mt-6 h-auto w-full scale-90 opacity-80 transition-transform duration-200 ease-OutBackLarge group-hover:scale-100 group-hover:opacity-100 group-active:scale-100 group-active:opacity-100"
+							className="-mt-6 h-auto w-full scale-90 opacity-70 transition-all duration-200 ease-OutBackLarge group-hover:scale-100 group-hover:opacity-100 group-active:scale-100 group-active:opacity-100"
 						/>
 					</ViewTransition>
 
