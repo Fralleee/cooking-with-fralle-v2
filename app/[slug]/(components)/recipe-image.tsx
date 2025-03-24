@@ -10,7 +10,6 @@ interface Props {
 }
 
 export const RecipeImage = ({ alt, slug, src }: Props) => {
-	console.log(`recipe-image-${slug}`);
 	return (
 		<ViewTransition name={`recipe-image-${slug}`}>
 			<Image src={src} alt={alt} width={256} height={256} priority />
