@@ -77,9 +77,9 @@ module.exports = {
 				},
 				animateUp: {
 					"0%": {
-						transform: "scale(0) rotate(45deg);",
+						transform: "translateY(400px) rotate(90deg) scale(0);",
 					},
-					"100%": { transform: "scale(1) rotate(0);" },
+					"100%": { transform: "translateY(0) rotate(0) scale(1);" },
 				},
 			},
 			animation: {
