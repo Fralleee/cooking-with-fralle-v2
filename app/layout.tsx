@@ -5,7 +5,6 @@ import { Roboto, Oleo_Script } from "next/font/google";
 import type { PropsWithChildren } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
-import { ViewTransitionHandler } from "./(components)/view-transition-handler";
 
 const font = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 const titleFont = Oleo_Script({
@@ -80,7 +79,6 @@ export default async function Layout({ children }: PropsWithChildren<unknown>) {
 					font.className,
 				)}
 			>
-				<ViewTransitionHandler />
 				<NextIntlClientProvider messages={messages}>
 					{children}
 				</NextIntlClientProvider>

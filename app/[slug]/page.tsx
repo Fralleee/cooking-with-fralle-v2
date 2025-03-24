@@ -8,10 +8,9 @@ import { themes } from "@/helpers/tailwindUtils";
 import RecipeDynamic from "./(components)/recipe-dynamic";
 import BackButton from "./(components)/back-button";
 import { recipeImages } from "@/data/images";
-import Image from "next/image";
 import { BackgroundChanger } from "./(components)/background-changer";
 import { getTranslations, getLocale } from "next-intl/server";
-import { unstable_ViewTransition as ViewTransition } from "react";
+import { RecipeImage } from "./(components)/recipe-image";
 
 interface RouteProps {
 	params: Promise<{ slug: string }>;
@@ -51,15 +50,11 @@ export default async function Page({ params }: RouteProps) {
 								defaultServings={recipe.defaultServings}
 								ingredients={recipe.ingredients}
 							/>
-							<ViewTransition name={`recipe-image-${recipe.slug}`}>
-								<Image
-									src={recipeImages[recipe.image]}
-									alt={`Image of ${t(recipe.slug)}`}
-									width={256}
-									height={256}
-									priority
-								/>
-							</ViewTransition>
+							<RecipeImage
+								alt={`Image of ${t(recipe.slug)}`}
+								slug={recipe.slug}
+								src={recipeImages[recipe.image]}
+							/>
 						</div>
 						<InstructionsList>
 							{recipe.instructions[locale].map((instruction, i) => (
