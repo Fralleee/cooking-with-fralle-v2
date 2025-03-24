@@ -8,11 +8,12 @@ interface BackgroundChangerProps {
 
 export const BackgroundChanger = ({ color }: BackgroundChangerProps) => {
 	useEffect(() => {
-		document.body.classList.forEach((className) => {
+		const classes = Array.from(document.body.classList);
+		for (const className of classes) {
 			if (className.startsWith("bg-")) {
 				document.body.classList.remove(className);
 			}
-		});
+		}
 
 		if (color) {
 			document.body.classList.add(color);

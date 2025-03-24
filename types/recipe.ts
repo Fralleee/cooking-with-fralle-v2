@@ -12,7 +12,7 @@ export type Ingredients = {
 	data: IngredientType[];
 };
 
-export type Instructions = Record<string, string[]>;
+type Instructions = Record<string, string[]>;
 
 export type Recipe = {
 	slug: string;

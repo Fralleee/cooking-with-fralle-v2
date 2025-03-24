@@ -12,14 +12,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 	];
 
 	const paths = recipes.map((recipe) => `recipe/${recipe.slug}`);
-	paths.forEach((path) => {
+	for (const path of paths) {
 		sitemap.push({
 			url: `https://cooking.fralle.net/${path}`,
 			lastModified: new Date(),
 			changeFrequency: "yearly",
 			priority: 0.8,
 		});
-	});
+	}
 
 	return sitemap;
 }

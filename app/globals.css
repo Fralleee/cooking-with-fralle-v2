@@ -21,10 +21,10 @@
 }
 
 @layer utilities {
-	@view-transition {
+	/* @view-transition {
 		navigation: auto;
 		types: slide, forwards;
-	}
+	} */
 
 	html,
 	body,

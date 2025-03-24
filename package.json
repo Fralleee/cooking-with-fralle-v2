@@ -35,5 +35,9 @@
 		"tailwindcss": "^4.0.15",
 		"tailwindcss-animate": "^1.0.7",
 		"typescript": "^5.8.2"
-	}
+	},
+	"main": "index.js",
+	"repository": "https://github.com/Fralleee/cooking-with-fralle-v2.git",
+	"author": "Roland Chelwing <jolleee@hotmail.com>",
+	"license": "MIT"
 }
