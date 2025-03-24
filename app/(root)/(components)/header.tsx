@@ -38,7 +38,7 @@ export default function Header() {
 			ref={headerRef}
 			className="relative grid min-h-0 w-full place-items-center bg-header py-4 text-center font-bold capitalize sm:min-h-[440px] lg:py-8"
 		>
-			<div className="relative max-w-fit scale-0 animate-title">
+			<div className="relative max-w-fit scale-50 animate-title">
 				<div
 					className="relative max-w-fit rounded-full bg-stone-100"
 					style={{
