@@ -64,7 +64,7 @@ export default async function Page({ params }: RouteProps) {
 						<InstructionsList>
 							{recipe.instructions[locale].map((instruction, i) => (
 								<li key={i} className="flex gap-4">
-									<div className="flex-shrink-0 w-8 h-8 rounded-full bg-orange-400 flex items-center justify-center text-white font-bold">
+									<div className="flex-shrink-0 w-8 h-8 rounded-full bg-rose-500 flex items-center justify-center text-white font-bold">
 										{i + 1}
 									</div>
 									{instruction}
