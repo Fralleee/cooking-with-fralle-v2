@@ -7,27 +7,27 @@ export default function Header() {
 	const [scrollY, setScrollY] = useState(0);
 	const [maxScroll, setMaxScroll] = useState(400);
 
-	// useLayoutEffect(() => {
-	// 	const handleScroll = () => {
-	// 		setScrollY(window.scrollY);
-	// 	};
+	useLayoutEffect(() => {
+		const handleScroll = () => {
+			setScrollY(window.scrollY);
+		};
 
-	// 	const handleResize = () => {
-	// 		if (headerRef.current) {
-	// 			setMaxScroll(Math.max(366, headerRef.current.clientHeight));
-	// 		}
-	// 	};
+		const handleResize = () => {
+			if (headerRef.current) {
+				setMaxScroll(Math.max(366, headerRef.current.clientHeight));
+			}
+		};
 
-	// 	window.addEventListener("scroll", handleScroll);
-	// 	window.addEventListener("resize", handleResize);
+		window.addEventListener("scroll", handleScroll);
+		window.addEventListener("resize", handleResize);
 
-	// 	handleResize();
+		handleResize();
 
-	// 	return () => {
-	// 		window.removeEventListener("scroll", handleScroll);
-	// 		window.removeEventListener("resize", handleResize);
-	// 	};
-	// }, []);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+			window.removeEventListener("resize", handleResize);
+		};
+	}, []);
 
 	const scale = Math.max(0.6, 1 - (scrollY / maxScroll) * 0.25);
 	const opacity = Math.max(0.5, 1 - (scrollY / maxScroll) * 0.5);
@@ -57,9 +57,6 @@ export default function Header() {
 					/>
 				</div>
 			</div>
-			<h1 className="text-2xl z-50 bg-white">
-				{scrollY} and {maxScroll}
-			</h1>
 		</header>
 	);
 }

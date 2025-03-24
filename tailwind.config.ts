@@ -76,8 +76,10 @@ module.exports = {
 					"100%": { "background-position": "0 50%" },
 				},
 				animateUp: {
-					"0%": { scale: "0.2", transform: "translateY(100px)" },
-					"100%": { scale: "1", transform: "translateY(0)" },
+					"0%": {
+						transform: "scale(0) rotate(45deg);",
+					},
+					"100%": { transform: "scale(1) rotate(0);" },
 				},
 			},
 			animation: {
