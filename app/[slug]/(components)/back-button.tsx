@@ -4,7 +4,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const BackButton = () => (
-	<a
+	<Link
 		href="/"
 		className={cn(
 			buttonVariants({ variant: "link" }),
@@ -15,7 +15,7 @@ const BackButton = () => (
 		)}
 	>
 		<TiArrowBack className="stroke-stone-950/30 stroke-1" />
-	</a>
+	</Link>
 );
 
 export default BackButton;
