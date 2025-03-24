@@ -69,30 +69,13 @@ module.exports = {
 				md: "calc(var(--radius) - 2px)",
 				sm: "calc(var(--radius) - 4px)",
 			},
-			keyframes: {
-				gradient: {
-					"0%": { "background-position": "0 50%" },
-					"50%": { "background-position": "100% 50%" },
-					"100%": { "background-position": "0 50%" },
-				},
-				animateUp: {
-					"0%": {
-						transform: "translateY(400px) rotate(90deg) scale(0);",
-					},
-					"100%": { transform: "translateY(0) rotate(0) scale(1);" },
-				},
-			},
 			animation: {
 				hero: "animateUp 600ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
 				title:
-					"gradient 5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite, animateUp 450ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
+					"animateUp 450ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards, gradientRoll 4s cubic-bezier(0.34, 1.56, 0.64, 1) infinite",
 			},
 			backgroundColor: {
 				cozy: "#ff8570",
-			},
-			gradientColorStops: {
-				"cozy-start": "#ff8570",
-				"cozy-end": "#ff8bf3",
 			},
 			transitionTimingFunction: {
 				InOutQuadratic: "cubic-bezier(0.455, 0.03, 0.515, 0.955)",

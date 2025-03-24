@@ -82,6 +82,8 @@
 		--ring: 0 0% 32%;
 
 		--radius: 0.5rem;
+
+		--title-size: 150%;
 	}
 
 	.dark {
@@ -139,12 +141,23 @@ h6 {
 	-webkit-text-stroke-color: var(--color-stone-700);
 }
 
-@keyframes title {
-	0%,
-	100% {
-		transform: rotate(-3deg);
+@keyframes gradientRoll {
+	0% {
+		background-position: 0 50%;
 	}
-	50% {
-		transform: rotate(3deg);
+	66% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0 50%;
+	}
+}
+
+@keyframes animateUp {
+	0% {
+		transform: translateY(400px) rotate(90deg) scale(0);
+	}
+	100% {
+		transform: translateY(0) rotate(0) scale(1);
 	}
 }
