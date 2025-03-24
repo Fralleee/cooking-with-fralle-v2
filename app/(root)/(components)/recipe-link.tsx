@@ -15,7 +15,7 @@ const RecipeLink = ({ recipe }: Props) => {
 	const t = useTranslations("recipe-names");
 	return (
 		<div>
-			<Link href={`/${encodeURIComponent(recipe.slug)}`}>
+			<Link prefetch href={`/${encodeURIComponent(recipe.slug)}`}>
 				<div
 					className={cn(
 						"group relative grid h-64 w-64 transform-none place-items-center rounded-3xl p-8 shadow-none transition-all duration-200 ease-OutBackLarge",
