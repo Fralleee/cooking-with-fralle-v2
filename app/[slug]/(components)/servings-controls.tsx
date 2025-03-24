@@ -1,11 +1,13 @@
-import NumberFlow from "@number-flow/react";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 
+import dynamic from "next/dynamic";
+const NumberFlow = dynamic(() => import("@number-flow/react"), { ssr: false });
+
 interface Props {
 	servings: number;
-	handleServings: any;
+	handleServings: (input: number) => void;
 }
 
 const ServingsCalculator = ({ servings, handleServings }: Props) => {
