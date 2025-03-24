@@ -58,6 +58,9 @@ export default function Header() {
 					/>
 				</div>
 			</div>
+			<h1 className="text-2xl z-50 bg-white">
+				{scrollY} and {maxScroll}
+			</h1>
 		</header>
 	);
 }

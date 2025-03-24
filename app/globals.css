@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @config '../tailwind.config.ts';
 
@@ -11,44 +11,44 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-gray-200, currentColor);
+	}
 }
 
 @layer utilities {
-  @view-transition {
-    navigation: auto;
-    types: slide, forwards;
-  }
+	@view-transition {
+		navigation: auto;
+		types: slide, forwards;
+	}
 
-  .view-transition {
-    view-transition-name: test;
-  }
+	.view-transition {
+		view-transition-name: test;
+	}
 
-  html,
-  body,
-  :root {
-    height: 100%;
-  }
+	html,
+	body,
+	:root {
+		height: 100%;
+	}
 
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
 
-  body > div {
-    min-height: 100vh;
-  }
+	body > div {
+		min-height: 100vh;
+	}
 
-  :root {
-    scrollbar-gutter: stable;
-  }
+	:root {
+		scrollbar-gutter: stable;
+	}
 }
 
 @layer base {
@@ -137,4 +137,14 @@ h6 {
 .header-stroke {
 	-webkit-text-stroke-width: 1.25px;
 	-webkit-text-stroke-color: var(--color-stone-700);
+}
+
+@keyframes title {
+	0%,
+	100% {
+		transform: rotate(-3deg);
+	}
+	50% {
+		transform: rotate(3deg);
+	}
 }
