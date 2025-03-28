@@ -72,7 +72,7 @@ module.exports = {
 			animation: {
 				hero: "animateUpRotate 600ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
 				title:
-					"animateUp 450ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards, gradientRoll 4s cubic-bezier(0.34, 1.56, 0.64, 1) infinite",
+					"animateUpRotate 450ms cubic-bezier(.34,1.31,.64,1) forwards, gradientRoll 4s cubic-bezier(0.34, 1.56, 0.64, 1) infinite",
 			},
 			backgroundColor: {
 				cozy: "#ff8570",
