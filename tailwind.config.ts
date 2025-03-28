@@ -70,7 +70,7 @@ module.exports = {
 				sm: "calc(var(--radius) - 4px)",
 			},
 			animation: {
-				hero: "animateUp 600ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
+				hero: "animateUpRotate 600ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
 				title:
 					"animateUp 450ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards, gradientRoll 4s cubic-bezier(0.34, 1.56, 0.64, 1) infinite",
 			},

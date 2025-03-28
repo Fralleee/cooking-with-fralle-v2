@@ -149,11 +149,20 @@ h6 {
 	}
 }
 
-@keyframes animateUp {
+@keyframes animateUpRotate {
 	0% {
 		transform: translateY(400px) rotate(90deg) scale(0);
 	}
 	100% {
 		transform: translateY(0) rotate(0) scale(1);
+	}
+}
+
+@keyframes animateUp {
+	0% {
+		transform: translateY(400px) scale(0);
+	}
+	100% {
+		transform: translateY(0) scale(1);
 	}
 }
