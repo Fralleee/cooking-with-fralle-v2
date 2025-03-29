@@ -70,6 +70,9 @@ export interface Config {
     users: User;
     media: Media;
     recipes: Recipe;
+    keywords: Keyword;
+    ingredients: Ingredient;
+    instructions: Instruction;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -79,6 +82,9 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     recipes: RecipesSelect<false> | RecipesSelect<true>;
+    keywords: KeywordsSelect<false> | KeywordsSelect<true>;
+    ingredients: IngredientsSelect<false> | IngredientsSelect<true>;
+    instructions: InstructionsSelect<false> | InstructionsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -88,7 +94,7 @@ export interface Config {
   };
   globals: {};
   globalsSelect: {};
-  locale: null;
+  locale: 'en' | 'sv';
   user: User & {
     collection: 'users';
   };
@@ -157,37 +163,51 @@ export interface Media {
  */
 export interface Recipe {
   id: string;
+  name: string;
   image: number | Media;
+  keywords: (number | Keyword)[];
   color: string;
-  defaultServings: number;
-  keywords?:
-    | {
-        value: string;
-        id?: string | null;
-      }[]
-    | null;
   ingredients?:
     | {
-        label: string;
-        amount?: number | null;
-        measurement?: ('weight' | 'volume' | 'pieces' | 'drinkvolume') | null;
+        ingredient: number | Ingredient;
+        amount: number;
         id?: string | null;
       }[]
     | null;
-  instructions?: {
-    English?:
-      | {
-          instruction: string;
-          id?: string | null;
-        }[]
-      | null;
-    Swedish?:
-      | {
-          instruction: string;
-          id?: string | null;
-        }[]
-      | null;
-  };
+  instructions: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "keywords".
+ */
+export interface Keyword {
+  id: number;
+  keyword: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ingredients".
+ */
+export interface Ingredient {
+  id: number;
+  name: string;
+  namePlural?: string | null;
+  measurement: 'weight' | 'volume' | 'pieces' | 'drink-volume';
+  displayName?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "instructions".
+ */
+export interface Instruction {
+  id: number;
+  content: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -209,6 +229,18 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'recipes';
         value: string | Recipe;
+      } | null)
+    | ({
+        relationTo: 'keywords';
+        value: number | Keyword;
+      } | null)
+    | ({
+        relationTo: 'ingredients';
+        value: number | Ingredient;
+      } | null)
+    | ({
+        relationTo: 'instructions';
+        value: number | Instruction;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -291,39 +323,48 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface RecipesSelect<T extends boolean = true> {
   id?: T;
+  name?: T;
   image?: T;
+  keywords?: T;
   color?: T;
-  defaultServings?: T;
-  keywords?:
-    | T
-    | {
-        value?: T;
-        id?: T;
-      };
   ingredients?:
     | T
     | {
-        label?: T;
+        ingredient?: T;
         amount?: T;
-        measurement?: T;
         id?: T;
       };
-  instructions?:
-    | T
-    | {
-        English?:
-          | T
-          | {
-              instruction?: T;
-              id?: T;
-            };
-        Swedish?:
-          | T
-          | {
-              instruction?: T;
-              id?: T;
-            };
-      };
+  instructions?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "keywords_select".
+ */
+export interface KeywordsSelect<T extends boolean = true> {
+  keyword?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ingredients_select".
+ */
+export interface IngredientsSelect<T extends boolean = true> {
+  name?: T;
+  namePlural?: T;
+  measurement?: T;
+  displayName?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "instructions_select".
+ */
+export interface InstructionsSelect<T extends boolean = true> {
+  content?: T;
   updatedAt?: T;
   createdAt?: T;
 }

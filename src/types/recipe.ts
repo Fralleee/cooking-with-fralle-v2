@@ -23,3 +23,10 @@ export type Recipe = {
 	ingredients: Ingredients[];
 	instructions: Instructions;
 };
+
+export type RecipeData = {
+	defaultServings: number;
+	keywords: string[];
+	ingredients: Ingredients[];
+	instructions: Instructions;
+};

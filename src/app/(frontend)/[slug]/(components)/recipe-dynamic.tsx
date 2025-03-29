@@ -23,30 +23,30 @@ export default function RecipeDynamic({ defaultServings, ingredients }: Props) {
 	return (
 		<div className="flex flex-col">
 			<ServingsCalculator servings={servings} handleServings={handleServings} />
-			{/* {ingredients.map((ingredientsType) => ( */}
-			<IngredientsList
-				// key={ingredientsType.label}
-				title={"ingredientsType.label"}
-			>
-				{ingredients.map((ingredient, i) => {
-					const { amount, label } = getIngredient(
-						ingredient,
-						defaultServings,
-						servings,
-					);
-					const [count = 1, unit] = amount || [];
-					return (
-						<li key={i} className="flex items-center gap-2">
-							<div className="h-3 w-3 rounded-full bg-rose-500" />
-							<strong>
-								{count} {unit && tm(unit)}
-							</strong>{" "}
-							{t(label, { count })}
-						</li>
-					);
-				})}
-			</IngredientsList>
-			{/* ))} */}
+			{ingredients.map((ingredientsType) => (
+				<IngredientsList
+					key={ingredientsType.label}
+					title={ingredientsType.label}
+				>
+					{ingredientsType.data.map((ingredient, i) => {
+						const { amount, label } = getIngredient(
+							ingredient,
+							defaultServings,
+							servings,
+						);
+						const [count = 1, unit] = amount || [];
+						return (
+							<li key={i} className="flex items-center gap-2">
+								<div className="h-3 w-3 rounded-full bg-rose-500" />
+								<strong>
+									{count} {unit && tm(unit)}
+								</strong>{" "}
+								{t(label, { count })}
+							</li>
+						);
+					})}
+				</IngredientsList>
+			))}
 		</div>
 	);
 }

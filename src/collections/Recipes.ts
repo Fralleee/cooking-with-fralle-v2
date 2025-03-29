@@ -17,84 +17,59 @@ export const Recipes: CollectionConfig = {
 			unique: true,
 		},
 		{
+			name: "name",
+			type: "text",
+			required: true,
+			localized: true,
+		},
+		{
 			name: "image",
 			type: "upload",
 			relationTo: "media",
 			required: true,
 		},
 		{
+			name: "keywords",
+			type: "relationship",
+			relationTo: "keywords",
+			required: true,
+			hasMany: true,
+			admin: {
+				allowCreate: true,
+			},
+		},
+		{
 			name: "color",
 			type: "text",
 			required: true,
-		},
-		{
-			name: "defaultServings",
-			type: "number",
-			required: true,
-		},
-		{
-			name: "keywords",
-			type: "array",
-			fields: [
-				{
-					name: "value",
-					type: "text",
-					required: true,
+			admin: {
+				components: {
+					Field: "./app/(payload)/_components/color-picker",
 				},
-			],
+			},
 		},
 		{
 			name: "ingredients",
 			type: "array",
 			fields: [
 				{
-					name: "label",
-					type: "text",
+					name: "ingredient",
+					type: "relationship",
+					relationTo: "ingredients",
 					required: true,
 				},
 				{
 					name: "amount",
 					type: "number",
-				},
-				{
-					name: "measurement",
-					type: "select",
-					options: [
-						{ label: "Weight", value: "weight" },
-						{ label: "Volume", value: "volume" },
-						{ label: "Pieces", value: "pieces" },
-						{ label: "Drink Volume", value: "drinkvolume" },
-					],
+					required: true,
 				},
 			],
 		},
 		{
 			name: "instructions",
-			type: "group",
-			fields: [
-				{
-					name: "English",
-					type: "array",
-					fields: [
-						{
-							name: "instruction",
-							type: "textarea",
-							required: true,
-						},
-					],
-				},
-				{
-					name: "Swedish",
-					type: "array",
-					fields: [
-						{
-							name: "instruction",
-							type: "textarea",
-							required: true,
-						},
-					],
-				},
-			],
+			type: "textarea",
+			required: true,
+			localized: true,
 		},
 	],
 };
