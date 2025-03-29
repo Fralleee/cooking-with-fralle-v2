@@ -1,14 +1,14 @@
 "use client";
-import allRecipes from "../../../data/recipe";
+import allRecipes from "@/data/recipe";
 import RecipeLink from "./recipe-link";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/app/(frontend)/components/ui/input";
 import { useMemo, useState } from "react";
 import { FcSearch } from "react-icons/fc";
 import { search } from "@/helpers/search";
 import type { Recipe } from "@/types/recipe";
 import { debounce } from "@/helpers/debounce";
 import { useTranslations } from "next-intl";
-import { BackgroundChanger } from "@/app/[slug]/(components)/background-changer";
+import { BackgroundChanger } from "@/app/(frontend)/components/background-changer";
 
 export default function RecipeList() {
 	const [searchTerm, setSearchTerm] = useState<string>("");

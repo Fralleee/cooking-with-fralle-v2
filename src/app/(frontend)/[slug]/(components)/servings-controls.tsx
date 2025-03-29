@@ -1,5 +1,5 @@
 import { FaPlus, FaMinus } from "react-icons/fa";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/app/(frontend)/components/ui/button";
 import { useTranslations } from "next-intl";
 import NumberFlow from "@number-flow/react";
 

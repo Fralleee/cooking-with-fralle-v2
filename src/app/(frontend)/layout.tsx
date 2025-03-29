@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import "@/app/globals.css";
+import "@/app/(frontend)/globals.css";
 import type { Metadata } from "next";
 import { Roboto, Oleo_Script } from "next/font/google";
 import type { PropsWithChildren } from "react";

@@ -8,9 +8,11 @@ import { themes } from "@/helpers/tailwindUtils";
 import RecipeDynamic from "./(components)/recipe-dynamic";
 import BackButton from "./(components)/back-button";
 import { recipeImages } from "@/data/images";
-import { BackgroundChanger } from "./(components)/background-changer";
+import { BackgroundChanger } from "../components/background-changer";
 import { getTranslations, getLocale } from "next-intl/server";
 import { RecipeImage } from "./(components)/recipe-image";
+import { getPayload } from "payload";
+import config from "@/payload.config";
 
 interface RouteProps {
 	params: Promise<{ slug: string }>;
@@ -28,10 +30,17 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: RouteProps) {
-	const t = await getTranslations("recipe-names");
-	const locale = await getLocale();
 	const { slug } = await params;
-	const recipe = recipes.find((recipe) => recipe.slug === slug);
+	const locale = await getLocale();
+	const t = await getTranslations("recipe-names");
+	const payloadConfig = await config;
+	const payload = await getPayload({ config: payloadConfig });
+	const recipe = await payload.findByID({
+		collection: "recipes",
+		id: slug,
+		locale: "all",
+	});
+	// const recipe = recipes.find((recipe) => recipe.slug === slug);
 
 	if (!recipe) {
 		notFound();
@@ -40,10 +49,10 @@ export default async function Page({ params }: RouteProps) {
 	return (
 		<>
 			<BackButton />
-			<BackgroundChanger color={themes[recipe.color].background} />
-			<div className={cn("flex-auto", themes[recipe.color].background)}>
+			<BackgroundChanger color={recipe.color} />
+			<div className={cn("flex-auto", recipe.color)}>
 				<div className="flex min-h-screen flex-col bg-header">
-					<RecipeTitle title={t(recipe.slug)} />
+					<RecipeTitle title={t(recipe.id)} />
 					<main className="relative mx-auto flex w-full max-w-2xl flex-auto flex-col rounded-3xl rounded-b-none bg-stone-100 px-2 py-6 pb-12 text-stone-700 transition-all sm:px-8">
 						<div className="flex flex-col-reverse items-center md:flex-row md:items-start md:justify-between">
 							<RecipeDynamic
@@ -51,18 +60,18 @@ export default async function Page({ params }: RouteProps) {
 								ingredients={recipe.ingredients}
 							/>
 							<RecipeImage
-								alt={`Image of ${t(recipe.slug)}`}
-								slug={recipe.slug}
-								src={recipeImages[recipe.image]}
+								alt={recipe.image.alt}
+								slug={recipe.id}
+								src={recipe.image.url}
 							/>
 						</div>
 						<InstructionsList>
-							{recipe.instructions[locale].map((instruction, i) => (
-								<li key={i} className="flex gap-4">
+							{recipe.instructions["English"].map((instruction, i) => (
+								<li key={instruction.id} className="flex gap-4">
 									<div className="flex-shrink-0 w-8 h-8 rounded-full bg-rose-500 flex items-center justify-center text-white font-bold">
 										{i + 1}
 									</div>
-									{instruction}
+									{instruction.instruction}
 								</li>
 							))}
 						</InstructionsList>

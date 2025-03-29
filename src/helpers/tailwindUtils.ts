@@ -33,7 +33,7 @@ export const themes: ThemesTest = {
 	},
 	orange: {
 		background: "bg-orange-200",
-		imageBorder: "border-orange-300",
+		imageBorder: "border-orange-600",
 		imageBackground: "bg-orange-100",
 	},
 	amber: {

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/app/(frontend)/components/ui/button";
 import { cn } from "@/lib/utils";
 import { FaArrowLeft } from "react-icons/fa";
 
