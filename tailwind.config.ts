@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import { themes } from "./helpers/tailwind-utils";
 
 module.exports = {
 	darkMode: ["class"],
@@ -9,7 +8,6 @@ module.exports = {
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
 	],
-	safelist: Object.values(themes).flatMap((theme) => Object.values(theme)),
 	theme: {
 		container: {
 			center: true,
@@ -21,7 +19,7 @@ module.exports = {
 		extend: {
 			backgroundImage: {
 				header:
-					"repeating-linear-gradient(to right, #11223310, #11223310 3rem, #11223330 3rem, #11223330 6rem)",
+					"repeating-linear-gradient(to right, transparent, transparent 3rem, #11223320 3rem, #11223320 6rem)",
 			},
 			backgroundSize: {
 				full: "300%",

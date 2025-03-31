@@ -3,7 +3,7 @@ import type { Recipe } from "@/types/recipe";
 
 const Pancakes: Recipe = {
 	slug: "pancakes",
-	color: "cyan",
+	color: "oklch(0.917 0.08 205.041)",
 	image: "pancakes",
 	keywords: ["pannkakor", "pancakes", ...bakingKeywords],
 	defaultServings: 6,

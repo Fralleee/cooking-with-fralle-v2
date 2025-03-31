@@ -1,5 +1,4 @@
 import type { recipeImages } from "@/data/images";
-import type { themes } from "@/helpers/tailwind-utils";
 
 export type IngredientType = {
 	label: string;
@@ -17,7 +16,7 @@ type Instructions = Record<string, string[]>;
 export type Recipe = {
 	slug: string;
 	image: keyof typeof recipeImages;
-	color: keyof typeof themes;
+	color: string;
 	defaultServings: number;
 	keywords: string[];
 	ingredients: Ingredients[];

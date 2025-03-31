@@ -3,7 +3,7 @@ import type { Recipe } from "@/types/recipe";
 
 const BurgerSauce: Recipe = {
 	slug: "burger-sauce",
-	color: "teal",
+	color: "oklch(0.91 0.096 180.426)",
 	image: "sauce2",
 	keywords: [
 		"hamburgare",

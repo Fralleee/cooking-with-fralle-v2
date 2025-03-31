@@ -3,7 +3,7 @@ import type { Recipe } from "@/types/recipe";
 
 const MudCake: Recipe = {
 	slug: "mudcake",
-	color: "purple",
+	color: "oklch(0.902 0.063 306.703)",
 	image: "mudcake",
 	keywords: ["kladdkaka", "mudcake", ...bakingKeywords],
 	defaultServings: 8,

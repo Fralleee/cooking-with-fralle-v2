@@ -4,7 +4,7 @@ import type { Recipe } from "@/types/recipe";
 const ApplePie: Recipe = {
 	slug: "apple-pie",
 	image: "pie",
-	color: "yellow",
+	color: "oklch(0.945 0.129 101.54)",
 	keywords: ["äpple", "äppel", "apple", "paj", "pie", ...bakingKeywords],
 	defaultServings: 8,
 	ingredients: [
