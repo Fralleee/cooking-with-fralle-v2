@@ -38,21 +38,21 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: RouteProps) {
 	const { slug } = await params;
-	const locale = await getLocale();
+	const localeRaw = await getLocale();
+	const locale = localeRaw === "en" || localeRaw === "sv" ? localeRaw : "en";
 	const t = await getTranslations("recipe-names");
 	const payloadConfig = await config;
 	const payload = await getPayload({ config: payloadConfig });
 	const recipe = await payload.findByID({
 		collection: "recipes",
 		id: slug,
-		locale: "all",
+		locale,
 	});
 
 	if (!recipe) {
 		notFound();
 	}
 
-	// const data = recipe.recipe as RecipeData;
 	const image = recipe.image as Media;
 
 	return (
@@ -65,15 +65,16 @@ export default async function Page({ params }: RouteProps) {
 					<main className="relative mx-auto flex w-full max-w-2xl flex-auto flex-col rounded-3xl rounded-b-none bg-stone-100 px-2 py-6 pb-12 text-stone-700 transition-all sm:px-8">
 						<div className="flex flex-col-reverse items-center md:flex-row md:items-start md:justify-between">
 							<RecipeDynamic
-								defaultServings={data.defaultServings}
-								ingredients={data.ingredients}
+								// defaultServings={recipe?.defaultServings ?? 2}
+								defaultServings={2}
+								ingredientsGroups={recipe.ingredientGroups}
 							/>
 							{image.url ? (
 								<RecipeImage alt={image.alt} slug={recipe.id} src={image.url} />
 							) : null}
 						</div>
 						<InstructionsList>
-							{data.instructions[locale].map((instruction, i) => (
+							{recipe.instructions.split("\n").map((instruction, i) => (
 								<li key={i} className="flex gap-4">
 									<div className="flex-shrink-0 w-8 h-8 rounded-full bg-rose-500 flex items-center justify-center text-white font-bold">
 										{i + 1}

@@ -49,21 +49,11 @@ export const Recipes: CollectionConfig = {
 			},
 		},
 		{
-			name: "ingredients",
-			type: "array",
-			fields: [
-				{
-					name: "ingredient",
-					type: "relationship",
-					relationTo: "ingredients",
-					required: true,
-				},
-				{
-					name: "amount",
-					type: "number",
-					required: true,
-				},
-			],
+			name: "ingredientGroups",
+			type: "relationship",
+			relationTo: "ingredient-groups",
+			hasMany: true,
+			required: true,
 		},
 		{
 			name: "instructions",

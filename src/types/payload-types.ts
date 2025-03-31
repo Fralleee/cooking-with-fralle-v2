@@ -72,6 +72,7 @@ export interface Config {
     recipes: Recipe;
     keywords: Keyword;
     ingredients: Ingredient;
+    'ingredient-groups': IngredientGroup;
     instructions: Instruction;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -84,6 +85,7 @@ export interface Config {
     recipes: RecipesSelect<false> | RecipesSelect<true>;
     keywords: KeywordsSelect<false> | KeywordsSelect<true>;
     ingredients: IngredientsSelect<false> | IngredientsSelect<true>;
+    'ingredient-groups': IngredientGroupsSelect<false> | IngredientGroupsSelect<true>;
     instructions: InstructionsSelect<false> | InstructionsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -167,13 +169,7 @@ export interface Recipe {
   image: number | Media;
   keywords: (number | Keyword)[];
   color: string;
-  ingredients?:
-    | {
-        ingredient: number | Ingredient;
-        amount: number;
-        id?: string | null;
-      }[]
-    | null;
+  ingredientGroups: (number | IngredientGroup)[];
   instructions: string;
   updatedAt: string;
   createdAt: string;
@@ -185,6 +181,23 @@ export interface Recipe {
 export interface Keyword {
   id: number;
   keyword: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ingredient-groups".
+ */
+export interface IngredientGroup {
+  id: number;
+  name: string;
+  ingredients?:
+    | {
+        ingredient: number | Ingredient;
+        amount: number;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -237,6 +250,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'ingredients';
         value: number | Ingredient;
+      } | null)
+    | ({
+        relationTo: 'ingredient-groups';
+        value: number | IngredientGroup;
       } | null)
     | ({
         relationTo: 'instructions';
@@ -327,13 +344,7 @@ export interface RecipesSelect<T extends boolean = true> {
   image?: T;
   keywords?: T;
   color?: T;
-  ingredients?:
-    | T
-    | {
-        ingredient?: T;
-        amount?: T;
-        id?: T;
-      };
+  ingredientGroups?: T;
   instructions?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -356,6 +367,22 @@ export interface IngredientsSelect<T extends boolean = true> {
   namePlural?: T;
   measurement?: T;
   displayName?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ingredient-groups_select".
+ */
+export interface IngredientGroupsSelect<T extends boolean = true> {
+  name?: T;
+  ingredients?:
+    | T
+    | {
+        ingredient?: T;
+        amount?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
