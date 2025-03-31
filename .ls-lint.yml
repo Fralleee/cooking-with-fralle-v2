@@ -6,7 +6,7 @@ ls:
     .tsx: kebab-case
     .d.ts: kebab-case
 
-ignore: 
-    - .git 
-    - node_modules
-    - .next
+ignore:
+  - .git
+  - node_modules
+  - .next
