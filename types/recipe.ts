@@ -1,5 +1,5 @@
 import type { recipeImages } from "@/data/images";
-import type { themes } from "@/helpers/tailwindUtils";
+import type { themes } from "@/helpers/tailwind-utils";
 
 export type IngredientType = {
 	label: string;

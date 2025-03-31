@@ -2,7 +2,7 @@ import type { Recipe } from "@/types/recipe";
 import Image from "next/image";
 import { recipeImages } from "@/data/images";
 import { cn } from "@/lib/utils";
-import { themes } from "@/helpers/tailwindUtils";
+import { themes } from "@/helpers/tailwind-utils";
 import { useTranslations } from "next-intl";
 import { unstable_ViewTransition as ViewTransition } from "react";
 import Link from "next/link";

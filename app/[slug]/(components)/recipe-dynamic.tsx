@@ -1,7 +1,7 @@
 "use client";
 import ServingsCalculator from "./servings-controls";
 import IngredientsList from "./ingredients-list";
-import { getIngredient } from "@/helpers/recipeUtils";
+import { getIngredient } from "@/helpers/recipe-utils";
 import type { Ingredients } from "@/types/recipe";
 import { useState } from "react";
 import { useTranslations } from "next-intl";

@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 import recipes from "@/data/recipe";
-import { slugToTitle } from "@/helpers/slugToTitle";
+import { slugToTitle } from "@/helpers/slug-to-title";
 import RecipeTitle from "./(components)/recipe-title";
 import InstructionsList from "./(components)/instructions-list";
 import { cn } from "@/lib/utils";
-import { themes } from "@/helpers/tailwindUtils";
+import { themes } from "@/helpers/tailwind-utils";
 import RecipeDynamic from "./(components)/recipe-dynamic";
 import BackButton from "./(components)/back-button";
 import { recipeImages } from "@/data/images";
