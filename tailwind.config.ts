@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import { themes } from "./helpers/tailwind-utils";
 
 module.exports = {
 	darkMode: ["class"],
@@ -9,7 +8,6 @@ module.exports = {
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
 	],
-	safelist: Object.values(themes).flatMap((theme) => Object.values(theme)),
 	theme: {
 		container: {
 			center: true,

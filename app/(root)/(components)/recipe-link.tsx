@@ -2,7 +2,6 @@ import type { Recipe } from "@/types/recipe";
 import Image from "next/image";
 import { recipeImages } from "@/data/images";
 import { cn } from "@/lib/utils";
-import { themes } from "@/helpers/tailwind-utils";
 import { useTranslations } from "next-intl";
 import { unstable_ViewTransition as ViewTransition } from "react";
 import Link from "next/link";
@@ -22,8 +21,8 @@ const RecipeLink = ({ recipe }: Props) => {
 						"sm:hover:rotate-3 sm:hover:scale-105 sm:hover:shadow-plain",
 						"focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
 						"active:scale-95! sm:active:rotate-3 sm:active:shadow-plain",
-						themes[recipe.color].background,
 					)}
+					style={{ backgroundColor: recipe.color }}
 				>
 					<ViewTransition name={`recipe-image-${recipe.slug}`}>
 						<Image

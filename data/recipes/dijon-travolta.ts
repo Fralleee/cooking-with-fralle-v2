@@ -3,7 +3,7 @@ import type { Recipe } from "@/types/recipe";
 
 const DijonTravolta: Recipe = {
 	slug: "dijon-travolta",
-	color: "orange",
+	color: "oklch(0.901 0.076 70.697)",
 	image: "cocktail",
 	keywords: ["dijon", "travolta", "tequila", "citron", ...drinkKeywords],
 	defaultServings: 2,

@@ -3,7 +3,7 @@ import type { Recipe } from "@/types/recipe";
 
 const SaldDressing: Recipe = {
 	slug: "salad-dressing",
-	color: "green",
+	color: "oklch(0.925 0.084 155.995)",
 	image: "saladdressing",
 	keywords: ["sallad", "dressing", ...foodKeywords],
 	defaultServings: 2,

@@ -3,7 +3,7 @@ import type { Recipe } from "@/types/recipe";
 
 const AlmondBrittle: Recipe = {
 	slug: "almond-brittle",
-	color: "orange",
+	color: "oklch(0.901 0.076 70.697)",
 	image: "brittle",
 	keywords: ["krokant", "almond", "brittle", ...bakingKeywords],
 	defaultServings: 4,

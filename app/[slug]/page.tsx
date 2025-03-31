@@ -4,7 +4,6 @@ import { slugToTitle } from "@/helpers/slug-to-title";
 import RecipeTitle from "./(components)/recipe-title";
 import InstructionsList from "./(components)/instructions-list";
 import { cn } from "@/lib/utils";
-import { themes } from "@/helpers/tailwind-utils";
 import RecipeDynamic from "./(components)/recipe-dynamic";
 import BackButton from "./(components)/back-button";
 import { recipeImages } from "@/data/images";
@@ -40,8 +39,8 @@ export default async function Page({ params }: RouteProps) {
 	return (
 		<>
 			<BackButton />
-			<BackgroundChanger color={themes[recipe.color].background} />
-			<div className={cn("flex-auto", themes[recipe.color].background)}>
+			<BackgroundChanger color={recipe.color} />
+			<div className="flex-auto" style={{ backgroundColor: recipe.color }}>
 				<div className="flex min-h-screen flex-col bg-header">
 					<RecipeTitle title={t(recipe.slug)} />
 					<main className="relative mx-auto flex w-full max-w-2xl flex-auto flex-col rounded-3xl rounded-b-none bg-stone-100 px-2 py-6 pb-12 text-stone-700 transition-all sm:px-8">

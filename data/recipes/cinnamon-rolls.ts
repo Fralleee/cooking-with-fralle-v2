@@ -3,7 +3,7 @@ import type { Recipe } from "@/types/recipe";
 
 const CinnamonRolls: Recipe = {
 	slug: "cinnamon-rolls",
-	color: "orange",
+	color: "oklch(0.901 0.076 70.697)",
 	image: "bun",
 	keywords: ["kanel", "bullar", ...bakingKeywords],
 	defaultServings: 12,
