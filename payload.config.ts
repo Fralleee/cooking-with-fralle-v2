@@ -38,6 +38,7 @@ export default buildConfig({
 	localization: {
 		locales: ["en", "sv"],
 		defaultLocale: "en",
+		fallback: true,
 	},
 	db: mongooseAdapter({
 		url: process.env.DATABASE_URI || "",
