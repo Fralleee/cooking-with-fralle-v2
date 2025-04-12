@@ -11,7 +11,7 @@ interface Props {
 const ServingsCalculator = ({ servings, handleServings }: Props) => {
 	const { t } = useTranslation();
 	return (
-		<div className="my-4 flex min-w-[300px] max-w-md items-center justify-between">
+		<div className="my-4 flex w-[300px] max-w-md items-center justify-between">
 			<Button
 				variant={"outline"}
 				className="group border-stone-300 bg-stone-50 transition-all ease-out hover:scale-110 hover:border-sky-600 active:scale-90"
