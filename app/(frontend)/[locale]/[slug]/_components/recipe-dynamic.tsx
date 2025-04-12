@@ -20,12 +20,17 @@ export default function RecipeDynamic({
 		setServings(Math.max(input, 2));
 	};
 
+	const shouldShowGroupTitle = ingredientsGroups.length > 1;
+
 	return (
 		<div className="flex flex-col">
 			<ServingsCalculator servings={servings} handleServings={handleServings} />
 			{Array.isArray(ingredientsGroups) &&
 				(ingredientsGroups as IngredientGroup[]).map((group) => (
-					<IngredientsList key={group.name} title={group.name}>
+					<IngredientsList
+						key={group.name}
+						title={shouldShowGroupTitle ? group.name : ""}
+					>
 						{group.ingredients?.map((ingredient, i) => {
 							const { amount, label } = getIngredient(
 								ingredient.ingredient,

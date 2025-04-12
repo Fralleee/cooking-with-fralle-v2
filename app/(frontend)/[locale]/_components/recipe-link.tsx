@@ -40,7 +40,7 @@ const RecipeLink = ({ recipe }: Props) => {
 					</ViewTransition>
 
 					<h2 className="header-stroke absolute bottom-3 z-10 text-center text-3xl text-stone-100 drop-shadow-md">
-						{recipe.slug}
+						{recipe.name}
 					</h2>
 				</div>
 			</Link>
