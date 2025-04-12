@@ -183,8 +183,8 @@ export interface IngredientGroup {
   ingredients?:
     | {
         ingredient: string | Ingredient;
-        measurement: 'weight' | 'volume' | 'pieces' | 'drink-volume';
-        amount: number;
+        measurement?: ('weight' | 'volume' | 'pieces' | 'drink-volume') | null;
+        amount?: number | null;
         id?: string | null;
       }[]
     | null;

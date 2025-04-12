@@ -37,15 +37,21 @@ const convertWeight = (grams: number): [string, Measurement] => {
 
 export const getIngredient = (
 	ingredient: Ingredient | string,
-	measurement: "weight" | "volume" | "pieces" | "drink-volume",
-	amountRaw: number,
+	measurement:
+		| "weight"
+		| "volume"
+		| "pieces"
+		| "drink-volume"
+		| null
+		| undefined,
+	amountRaw: number | null | undefined,
 	base: number,
 	servings: number,
 ): { amount?: [string, Measurement | undefined]; label: string } => {
 	const { name, namePlural } = ingredient as Ingredient;
 
 	const label = name ?? "Unknown";
-	if (amountRaw === undefined) return { label };
+	if (amountRaw == null) return { label };
 
 	let amount = amountRaw;
 	if (base !== servings) {

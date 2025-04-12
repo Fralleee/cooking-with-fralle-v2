@@ -41,13 +41,15 @@ export default function RecipeDynamic({
 								defaultServings,
 								servings,
 							);
-							const [count = 1, unit] = amount || [];
+							const [count, unit] = amount || [];
 							return (
 								<li key={i} className="flex items-center gap-2">
 									<div className="h-3 w-3 rounded-full bg-rose-500" />
-									<strong>
-										{count} {unit && t[unit]}
-									</strong>{" "}
+									{count && (
+										<strong>
+											{count && count} {unit && t[unit]}{" "}
+										</strong>
+									)}
 									{label}
 								</li>
 							);

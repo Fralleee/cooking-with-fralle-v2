@@ -34,7 +34,6 @@ export const IngredientGroups: CollectionConfig = {
 				{
 					name: "measurement",
 					type: "select",
-					required: true,
 					label: "Measurement",
 					options: [
 						{ label: measurementMapping.weight, value: "weight" },
@@ -49,7 +48,6 @@ export const IngredientGroups: CollectionConfig = {
 				{
 					name: "amount",
 					type: "number",
-					required: true,
 					label: "Amount",
 				},
 			],
