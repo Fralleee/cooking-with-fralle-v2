@@ -3,9 +3,10 @@ import "@/app/globals.css";
 import type { Metadata } from "next";
 import { Roboto, Oleo_Script } from "next/font/google";
 import type { PropsWithChildren } from "react";
-import type { Locale } from "@/i18n-config";
+import { locales, type Locale } from "@/i18n-config";
 import { TranslationProvider } from "@/i18n/translation-context";
 import { translations } from "@/i18n/translations";
+import LocaleLink from "./_components/locale-link";
 
 const font = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 const titleFont = Oleo_Script({
@@ -85,7 +86,18 @@ export default async function Layout({
 					font.className,
 				)}
 			>
-				<TranslationProvider translations={translations[locale]}>
+				<TranslationProvider
+					translations={translations[locale]}
+					locale={locale}
+				>
+					<nav className="absolute z-10 top-2 right-2 gap-3 flex items-center justify-between">
+						{locales.map((l) => (
+							<LocaleLink key={l} locale={l}>
+								{l}
+							</LocaleLink>
+						))}
+					</nav>
+
 					{children}
 				</TranslationProvider>
 			</body>

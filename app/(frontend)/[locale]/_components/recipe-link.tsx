@@ -3,15 +3,18 @@ import { cn } from "@/lib/utils";
 import { unstable_ViewTransition as ViewTransition } from "react";
 import Link from "next/link";
 import type { Recipe } from "@/types/payload-types";
+import { useTranslation } from "@/i18n/translation-context";
 
 type Props = {
 	recipe: Recipe;
 };
 
 const RecipeLink = ({ recipe }: Props) => {
+	const { locale } = useTranslation();
+	const href = `/${locale}/${encodeURIComponent(recipe.slug)}`;
 	return (
 		<div>
-			<Link prefetch href={`/${encodeURIComponent(recipe.slug)}`}>
+			<Link prefetch href={href}>
 				<div
 					className={cn(
 						"group relative grid h-64 w-64 transform-none place-items-center rounded-3xl p-8 shadow-none transition-all duration-200 ease-OutBackLarge",
