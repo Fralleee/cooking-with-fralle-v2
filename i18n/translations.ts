@@ -1,3 +1,13 @@
+export type Measurement =
+	| "tbsp"
+	| "tsp"
+	| "l"
+	| "dl"
+	| "ml"
+	| "cl"
+	| "kg"
+	| "g";
+
 export const translations = {
 	en: {
 		servings: "servings",
@@ -6,6 +16,7 @@ export const translations = {
 		l: "l",
 		dl: "dl",
 		cl: "cl",
+		ml: "ml",
 		kg: "kg",
 		g: "g",
 	},
@@ -16,6 +27,7 @@ export const translations = {
 		l: "l",
 		dl: "dl",
 		cl: "cl",
+		ml: "ml",
 		kg: "kg",
 		g: "g",
 	},

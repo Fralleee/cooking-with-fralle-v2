@@ -29,16 +29,6 @@ export const Recipes: CollectionConfig = {
 			required: true,
 		},
 		{
-			name: "keywords",
-			type: "relationship",
-			relationTo: "keywords",
-			required: true,
-			hasMany: true,
-			admin: {
-				allowCreate: true,
-			},
-		},
-		{
 			name: "color",
 			type: "text",
 			required: true,

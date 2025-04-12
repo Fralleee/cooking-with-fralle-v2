@@ -36,6 +36,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-	// matcher: ["/((?!_next|api|media|admin|favicon.ico|manifest|icons|webp).*)"],
 	matcher: "/((?!api|trpc|_next|_vercel|admin|.*\\..*).*)",
 };

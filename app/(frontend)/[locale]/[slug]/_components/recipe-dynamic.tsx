@@ -4,6 +4,7 @@ import IngredientsList from "./ingredients-list";
 import { getIngredient } from "@/helpers/recipe-utils";
 import { useState } from "react";
 import type { IngredientGroup } from "@/types/payload-types";
+import { useTranslation } from "@/i18n/translation-context";
 
 interface Props {
 	defaultServings: number;
@@ -14,6 +15,7 @@ export default function RecipeDynamic({
 	defaultServings,
 	ingredientsGroups,
 }: Props) {
+	const { t } = useTranslation();
 	const [servings, setServings] = useState(defaultServings);
 
 	const handleServings = (input: number) => {
@@ -34,6 +36,7 @@ export default function RecipeDynamic({
 						{group.ingredients?.map((ingredient, i) => {
 							const { amount, label } = getIngredient(
 								ingredient.ingredient,
+								ingredient.measurement,
 								ingredient.amount,
 								defaultServings,
 								servings,
@@ -43,7 +46,7 @@ export default function RecipeDynamic({
 								<li key={i} className="flex items-center gap-2">
 									<div className="h-3 w-3 rounded-full bg-rose-500" />
 									<strong>
-										{count} {unit}
+										{count} {unit && t[unit]}
 									</strong>{" "}
 									{label}
 								</li>

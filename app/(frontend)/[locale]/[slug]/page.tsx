@@ -53,7 +53,6 @@ export default async function Page({ params }: RouteProps) {
 		fallbackLocale: "en",
 	});
 	const recipe = result?.docs[0];
-	console.log(recipe);
 
 	if (!recipe) {
 		notFound();

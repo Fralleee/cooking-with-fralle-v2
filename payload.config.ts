@@ -8,7 +8,6 @@ import sharp from "sharp";
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { Recipes } from "./collections/Recipes";
-import { Keywords } from "./collections/Keywords";
 import Ingredients from "./collections/Ingredients";
 import Instructions from "./collections/Instructions";
 import IngredientGroups from "./collections/IngredientGroup";
@@ -27,7 +26,6 @@ export default buildConfig({
 		Users,
 		Media,
 		Recipes,
-		Keywords,
 		Ingredients,
 		IngredientGroups,
 		Instructions,

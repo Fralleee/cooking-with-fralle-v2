@@ -70,7 +70,6 @@ export interface Config {
     users: User;
     media: Media;
     recipes: Recipe;
-    keywords: Keyword;
     ingredients: Ingredient;
     'ingredient-groups': IngredientGroup;
     instructions: Instruction;
@@ -83,7 +82,6 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     recipes: RecipesSelect<false> | RecipesSelect<true>;
-    keywords: KeywordsSelect<false> | KeywordsSelect<true>;
     ingredients: IngredientsSelect<false> | IngredientsSelect<true>;
     'ingredient-groups': IngredientGroupsSelect<false> | IngredientGroupsSelect<true>;
     instructions: InstructionsSelect<false> | InstructionsSelect<true>;
@@ -168,21 +166,10 @@ export interface Recipe {
   slug: string;
   name: string;
   image: string | Media;
-  keywords: (string | Keyword)[];
   color: string;
   defaultServings: number;
   ingredientGroups: (string | IngredientGroup)[];
   instructions: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "keywords".
- */
-export interface Keyword {
-  id: string;
-  keyword: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -196,6 +183,7 @@ export interface IngredientGroup {
   ingredients?:
     | {
         ingredient: string | Ingredient;
+        measurement: 'weight' | 'volume' | 'pieces' | 'drink-volume';
         amount: number;
         id?: string | null;
       }[]
@@ -211,8 +199,6 @@ export interface Ingredient {
   id: string;
   name: string;
   namePlural?: string | null;
-  measurement: 'weight' | 'volume' | 'pieces' | 'drink-volume';
-  displayName?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -244,10 +230,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'recipes';
         value: string | Recipe;
-      } | null)
-    | ({
-        relationTo: 'keywords';
-        value: string | Keyword;
       } | null)
     | ({
         relationTo: 'ingredients';
@@ -344,20 +326,10 @@ export interface RecipesSelect<T extends boolean = true> {
   slug?: T;
   name?: T;
   image?: T;
-  keywords?: T;
   color?: T;
   defaultServings?: T;
   ingredientGroups?: T;
   instructions?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "keywords_select".
- */
-export interface KeywordsSelect<T extends boolean = true> {
-  keyword?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -368,8 +340,6 @@ export interface KeywordsSelect<T extends boolean = true> {
 export interface IngredientsSelect<T extends boolean = true> {
   name?: T;
   namePlural?: T;
-  measurement?: T;
-  displayName?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -383,6 +353,7 @@ export interface IngredientGroupsSelect<T extends boolean = true> {
     | T
     | {
         ingredient?: T;
+        measurement?: T;
         amount?: T;
         id?: T;
       };

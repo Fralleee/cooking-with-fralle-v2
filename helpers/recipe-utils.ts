@@ -1,3 +1,4 @@
+import type { Measurement } from "@/i18n/translations";
 import type { Ingredient } from "@/types/payload-types";
 import Fraction from "fraction.js";
 
@@ -13,7 +14,7 @@ const convertToMeasurement = (volume: number, measurement: number): string => {
 	return fullSizedParts.toString();
 };
 
-const convertVolume = (milliliters: number): [string, string] => {
+const convertVolume = (milliliters: number): [string, Measurement] => {
 	if (milliliters >= 1000)
 		return [convertToMeasurement(milliliters, 1000), "l"];
 	if (milliliters >= 100) return [convertToMeasurement(milliliters, 100), "dl"];
@@ -23,38 +24,25 @@ const convertVolume = (milliliters: number): [string, string] => {
 	return [convertToMeasurement(milliliters, 1), "ml"];
 };
 
-const convertDrinkVolume = (milliliters: number): [string, string] => {
+const convertDrinkVolume = (milliliters: number): [string, Measurement] => {
 	if (milliliters >= 15) return [convertToMeasurement(milliliters, 10), "cl"];
 	return [convertToMeasurement(milliliters, 1), "ml"];
 };
 
-const convertWeight = (grams: number): [string, string] => {
+const convertWeight = (grams: number): [string, Measurement] => {
 	if (grams >= 1000)
 		return [(Math.round((grams / 1000) * 100) / 100).toString(), "kg"];
 	return [Math.round(grams).toString(), "g"];
 };
 
-function isIngredientItem(
-	item: unknown,
-): item is Ingredient & { amount: number } {
-	return (
-		typeof item === "object" &&
-		item !== null &&
-		"measurement" in item &&
-		"displayName" in item
-	);
-}
 export const getIngredient = (
 	ingredient: Ingredient | string,
+	measurement: "weight" | "volume" | "pieces" | "drink-volume",
 	amountRaw: number,
 	base: number,
 	servings: number,
-): { amount?: [string, string | undefined]; label: string } => {
-	if (!isIngredientItem(ingredient)) {
-		return { label: "Unknown" };
-	}
-
-	const { measurement, name, namePlural } = ingredient;
+): { amount?: [string, Measurement | undefined]; label: string } => {
+	const { name, namePlural } = ingredient as Ingredient;
 
 	const label = name ?? "Unknown";
 	if (amountRaw === undefined) return { label };
