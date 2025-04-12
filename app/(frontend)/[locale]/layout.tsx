@@ -97,7 +97,6 @@ export default async function Layout({
 							</LocaleLink>
 						))}
 					</nav>
-
 					{children}
 				</TranslationProvider>
 			</body>

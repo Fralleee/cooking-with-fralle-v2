@@ -45,6 +45,10 @@
 	:root {
 		scrollbar-gutter: stable;
 	}
+
+	img {
+		width: 100%;
+	}
 }
 
 @layer base {
