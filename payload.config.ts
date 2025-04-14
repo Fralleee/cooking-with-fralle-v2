@@ -9,7 +9,6 @@ import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { Recipes } from "./collections/Recipes";
 import Ingredients from "./collections/Ingredients";
-import Instructions from "./collections/Instructions";
 import IngredientGroups from "./collections/IngredientGroup";
 
 const filename = fileURLToPath(import.meta.url);
@@ -22,14 +21,7 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [
-		Users,
-		Media,
-		Recipes,
-		Ingredients,
-		IngredientGroups,
-		Instructions,
-	],
+	collections: [Users, Media, Recipes, Ingredients, IngredientGroups],
 	editor: lexicalEditor(),
 	secret: process.env.PAYLOAD_SECRET || "",
 	typescript: {

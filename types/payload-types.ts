@@ -72,7 +72,6 @@ export interface Config {
     recipes: Recipe;
     ingredients: Ingredient;
     'ingredient-groups': IngredientGroup;
-    instructions: Instruction;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -84,7 +83,6 @@ export interface Config {
     recipes: RecipesSelect<false> | RecipesSelect<true>;
     ingredients: IngredientsSelect<false> | IngredientsSelect<true>;
     'ingredient-groups': IngredientGroupsSelect<false> | IngredientGroupsSelect<true>;
-    instructions: InstructionsSelect<false> | InstructionsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -204,16 +202,6 @@ export interface Ingredient {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "instructions".
- */
-export interface Instruction {
-  id: string;
-  content: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -238,10 +226,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'ingredient-groups';
         value: string | IngredientGroup;
-      } | null)
-    | ({
-        relationTo: 'instructions';
-        value: string | Instruction;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -357,15 +341,6 @@ export interface IngredientGroupsSelect<T extends boolean = true> {
         amount?: T;
         id?: T;
       };
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "instructions_select".
- */
-export interface InstructionsSelect<T extends boolean = true> {
-  content?: T;
   updatedAt?: T;
   createdAt?: T;
 }

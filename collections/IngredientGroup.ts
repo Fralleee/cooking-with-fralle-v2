@@ -23,6 +23,9 @@ export const IngredientGroups: CollectionConfig = {
 			name: "ingredients",
 			type: "array",
 			label: "Ingredients",
+			admin: {
+				className: "ingredient-definitions",
+			},
 			fields: [
 				{
 					name: "ingredient",
@@ -30,6 +33,9 @@ export const IngredientGroups: CollectionConfig = {
 					relationTo: "ingredients",
 					required: true,
 					label: "Ingredient",
+					admin: {
+						className: "ingredient-select",
+					},
 				},
 				{
 					name: "measurement",
@@ -44,11 +50,17 @@ export const IngredientGroups: CollectionConfig = {
 							value: "drink-volume",
 						},
 					],
+					admin: {
+						className: "measurement-select",
+					},
 				},
 				{
 					name: "amount",
 					type: "number",
 					label: "Amount",
+					admin: {
+						className: "amount-input",
+					},
 				},
 			],
 		},
