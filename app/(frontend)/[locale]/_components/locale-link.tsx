@@ -24,8 +24,12 @@ export default function LocaleLink({
 
 	const newPath = `/${segments.join("/")}`;
 
+	const handleClick = () => {
+		document.cookie = `NEXT_LOCALE=${locale}; path=/`;
+	};
+
 	return (
-		<Link className="p-2" href={newPath}>
+		<Link className="p-2" href={newPath} onClick={handleClick}>
 			{children}
 		</Link>
 	);

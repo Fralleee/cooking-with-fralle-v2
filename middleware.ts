@@ -1,9 +1,9 @@
 import { type NextRequest, NextResponse } from "next/server";
 import {
-	locales,
 	defaultLocale,
 	type Locale,
 	isSupportedLocale,
+	locales,
 } from "./i18n-config";
 
 function getLocale(request: NextRequest): string {
@@ -28,10 +28,26 @@ export function middleware(request: NextRequest) {
 		(locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
 	);
 
-	if (pathnameHasLocale) return;
+	const cookieLocale = request.cookies.get("NEXT_LOCALE")?.value as Locale;
+	const preferredLocale = isSupportedLocale(cookieLocale)
+		? cookieLocale
+		: getLocale(request);
 
-	const locale = getLocale(request);
-	request.nextUrl.pathname = `/${locale}${pathname}`;
+	if (pathnameHasLocale) {
+		const currentLocale = pathname.split("/")[1] as Locale;
+		if (currentLocale !== preferredLocale) {
+			const newPathname = pathname.replace(
+				`/${currentLocale}`,
+				`/${preferredLocale}`,
+			);
+			request.nextUrl.pathname = newPathname;
+			return NextResponse.redirect(request.nextUrl);
+		}
+
+		return NextResponse.next();
+	}
+
+	request.nextUrl.pathname = `/${preferredLocale}${pathname}`;
 	return NextResponse.redirect(request.nextUrl);
 }
 
