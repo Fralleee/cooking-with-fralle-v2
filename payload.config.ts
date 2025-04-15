@@ -1,9 +1,9 @@
+import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import path from "node:path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "node:url";
-// import sharp from "sharp";
 
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
@@ -22,6 +22,14 @@ export default buildConfig({
 		},
 	},
 	collections: [Users, Media, Recipes, Ingredients, IngredientGroups],
+	plugins: [
+		vercelBlobStorage({
+			collections: {
+				media: true,
+			},
+			token: process.env.BLOB_READ_WRITE_TOKEN,
+		}),
+	],
 	editor: lexicalEditor(),
 	secret: process.env.PAYLOAD_SECRET || "",
 	typescript: {
@@ -35,5 +43,4 @@ export default buildConfig({
 	db: mongooseAdapter({
 		url: process.env.DATABASE_URI || "",
 	}),
-	// sharp,
 });
