@@ -2,7 +2,7 @@
 
 import { locales, type Locale } from "@/i18n-config";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import type { PropsWithChildren } from "react";
 
 interface Props {
@@ -14,7 +14,6 @@ export default function LocaleLink({
 	children,
 }: PropsWithChildren<Props>) {
 	const pathname = usePathname() || "/";
-	const router = useRouter();
 	const segments = pathname.split("/").filter(Boolean);
 
 	if (segments.length > 0 && locales.includes(segments[0] as Locale)) {
@@ -27,17 +26,8 @@ export default function LocaleLink({
 
 	const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
 		event.preventDefault();
-		console.log({
-			locale,
-			pathname,
-			segments,
-			newPath,
-		});
 		document.cookie = `NEXT_LOCALE=${locale}; path=/`;
-		console.log("Cookie set:", document.cookie);
-
-		router.replace(newPath);
-		console.log("Navigating to:", newPath);
+		window.history.replaceState({ asPath: newPath }, "replaceState", newPath);
 	};
 
 	return (
