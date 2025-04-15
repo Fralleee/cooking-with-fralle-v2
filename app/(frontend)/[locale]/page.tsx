@@ -28,7 +28,7 @@ export default async function Page({ params }: Props) {
 	return (
 		<div className="bg-sky-300">
 			<Header />
-			<main className="relative z-10 flex bg-stone-100">
+			<main className="flex bg-stone-100">
 				<RecipeList recipes={recipes.docs} />
 			</main>
 		</div>
