@@ -27,8 +27,17 @@ export default function LocaleLink({
 
 	const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
 		event.preventDefault();
+		console.log({
+			locale,
+			pathname,
+			segments,
+			newPath,
+		});
 		document.cookie = `NEXT_LOCALE=${locale}; path=/`;
+		console.log("Cookie set:", document.cookie);
+
 		router.replace(newPath);
+		console.log("Navigating to:", newPath);
 	};
 
 	return (
