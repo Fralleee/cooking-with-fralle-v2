@@ -31,7 +31,11 @@ const RecipeLink = ({ recipe }: Props) => {
 									? recipe.image
 									: recipe.image?.url || "/placeholder-image.jpg"
 							}
-							alt={`Image of ${recipe.slug}`}
+							alt={
+								typeof recipe.image === "string"
+									? recipe.slug
+									: recipe.image?.alt
+							}
 							width={160}
 							height={160}
 							draggable={false}

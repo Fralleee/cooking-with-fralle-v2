@@ -71,12 +71,16 @@ export default async function Page({ params }: RouteProps) {
 							ingredientsGroups={recipe.ingredientGroups}
 						/>
 						<RecipeImage
-							alt={`Image of ${recipe.name}`}
 							slug={recipe.slug}
 							src={
 								typeof recipe.image === "string"
 									? recipe.image
 									: recipe.image?.url || "/placeholder-image.jpg"
+							}
+							alt={
+								typeof recipe.image === "string"
+									? recipe.slug
+									: recipe.image?.alt
 							}
 						/>
 					</div>
