@@ -9,5 +9,11 @@
 	"rules": {
 		"devDependencies": "off"
 	},
-	"ignore": [".next/**", "data/**"]
+	"ignore": [
+		".next/**",
+		"collections/**",
+		"app/(payload)/**",
+		"types/payload-types.ts"
+	],
+	"ignoreDependencies": ["@payloadcms/ui"]
 }

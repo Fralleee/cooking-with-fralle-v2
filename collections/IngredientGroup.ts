@@ -26,6 +26,7 @@ export const IngredientGroups: CollectionConfig = {
 			admin: {
 				className: "ingredient-definitions",
 			},
+			minRows: 1,
 			fields: [
 				{
 					name: "ingredient",

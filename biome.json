@@ -7,7 +7,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": [".next"]
+		"ignore": [".next", "payload-types.ts"]
 	},
 	"formatter": {
 		"enabled": true

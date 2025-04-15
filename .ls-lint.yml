@@ -10,3 +10,5 @@ ignore:
   - .git
   - node_modules
   - .next
+  - collections
+  - app/(payload)
