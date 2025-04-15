@@ -6,7 +6,7 @@ import type { PropsWithChildren } from "react";
 import type { Locale } from "@/i18n-config";
 import { TranslationProvider } from "@/i18n/translation-context";
 import { translations } from "@/i18n/translations";
-import LocaleLink from "./_components/locale-link";
+import LocaleLink from "./_components/locale-select";
 
 const font = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 const titleFont = Oleo_Script({
