@@ -9,6 +9,7 @@
 		"start": "next start",
 		"types": "payload generate:types",
 		"generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+		"generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
 		"lint": "biome lint . && ls-lint && knip",
 		"knip": "knip"
 	},
