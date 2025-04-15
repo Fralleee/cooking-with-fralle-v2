@@ -29,12 +29,12 @@ const RecipeLink = ({ recipe }: Props) => {
 							src={
 								typeof recipe.image === "string"
 									? recipe.image
-									: recipe.image?.url || "/placeholder-image.jpg"
+									: recipe.image.url || "/placeholder-image.jpg"
 							}
 							alt={
 								typeof recipe.image === "string"
 									? recipe.slug
-									: recipe.image?.alt
+									: recipe.image.alt
 							}
 							width={160}
 							height={160}
