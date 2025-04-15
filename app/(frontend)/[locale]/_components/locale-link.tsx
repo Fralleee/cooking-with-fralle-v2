@@ -24,8 +24,10 @@ export default function LocaleLink({
 
 	const newPath = `/${segments.join("/")}`;
 
-	const handleClick = () => {
+	const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+		event.preventDefault();
 		document.cookie = `NEXT_LOCALE=${locale}; path=/`;
+		window.location.href = newPath;
 	};
 
 	return (
