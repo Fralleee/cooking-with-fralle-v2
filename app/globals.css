@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 @config '../tailwind.config.ts';
 
 /*
@@ -42,8 +41,8 @@
 		min-height: 100vh;
 	}
 
-	:root {
-		scrollbar-gutter: stable;
+	img {
+		width: 100%;
 	}
 }
 

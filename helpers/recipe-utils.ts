@@ -1,4 +1,5 @@
-import type { IngredientType } from "@/types/recipe";
+import type { Measurement } from "@/i18n/translations";
+import type { Ingredient } from "@/types/payload-types";
 import Fraction from "fraction.js";
 
 const convertToMeasurement = (volume: number, measurement: number): string => {
@@ -13,7 +14,7 @@ const convertToMeasurement = (volume: number, measurement: number): string => {
 	return fullSizedParts.toString();
 };
 
-const convertVolume = (milliliters: number): [string, string] => {
+const convertVolume = (milliliters: number): [string, Measurement] => {
 	if (milliliters >= 1000)
 		return [convertToMeasurement(milliliters, 1000), "l"];
 	if (milliliters >= 100) return [convertToMeasurement(milliliters, 100), "dl"];
@@ -23,32 +24,50 @@ const convertVolume = (milliliters: number): [string, string] => {
 	return [convertToMeasurement(milliliters, 1), "ml"];
 };
 
-const convertDrinkVolume = (milliliters: number): [string, string] => {
+const convertDrinkVolume = (milliliters: number): [string, Measurement] => {
 	if (milliliters >= 15) return [convertToMeasurement(milliliters, 10), "cl"];
 	return [convertToMeasurement(milliliters, 1), "ml"];
 };
 
-const convertWeight = (grams: number): [string, string] => {
+const convertWeight = (grams: number): [string, Measurement] => {
 	if (grams >= 1000)
 		return [(Math.round((grams / 1000) * 100) / 100).toString(), "kg"];
 	return [Math.round(grams).toString(), "g"];
 };
 
 export const getIngredient = (
-	{ label, amount, measurement }: IngredientType,
+	ingredient: Ingredient | string,
+	measurement:
+		| "weight"
+		| "volume"
+		| "pieces"
+		| "drink-volume"
+		| null
+		| undefined,
+	amountRaw: number | null | undefined,
 	base: number,
 	servings: number,
-): { amount?: [string, string | undefined]; label: string } => {
-	if (amount === undefined) return { label };
+): { amount?: [string, Measurement | undefined]; label: string } => {
+	const { name, namePlural } = ingredient as Ingredient;
 
+	const label = name ?? "Unknown";
+	if (amountRaw == null) return { label };
+
+	let amount = amountRaw;
 	if (base !== servings) {
-		amount = (amount / base) * servings;
+		amount = (amountRaw / base) * servings;
 	}
 
-	if (measurement === "pieces")
+	if (measurement === "pieces") {
+		const label = amount > 1 && namePlural ? namePlural : (name ?? "Unknown");
 		return { amount: [convertToMeasurement(amount, 1), undefined], label };
+	}
+
 	if (measurement === "weight") return { amount: convertWeight(amount), label };
-	if (measurement === "drinkvolume")
+
+	if (measurement === "drink-volume") {
 		return { amount: convertDrinkVolume(amount), label };
+	}
+
 	return { amount: convertVolume(amount), label };
 };

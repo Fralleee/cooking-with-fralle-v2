@@ -1,24 +1,35 @@
 import type { MetadataRoute } from "next";
-import recipes from "@/data/recipe";
+import { getPayload } from "payload";
+import config from "@/payload.config";
+import { locales } from "@/i18n-config";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+const baseUrl = "https://cooking.fralle.net";
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+	const payloadInstance = await getPayload({ config });
+	const { docs: recipes } = await payloadInstance.find({
+		collection: "recipes",
+	});
+
 	const sitemap: MetadataRoute.Sitemap = [
 		{
-			url: "https://cooking.fralle.net",
+			url: baseUrl,
 			lastModified: new Date(),
 			changeFrequency: "yearly",
 			priority: 1,
 		},
 	];
 
-	const paths = recipes.map((recipe) => `recipe/${recipe.slug}`);
-	for (const path of paths) {
-		sitemap.push({
-			url: `https://cooking.fralle.net/${path}`,
-			lastModified: new Date(),
-			changeFrequency: "yearly",
-			priority: 0.8,
-		});
+	for (const locale of locales) {
+		for (const recipe of recipes) {
+			const path = `${locale}/recipe/${recipe.slug}`;
+			sitemap.push({
+				url: `${baseUrl}/${path}`,
+				lastModified: new Date(),
+				changeFrequency: "yearly",
+				priority: 0.8,
+			});
+		}
 	}
 
 	return sitemap;

@@ -1,0 +1,29 @@
+.ingredient-definitions {
+
+  .collapsible__content {
+    padding: 8px;
+  }
+
+  .array-field__fields {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  
+    & > .field-type {
+      margin-bottom: 0;
+    }
+  }
+  
+  .ingredient-select {
+    flex: 1;
+    max-width: 400px;
+  }
+
+  .measurement-select {
+    max-width: 220px;
+  }
+
+  .amount-input {
+    max-width: 80px;
+  }
+}

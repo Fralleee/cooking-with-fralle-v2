@@ -7,7 +7,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": [".next"]
+		"ignore": [".next", "payload-types.ts"]
 	},
 	"formatter": {
 		"enabled": true
@@ -21,6 +21,12 @@
 			"recommended": true,
 			"suspicious": {
 				"noArrayIndexKey": "off"
+			},
+			"correctness": {
+				"noUnusedImports": {
+					"fix": "safe",
+					"level": "error"
+				}
 			}
 		}
 	},
