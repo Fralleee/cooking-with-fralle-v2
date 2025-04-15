@@ -1,38 +1,65 @@
 "use client";
 
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+} from "@/components/ui/select";
 import { locales, type Locale } from "@/i18n-config";
-import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import type { PropsWithChildren } from "react";
 
-interface Props {
-	locale: Locale;
-}
+const flagMap: Record<Locale, string> = {
+	en: "/images/en.svg",
+	sv: "/images/sv.svg",
+};
 
 export default function LocaleLink({
-	locale,
-	children,
-}: PropsWithChildren<Props>) {
+	currentLocale,
+}: { currentLocale: Locale }) {
 	const pathname = usePathname() || "/";
-	const segments = pathname.split("/").filter(Boolean);
 
-	if (segments.length > 0 && locales.includes(segments[0] as Locale)) {
-		segments[0] = locale;
-	} else {
-		segments.unshift(locale);
-	}
+	const handleValueChanged = (value: Locale) => {
+		const segments = pathname.split("/").filter(Boolean);
 
-	const newPath = `/${segments.join("/")}`;
+		if (segments.length > 0 && locales.includes(segments[0] as Locale)) {
+			segments[0] = value;
+		} else {
+			segments.unshift(value);
+		}
 
-	const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-		event.preventDefault();
-		document.cookie = `NEXT_LOCALE=${locale}; path=/`;
+		const newPath = `/${segments.join("/")}`;
+
+		document.cookie = `NEXT_LOCALE=${value}; path=/`;
+
 		window.location.replace(newPath);
 	};
 
 	return (
-		<Link className="p-2" href={newPath} onClick={handleClick}>
-			{children}
-		</Link>
+		<Select defaultValue={currentLocale} onValueChange={handleValueChanged}>
+			<SelectTrigger className="w-[40px]">
+				<Image
+					src={flagMap[currentLocale]}
+					alt={currentLocale}
+					width={32}
+					height={32}
+					className="w-[32px]"
+				/>
+			</SelectTrigger>
+			<SelectContent>
+				{locales.map((l) => (
+					<SelectItem key={l} value={l}>
+						<Image
+							src={flagMap[l]}
+							alt={l}
+							width={32}
+							height={32}
+							className="w-[32px]"
+						/>
+					</SelectItem>
+				))}
+			</SelectContent>
+		</Select>
 	);
 }

@@ -3,7 +3,7 @@ import "@/app/globals.css";
 import type { Metadata } from "next";
 import { Roboto, Oleo_Script } from "next/font/google";
 import type { PropsWithChildren } from "react";
-import { locales, type Locale } from "@/i18n-config";
+import type { Locale } from "@/i18n-config";
 import { TranslationProvider } from "@/i18n/translation-context";
 import { translations } from "@/i18n/translations";
 import LocaleLink from "./_components/locale-link";
@@ -90,12 +90,8 @@ export default async function Layout({
 					translations={translations[locale]}
 					locale={locale}
 				>
-					<nav className="absolute z-10 top-2 right-2 gap-3 flex items-center justify-between">
-						{locales.map((l) => (
-							<LocaleLink key={l} locale={l}>
-								{l}
-							</LocaleLink>
-						))}
+					<nav className="fixed z-10 top-4 right-4 gap-3 flex items-center justify-between">
+						<LocaleLink currentLocale={locale} />
 					</nav>
 					{children}
 				</TranslationProvider>
