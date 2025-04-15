@@ -27,7 +27,7 @@ export default function LocaleLink({
 	const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
 		event.preventDefault();
 		document.cookie = `NEXT_LOCALE=${locale}; path=/`;
-		window.history.replaceState({ asPath: newPath }, "replaceState", newPath);
+		window.location.replace(newPath);
 	};
 
 	return (
