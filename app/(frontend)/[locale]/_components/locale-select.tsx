@@ -64,7 +64,7 @@ export default function LocaleSelect({
 			</button>
 			<ul
 				{...getMenuProps()}
-				className="absolute z-10 mt-1 w-24 rounded shadow bg-white"
+				className="absolute z-10 mt-1 w-20 rounded bg-white"
 			>
 				{isOpen &&
 					items.map((item, index) => (
