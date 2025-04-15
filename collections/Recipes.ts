@@ -37,11 +37,13 @@ export const Recipes: CollectionConfig = {
 					Field: "./app/(payload)/_components/color-picker",
 				},
 			},
+			defaultValue: "oklch(92.9% 0.013 255.508)",
 		},
 		{
 			name: "defaultServings",
 			type: "number",
 			required: true,
+			defaultValue: 2,
 		},
 		{
 			name: "ingredientGroups",

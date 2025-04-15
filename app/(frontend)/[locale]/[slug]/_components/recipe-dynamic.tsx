@@ -45,9 +45,9 @@ export default function RecipeDynamic({
 							return (
 								<li key={i} className="flex items-center gap-2">
 									<div className="h-3 w-3 rounded-full bg-rose-500" />
-									{count && (
+									{count && Number.parseFloat(count) > 0 && (
 										<strong>
-											{count && count} {unit && t[unit]}{" "}
+											{count} {unit && t[unit]}{" "}
 										</strong>
 									)}
 									{label}

@@ -53,6 +53,7 @@ export const IngredientGroups: CollectionConfig = {
 					admin: {
 						className: "measurement-select",
 					},
+					defaultValue: "volume",
 				},
 				{
 					name: "amount",
@@ -61,6 +62,7 @@ export const IngredientGroups: CollectionConfig = {
 					admin: {
 						className: "amount-input",
 					},
+					defaultValue: 0,
 				},
 			],
 		},
