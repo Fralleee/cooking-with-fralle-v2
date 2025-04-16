@@ -9,6 +9,9 @@ import InstructionsList from "./_components/instructions-list";
 import { getPayload } from "payload";
 import type { Locale } from "@/i18n-config";
 
+export const dynamic = "error";
+export const revalidate = 3600;
+
 interface RouteProps {
 	params: Promise<{ slug: string; locale: Locale }>;
 }
