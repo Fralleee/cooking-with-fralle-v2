@@ -71,6 +71,8 @@ module.exports = {
 				hero: "animateUpRotate 600ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
 				title:
 					"animateUpRotate 450ms cubic-bezier(.34,1.31,.64,1) forwards, gradientRoll 4s cubic-bezier(0.34, 1.56, 0.64, 1) infinite",
+				"locale-button":
+					"animateScale 200ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
 			},
 			backgroundColor: {
 				cozy: "#ff8570",

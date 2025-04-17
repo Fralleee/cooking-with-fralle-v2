@@ -1,9 +1,9 @@
 "use client";
 import type { Recipe } from "@/types/payload-types";
-import { useTranslation } from "@/i18n/translation-context";
 import { Timer } from "lucide-react";
 import BackButton from "./back-button";
-import { formatCookingTime } from "@/helpers/time-utils";
+import { formatCookingTime } from "@/app/helpers/time-utils";
+import { useTranslation } from "@/app/i18n/translation-context";
 
 interface Props {
 	recipe: Recipe;

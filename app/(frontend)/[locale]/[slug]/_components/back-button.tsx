@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { useTranslation } from "@/i18n/translation-context";
+import { buttonVariants } from "@/app/components/ui/button";
+import { cn } from "@/app/lib/utils";
+import { useTranslation } from "@/app/i18n/translation-context";
 
 const BackButton = ({ className }: { className?: string }) => {
 	const { locale, t } = useTranslation();

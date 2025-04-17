@@ -1,10 +1,10 @@
 "use client";
 import ServingsCalculator from "./servings-controls";
 import IngredientsList from "./ingredients-list";
-import { getIngredient } from "@/helpers/recipe-utils";
+import { getIngredient } from "@/app/helpers/recipe-utils";
 import { useState } from "react";
 import type { IngredientGroup } from "@/types/payload-types";
-import { useTranslation } from "@/i18n/translation-context";
+import { useTranslation } from "@/app/i18n/translation-context";
 
 interface Props {
 	defaultServings: number;

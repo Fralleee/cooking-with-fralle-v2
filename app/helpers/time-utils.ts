@@ -1,4 +1,4 @@
-import type { Translations } from "@/i18n/translation-context";
+import type { Translations } from "../i18n/translation-context";
 
 export const formatCookingTime = (totalMins: number, t: Translations) => {
 	const hours = Math.floor(totalMins / 60);

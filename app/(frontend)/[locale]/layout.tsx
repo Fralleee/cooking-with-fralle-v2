@@ -1,12 +1,12 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/app/lib/utils";
 import "@/app/globals.css";
 import type { Metadata } from "next";
 import { Roboto, Oleo_Script } from "next/font/google";
 import type { PropsWithChildren } from "react";
 import type { Locale } from "@/i18n-config";
-import { TranslationProvider } from "@/i18n/translation-context";
-import { translations } from "@/i18n/translations";
-import LocaleLink from "./_components/locale-select";
+import { TranslationProvider } from "@/app/i18n/translation-context";
+import { translations } from "@/app/i18n/translations";
+import LocaleSelector from "./_components/locale-selector";
 
 const font = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 const titleFont = Oleo_Script({
@@ -92,7 +92,8 @@ export default async function Layout({
 					locale={locale}
 				>
 					<nav className="absolute top-4 z-10 flex w-full items-center justify-center gap-3">
-						<LocaleLink currentLocale={locale} />
+						{/* <LocaleLink currentLocale={locale} /> */}
+						<LocaleSelector currentLocale={locale} />
 					</nav>
 					{children}
 				</TranslationProvider>
