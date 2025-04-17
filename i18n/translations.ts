@@ -10,6 +10,7 @@ export type Measurement =
 
 export const translations = {
 	en: {
+		"back-to-recipes": "Back to recipes",
 		servings: "servings",
 		tbsp: "tbsp",
 		tsp: "tsp",
@@ -21,6 +22,7 @@ export const translations = {
 		g: "g",
 	},
 	sv: {
+		"back-to-recipes": "Tillbaka till recepten",
 		servings: "portioner",
 		tbsp: "msk",
 		tsp: "tsk",

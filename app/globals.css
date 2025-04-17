@@ -20,25 +20,15 @@
 }
 
 @layer utilities {
-	/* @view-transition {
-		navigation: auto;
-		types: slide, forwards;
-	} */
-
 	html,
-	body,
-	:root {
-		height: 100%;
+	body {
+		overflow-x: hidden;
 	}
 
 	*,
 	*::before,
 	*::after {
 		box-sizing: border-box;
-	}
-
-	body > div {
-		min-height: 100vh;
 	}
 
 	img {

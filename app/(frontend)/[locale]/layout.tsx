@@ -81,16 +81,17 @@ export default async function Layout({
 		<html lang={locale}>
 			<body
 				className={cn(
-					"flex flex-col bg-stone-100",
+					"relative flex flex-col bg-stone-100",
 					titleFont.variable,
 					font.className,
 				)}
 			>
+				<div className="pointer-events-none fixed inset-0 bg-radial from-50% from-transparent to-neutral-950/30 opacity-0 transition-opacity md:opacity-100" />
 				<TranslationProvider
 					translations={translations[locale]}
 					locale={locale}
 				>
-					<nav className="fixed z-10 top-4 right-4 gap-3 flex items-center justify-between">
+					<nav className="absolute top-4 z-10 flex w-full items-center justify-center gap-3">
 						<LocaleLink currentLocale={locale} />
 					</nav>
 					{children}

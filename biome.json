@@ -19,6 +19,13 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true,
+			"nursery": {
+				"useSortedClasses": {
+					"fix": "safe",
+					"level": "error",
+					"options": {}
+				}
+			},
 			"suspicious": {
 				"noArrayIndexKey": "off"
 			},

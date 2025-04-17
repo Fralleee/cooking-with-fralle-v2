@@ -17,6 +17,7 @@ export const IngredientGroups: CollectionConfig = {
 			name: "name",
 			type: "text",
 			required: true,
+			localized: true,
 			label: "Name",
 		},
 		{

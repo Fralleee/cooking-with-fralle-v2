@@ -64,10 +64,10 @@ export default async function Page({ params }: RouteProps) {
 	return (
 		<div className="flex-auto" style={{ backgroundColor: recipe.color }}>
 			<BackgroundChanger color={recipe.color} />
-			<BackButton />
 			<div className="flex min-h-screen flex-col bg-header">
 				<RecipeTitle title={recipe.name} />
 				<main className="relative mx-auto flex w-full max-w-2xl flex-auto flex-col rounded-3xl rounded-b-none bg-stone-100 px-2 py-6 pb-12 text-stone-700 transition-all sm:px-8">
+					<BackButton />
 					<div className="flex flex-col-reverse items-center md:flex-row md:items-start md:justify-between">
 						<RecipeDynamic
 							defaultServings={recipe.defaultServings}
@@ -90,7 +90,7 @@ export default async function Page({ params }: RouteProps) {
 					<InstructionsList>
 						{recipe.instructions.split("\n").map((instruction, i) => (
 							<li key={i} className="flex gap-4">
-								<div className="flex-shrink-0 w-8 h-8 rounded-full bg-rose-500 flex items-center justify-center text-white font-bold">
+								<div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-rose-500 font-bold text-white">
 									{i + 1}
 								</div>
 								{instruction}

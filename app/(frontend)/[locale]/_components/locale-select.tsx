@@ -52,7 +52,7 @@ export default function LocaleSelect({
 			<button
 				type="button"
 				{...getToggleButtonProps()}
-				className="w-24 flex items-center justify-center p-2"
+				className="flex items-center justify-center rounded-lg bg-sky-50 p-1 focus-within:bg-sky-200"
 			>
 				<img
 					src={selectedItem ? flagMap[selectedItem] : flagMap[currentLocale]}
@@ -64,15 +64,15 @@ export default function LocaleSelect({
 			</button>
 			<ul
 				{...getMenuProps()}
-				className="absolute z-10 mt-1 w-20 rounded bg-white"
+				className="absolute z-10 mt-1 w-20 overflow-hidden rounded bg-white"
 			>
 				{isOpen &&
 					items.map((item, index) => (
 						<li
 							key={item}
 							{...getItemProps({ item, index })}
-							className={`cursor-pointer flex items-center px-2 py-1 ${
-								highlightedIndex === index ? "bg-blue-100" : ""
+							className={`flex cursor-pointer items-center px-2 py-1 ${
+								highlightedIndex === index ? "bg-sky-100" : ""
 							} ${selectedItem === item ? "font-bold" : ""}`}
 						>
 							<img
@@ -80,7 +80,7 @@ export default function LocaleSelect({
 								alt={item}
 								width={32}
 								height={32}
-								className="w-[32px] inline-block mr-2"
+								className="mr-2 inline-block w-[32px]"
 							/>
 							<span>{item.toUpperCase()}</span>
 						</li>
