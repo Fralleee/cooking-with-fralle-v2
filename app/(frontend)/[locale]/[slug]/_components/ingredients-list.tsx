@@ -8,10 +8,10 @@ interface Props {
 const IngredientsList = ({ children, title }: Props) => {
 	return (
 		<ul
-			className={`text-lowercase relative mt-8 list-[circle] pl-8 text-xl ${title ? "pt-14" : ""}`}
+			className={`relative mt-8 list-[circle] pl-8 text-lowercase text-xl ${title ? "pt-14" : ""}`}
 		>
 			{title && (
-				<li className="absolute left-0 top-0 list-none">
+				<li className="absolute top-0 left-0 list-none">
 					<h1 className="text-4xl capitalize">{title}</h1>
 				</li>
 			)}

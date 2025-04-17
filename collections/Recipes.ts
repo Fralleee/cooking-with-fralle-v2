@@ -46,6 +46,11 @@ export const Recipes: CollectionConfig = {
 			defaultValue: 2,
 		},
 		{
+			name: "cookingTime",
+			type: "number",
+			defaultValue: 10,
+		},
+		{
 			name: "ingredientGroups",
 			type: "relationship",
 			relationTo: "ingredient-groups",

@@ -6,7 +6,7 @@ interface Props {
 
 const InstructionsList = ({ children }: Props) => {
 	return (
-		<ol className="mb-12 mt-12 pl-8 text-xl list-none space-y-4">{children}</ol>
+		<ol className="mt-12 mb-12 list-none space-y-4 pl-8 text-xl">{children}</ol>
 	);
 };
 

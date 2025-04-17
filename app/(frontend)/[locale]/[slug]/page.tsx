@@ -2,12 +2,12 @@ import { notFound } from "next/navigation";
 import config from "@/payload.config";
 import RecipeTitle from "./_components/recipe-title";
 import RecipeDynamic from "./_components/recipe-dynamic";
-import BackButton from "./_components/back-button";
 import { BackgroundChanger } from "./_components/background-changer";
 import { RecipeImage } from "./_components/recipe-image";
 import InstructionsList from "./_components/instructions-list";
 import { getPayload } from "payload";
 import type { Locale } from "@/i18n-config";
+import { RecipeMeta } from "./_components/recipe-meta";
 
 export const dynamic = "error";
 export const revalidate = 3600;
@@ -67,7 +67,7 @@ export default async function Page({ params }: RouteProps) {
 			<div className="flex min-h-screen flex-col bg-header">
 				<RecipeTitle title={recipe.name} />
 				<main className="relative mx-auto flex w-full max-w-2xl flex-auto flex-col rounded-3xl rounded-b-none bg-stone-100 px-2 py-6 pb-12 text-stone-700 transition-all sm:px-8">
-					<BackButton />
+					<RecipeMeta recipe={recipe} />
 					<div className="flex flex-col-reverse items-center md:flex-row md:items-start md:justify-between">
 						<RecipeDynamic
 							defaultServings={recipe.defaultServings}

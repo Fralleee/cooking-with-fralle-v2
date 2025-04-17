@@ -25,7 +25,7 @@ export default function RecipeDynamic({
 	const shouldShowGroupTitle = ingredientsGroups.length > 1;
 
 	return (
-		<div className="flex flex-col">
+		<section className="flex flex-col">
 			<ServingsCalculator servings={servings} handleServings={handleServings} />
 			{Array.isArray(ingredientsGroups) &&
 				(ingredientsGroups as IngredientGroup[]).map((group) => (
@@ -56,6 +56,6 @@ export default function RecipeDynamic({
 						})}
 					</IngredientsList>
 				))}
-		</div>
+		</section>
 	);
 }

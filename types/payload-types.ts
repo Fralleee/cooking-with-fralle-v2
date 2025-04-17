@@ -166,6 +166,7 @@ export interface Recipe {
   image: string | Media;
   color: string;
   defaultServings: number;
+  cookingTime?: number | null;
   ingredientGroups: (string | IngredientGroup)[];
   instructions: string;
   updatedAt: string;
@@ -312,6 +313,7 @@ export interface RecipesSelect<T extends boolean = true> {
   image?: T;
   color?: T;
   defaultServings?: T;
+  cookingTime?: T;
   ingredientGroups?: T;
   instructions?: T;
   updatedAt?: T;

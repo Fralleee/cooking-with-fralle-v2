@@ -28,8 +28,7 @@
 		"next": "^15.2.3",
 		"payload": "^3.34.0",
 		"react": "^19.0.0",
-		"react-dom": "^19.0.0",
-		"react-icons": "^5.5.0"
+		"react-dom": "^19.0.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
