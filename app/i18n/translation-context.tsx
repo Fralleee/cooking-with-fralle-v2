@@ -1,8 +1,8 @@
 "use client";
 
 import { createContext, type PropsWithChildren, useContext } from "react";
-import type { translations } from "@/i18n/translations";
 import type { Locale } from "@/i18n-config";
+import type { translations } from "./translations";
 
 interface TranslationContextProps {
 	locale: Locale;

@@ -1,6 +1,6 @@
-import type { Measurement } from "@/i18n/translations";
 import type { Ingredient } from "@/types/payload-types";
 import Fraction from "fraction.js";
+import type { Measurement } from "../i18n/translations";
 
 const convertToMeasurement = (volume: number, measurement: number): string => {
 	const fullSizedParts = Math.floor(volume / measurement);
