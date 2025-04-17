@@ -22,7 +22,24 @@
 @layer utilities {
 	html,
 	body {
+		height: 100%;
+	}
+
+	body {
 		overflow-x: hidden;
+		overflow-y: scroll;
+	}
+
+	::-webkit-scrollbar {
+		background-color: transparent;
+	}
+
+	::-webkit-scrollbar-track {
+		background-color: var(--color-stone-400);
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: var(--color-stone-100);
 	}
 
 	*,

@@ -37,9 +37,13 @@ export default function LocaleSelector({ currentLocale }: Props) {
 	};
 
 	return (
-		<div ref={containerRef} className="relative inline-block">
+		<div ref={containerRef} className="relative">
 			{!isOpen && (
-				<Button variant="outline" onClick={() => setIsOpen(true)}>
+				<Button
+					className="animate-locale-button"
+					variant="outline"
+					onClick={() => setIsOpen(true)}
+				>
 					<img
 						src={flagMap[currentLocale]}
 						alt={currentLocale}

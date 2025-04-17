@@ -91,8 +91,7 @@ export default async function Layout({
 					translations={translations[locale]}
 					locale={locale}
 				>
-					<nav className="absolute top-4 z-10 flex w-full items-center justify-center gap-3">
-						{/* <LocaleLink currentLocale={locale} /> */}
+					<nav className="absolute top-4 z-20 flex w-full items-center justify-center gap-3">
 						<LocaleSelector currentLocale={locale} />
 					</nav>
 					{children}
