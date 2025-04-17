@@ -10,8 +10,8 @@ export type Measurement =
 
 export const translations = {
 	en: {
-		minute: "minute",
-		minutes: "minutes",
+		minute: { singular: "minute", plural: "minutes" },
+		hour: { singular: "hour", plural: "hours" },
 		"back-to-recipes": "Back to recipes",
 		servings: "servings",
 		tbsp: "tbsp",
@@ -24,8 +24,8 @@ export const translations = {
 		g: "g",
 	},
 	sv: {
-		minute: "minut",
-		minutes: "minuter",
+		minute: { singular: "minut", plural: "minuter" },
+		hour: { singular: "timme", plural: "timmar" },
 		"back-to-recipes": "Tillbaka till recepten",
 		servings: "portioner",
 		tbsp: "msk",

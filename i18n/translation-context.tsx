@@ -18,6 +18,8 @@ interface TranslationProviderProps {
 	translations: (typeof translations)[Locale];
 }
 
+export type Translations = (typeof translations)[Locale];
+
 export function TranslationProvider({
 	locale,
 	translations,

@@ -3,6 +3,7 @@ import type { Recipe } from "@/types/payload-types";
 import { useTranslation } from "@/i18n/translation-context";
 import { Timer } from "lucide-react";
 import BackButton from "./back-button";
+import { formatCookingTime } from "@/helpers/time-utils";
 
 interface Props {
 	recipe: Recipe;
@@ -17,9 +18,7 @@ export function RecipeMeta({ recipe }: Props) {
 			{cookingTime ? (
 				<div className="flex gap-2 text-lg text-stone-700">
 					<Timer />
-					<span>
-						{cookingTime} {cookingTime > 1 ? t.minutes : t.minute}
-					</span>
+					<span>{formatCookingTime(cookingTime, t)}</span>
 				</div>
 			) : null}
 		</section>
