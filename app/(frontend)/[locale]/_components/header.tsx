@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Header() {
 	return (
-		<header className="relative grid min-h-0 w-full place-items-center bg-header pt-8 pb-4 text-center font-bold capitalize sm:min-h-[440px] lg:pt-16 lg:pb-8">
+		<header className="relative grid min-h-0 w-full place-items-center bg-header pt-24 pb-8 sm:min-h-[440px]">
 			<div className="animate-hero">
 				<div className="rounded-full bg-sky-100">
 					<Image
