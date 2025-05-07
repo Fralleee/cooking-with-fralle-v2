@@ -7,6 +7,7 @@ import InstructionsList from "./_components/instructions-list";
 import { getPayload } from "payload";
 import type { Locale } from "@/i18n-config";
 import { RecipeMeta } from "./_components/recipe-meta";
+import { unstable_ViewTransition as ViewTransition } from "react";
 
 export const dynamic = "error";
 export const revalidate = 3600;
@@ -61,42 +62,44 @@ export default async function Page({ params }: RouteProps) {
 	}
 
 	return (
-		<div className="flex-auto" style={{ backgroundColor: recipe.color }}>
-			<div className="flex min-h-screen flex-col bg-header">
-				<RecipeTitle title={recipe.name} />
-				<main className="relative mx-auto flex w-full max-w-2xl flex-auto flex-col rounded-3xl rounded-b-none bg-stone-100 px-2 py-6 pb-12 text-stone-700 transition-all sm:px-8">
-					<RecipeMeta recipe={recipe} />
-					<div className="flex flex-col-reverse items-center md:flex-row md:items-start md:justify-between">
-						<RecipeDynamic
-							defaultServings={recipe.defaultServings}
-							ingredientsGroups={recipe.ingredientGroups}
-						/>
-						<RecipeImage
-							slug={recipe.slug}
-							src={
-								typeof recipe.image === "string"
-									? recipe.image
-									: recipe.image.url || "/placeholder-image.jpg"
-							}
-							alt={
-								typeof recipe.image === "string"
-									? recipe.slug
-									: recipe.image.alt
-							}
-						/>
-					</div>
-					<InstructionsList>
-						{recipe.instructions.split("\n").map((instruction, i) => (
-							<li key={i} className="flex gap-4">
-								<div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-rose-500 font-bold text-white">
-									{i + 1}
-								</div>
-								{instruction}
-							</li>
-						))}
-					</InstructionsList>
-				</main>
+		<ViewTransition name="background">
+			<div className="flex-auto" style={{ backgroundColor: recipe.color }}>
+				<div className="flex min-h-screen flex-col bg-header">
+					<RecipeTitle title={recipe.name} />
+					<main className="relative mx-auto flex w-full max-w-2xl flex-auto flex-col rounded-3xl rounded-b-none bg-stone-100 px-2 py-6 pb-12 text-stone-700 transition-all sm:px-8">
+						<RecipeMeta recipe={recipe} />
+						<div className="flex flex-col-reverse items-center md:flex-row md:items-start md:justify-between">
+							<RecipeDynamic
+								defaultServings={recipe.defaultServings}
+								ingredientsGroups={recipe.ingredientGroups}
+							/>
+							<RecipeImage
+								slug={recipe.slug}
+								src={
+									typeof recipe.image === "string"
+										? recipe.image
+										: recipe.image.url || "/placeholder-image.jpg"
+								}
+								alt={
+									typeof recipe.image === "string"
+										? recipe.slug
+										: recipe.image.alt
+								}
+							/>
+						</div>
+						<InstructionsList>
+							{recipe.instructions.split("\n").map((instruction, i) => (
+								<li key={i} className="flex gap-4">
+									<div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-rose-500 font-bold text-white">
+										{i + 1}
+									</div>
+									{instruction}
+								</li>
+							))}
+						</InstructionsList>
+					</main>
+				</div>
 			</div>
-		</div>
+		</ViewTransition>
 	);
 }

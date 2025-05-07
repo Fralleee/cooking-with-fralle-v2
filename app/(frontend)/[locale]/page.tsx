@@ -3,6 +3,7 @@ import config from "@/payload.config";
 import RecipeList from "./_components/recipe-list";
 import Header from "./_components/header";
 import { type Locale, locales } from "@/i18n-config";
+import { unstable_ViewTransition as ViewTransition } from "react";
 
 export const dynamic = "error";
 export const revalidate = 3600;
@@ -26,11 +27,13 @@ export default async function Page({ params }: Props) {
 	});
 
 	return (
-		<div className="bg-sky-300">
-			<Header />
-			<main className="flex bg-stone-100">
-				<RecipeList recipes={recipes.docs} />
-			</main>
-		</div>
+		<ViewTransition name="background">
+			<div className="bg-sky-300">
+				<Header />
+				<main className="flex bg-stone-100">
+					<RecipeList recipes={recipes.docs} />
+				</main>
+			</div>
+		</ViewTransition>
 	);
 }
