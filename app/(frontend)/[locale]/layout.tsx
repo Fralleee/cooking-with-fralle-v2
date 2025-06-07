@@ -8,6 +8,7 @@ import { TranslationProvider } from "@/app/i18n/translation-context";
 import { translations } from "@/app/i18n/translations";
 import LocaleSelector from "./_components/locale-selector";
 import { unstable_ViewTransition as ViewTransition } from "react";
+import { CSPostHogProvider } from "../../../providers/posthog";
 
 const font = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 const titleFont = Oleo_Script({
@@ -88,18 +89,20 @@ export default async function Layout({
 					font.className,
 				)}
 			>
-				<ViewTransition name="layout">
-					<div className="pointer-events-none fixed inset-0 z-50 bg-radial from-50% from-transparent to-neutral-950/30 opacity-0 transition-opacity md:opacity-100" />
-					<TranslationProvider
-						translations={translations[locale]}
-						locale={locale}
-					>
-						<nav className="absolute top-4 z-20 flex w-full items-center justify-center gap-3">
-							<LocaleSelector currentLocale={locale} />
-						</nav>
-						{children}
-					</TranslationProvider>
-				</ViewTransition>
+				<CSPostHogProvider>
+					<ViewTransition name="layout">
+						<div className="pointer-events-none fixed inset-0 z-50 bg-radial from-50% from-transparent to-neutral-950/30 opacity-0 transition-opacity md:opacity-100" />
+						<TranslationProvider
+							translations={translations[locale]}
+							locale={locale}
+						>
+							<nav className="absolute top-4 z-20 flex w-full items-center justify-center gap-3">
+								<LocaleSelector currentLocale={locale} />
+							</nav>
+							{children}
+						</TranslationProvider>
+					</ViewTransition>
+				</CSPostHogProvider>
 			</body>
 		</html>
 	);
