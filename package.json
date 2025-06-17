@@ -39,6 +39,9 @@
 		"tailwindcss-animate": "^1.0.7",
 		"typescript": "^5.8.2"
 	},
+	"engines": {
+		"node": ">=20"
+	},
 	"license": "MIT",
 	"main": "index.js",
 	"name": "cooking-with-fralle-v2",
