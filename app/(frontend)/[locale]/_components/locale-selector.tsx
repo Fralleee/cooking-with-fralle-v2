@@ -1,11 +1,13 @@
 "use client";
 
+import Cookies from "js-cookie";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { locales, type Locale } from "@/i18n-config";
-import { Button } from "@/app/components/ui/button";
 import { useRef, useState } from "react";
+import { Button } from "@/app/components/ui/button";
 import { useEscape } from "@/app/hooks/use-escape";
 import { useScroll } from "@/app/hooks/use-scroll";
+import { type Locale, locales } from "@/i18n-config";
 
 const flagMap: Record<Locale, string> = {
 	en: "/images/en.svg",
@@ -32,30 +34,31 @@ export default function LocaleSelector({ currentLocale }: Props) {
 			segments.unshift(value);
 		}
 		const newPath = `/${segments.join("/")}`;
-		document.cookie = `NEXT_LOCALE=${value}; path=/`;
+		Cookies.set("NEXT_LOCALE", value, { path: "/" });
 		window.location.replace(newPath);
 	};
 
 	return (
-		<div ref={containerRef} className="relative">
+		<div className="relative" ref={containerRef}>
 			{!isOpen && (
 				<Button
 					className="animate-locale-button"
-					variant="outline"
 					onClick={() => setIsOpen(true)}
+					variant="outline"
 				>
-					<img
-						src={flagMap[currentLocale]}
+					<Image
 						alt={currentLocale}
-						width={32}
+						className="h-8 w-8"
 						height={32}
-						className="w-[32px]"
+						src={flagMap[currentLocale]}
+						width={32}
 					/>
 				</Button>
 			)}
 
 			{isOpen && (
 				<>
+					{/** biome-ignore lint/a11y/noStaticElementInteractions: overlay */}
 					<div
 						className="fixed inset-0 bg-stone-950/30 blur-sm"
 						onClick={() => setIsOpen(false)}
@@ -68,17 +71,17 @@ export default function LocaleSelector({ currentLocale }: Props) {
 					<div className="flex gap-2">
 						{locales.map((locale) => (
 							<Button
-								key={locale}
 								className="animate-locale-button"
-								variant="outline"
+								key={locale}
 								onClick={() => handleValueChanged(locale)}
+								variant="outline"
 							>
-								<img
-									src={flagMap[locale]}
+								<Image
 									alt={locale}
-									width={32}
+									className="h-8 w-8"
 									height={32}
-									className="w-[32px]"
+									src={flagMap[locale]}
+									width={32}
 								/>
 							</Button>
 						))}

@@ -1,17 +1,7 @@
 {
-	"name": "cooking-with-fralle-v2",
-	"version": "0.1.0",
-	"private": true,
-	"type": "module",
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"types": "payload generate:types",
-		"generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
-		"generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
-		"lint": "biome lint . && ls-lint && knip",
-		"knip": "knip"
+	"author": {
+		"email": "roland.chelwing@gmail.com",
+		"name": "Roland Chelwing"
 	},
 	"dependencies": {
 		"@number-flow/react": "^0.5.8",
@@ -21,9 +11,9 @@
 		"@payloadcms/storage-vercel-blob": "^3.34.0",
 		"@radix-ui/react-slot": "^1.1.2",
 		"cross-env": "^7.0.3",
-		"downshift": "^9.0.9",
 		"fraction.js": "^5.2.1",
 		"graphql": "^16.10.0",
+		"js-cookie": "^3.0.5",
 		"lucide-react": "^0.488.0",
 		"next": "^15.2.3",
 		"payload": "^3.34.0",
@@ -32,9 +22,10 @@
 		"react-dom": "^19.0.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^1.9.4",
+		"@biomejs/biome": "^2.0.0",
 		"@ls-lint/ls-lint": "2.3.0",
 		"@tailwindcss/postcss": "^4.0.15",
+		"@types/js-cookie": "^3.0.6",
 		"@types/node": "^22.13.11",
 		"@types/react": "^19.0.12",
 		"@types/react-dom": "^19.0.4",
@@ -48,8 +39,21 @@
 		"tailwindcss-animate": "^1.0.7",
 		"typescript": "^5.8.2"
 	},
+	"license": "MIT",
 	"main": "index.js",
+	"name": "cooking-with-fralle-v2",
+	"private": true,
 	"repository": "https://github.com/Fralleee/cooking-with-fralle-v2.git",
-	"author": "Roland Chelwing <roland.chelwing@gmail.com>",
-	"license": "MIT"
+	"scripts": {
+		"build": "next build",
+		"dev": "next dev",
+		"generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
+		"generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+		"knip": "knip",
+		"lint": "biome lint . && ls-lint && knip",
+		"start": "next start",
+		"types": "payload generate:types"
+	},
+	"type": "module",
+	"version": "0.1.0"
 }

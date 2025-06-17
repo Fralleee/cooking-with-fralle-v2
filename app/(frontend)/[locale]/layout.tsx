@@ -1,27 +1,25 @@
 import { cn } from "@/app/lib/utils";
 import "@/app/globals.css";
 import type { Metadata } from "next";
-import { Roboto, Oleo_Script } from "next/font/google";
+import { Oleo_Script, Roboto } from "next/font/google";
 import type { PropsWithChildren } from "react";
-import type { Locale } from "@/i18n-config";
+import { unstable_ViewTransition as ViewTransition } from "react";
 import { TranslationProvider } from "@/app/i18n/translation-context";
 import { translations } from "@/app/i18n/translations";
-import LocaleSelector from "./_components/locale-selector";
-import { unstable_ViewTransition as ViewTransition } from "react";
+import type { Locale } from "@/i18n-config";
 import { CSPostHogProvider } from "../../../providers/posthog";
+import LocaleSelector from "./_components/locale-selector";
 
 const font = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 const titleFont = Oleo_Script({
 	subsets: ["latin"],
-	weight: "700",
 	variable: "--font-header",
+	weight: "700",
 });
 
 export const metadata: Metadata = {
-	title: "Cooking with Fralle",
 	description:
 		"Chop It Like It’s Hot! Sizzling recipes from the kitchen of Fralle.",
-	metadataBase: new URL("https://cooking.fralle.net"),
 	keywords: [
 		"recipe",
 		"cooking",
@@ -68,6 +66,8 @@ export const metadata: Metadata = {
 		"cooking terms",
 		"culinary innovation",
 	],
+	metadataBase: new URL("https://cooking.fralle.net"),
+	title: "Cooking with Fralle",
 };
 
 interface Props {
@@ -79,7 +79,6 @@ export default async function Layout({
 	params,
 }: PropsWithChildren<Props>) {
 	const { locale } = await params;
-	console.log("Layout");
 	return (
 		<html lang={locale}>
 			<body
@@ -93,8 +92,8 @@ export default async function Layout({
 					<ViewTransition name="layout">
 						<div className="pointer-events-none fixed inset-0 z-50 bg-radial from-50% from-transparent to-neutral-950/30 opacity-0 transition-opacity md:opacity-100" />
 						<TranslationProvider
-							translations={translations[locale]}
 							locale={locale}
+							translations={translations[locale]}
 						>
 							<nav className="absolute top-4 z-20 flex w-full items-center justify-center gap-3">
 								<LocaleSelector currentLocale={locale} />
