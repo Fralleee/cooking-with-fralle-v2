@@ -6,6 +6,11 @@ const nextConfig: NextConfig = {
 	eslint: {
 		ignoreDuringBuilds: true,
 	},
+	images: {
+		remotePatterns: [
+			{ hostname: "*.public.blob.vercel-storage.com" },
+		],
+	},
 	experimental: {
 		viewTransition: true,
 	},

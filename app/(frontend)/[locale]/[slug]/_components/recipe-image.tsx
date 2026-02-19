@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { unstable_ViewTransition as ViewTransition } from "react";
 

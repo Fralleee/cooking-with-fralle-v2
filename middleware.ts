@@ -34,16 +34,6 @@ export function middleware(request: NextRequest) {
 		: getLocale(request);
 
 	if (pathnameHasLocale) {
-		const currentLocale = pathname.split("/")[1] as Locale;
-		if (currentLocale !== preferredLocale) {
-			const newPathname = pathname.replace(
-				`/${currentLocale}`,
-				`/${preferredLocale}`,
-			);
-			request.nextUrl.pathname = newPathname;
-			return NextResponse.redirect(request.nextUrl);
-		}
-
 		return NextResponse.next();
 	}
 

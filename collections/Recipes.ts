@@ -7,7 +7,7 @@ export const Recipes: CollectionConfig = {
 		plural: "Recipes",
 	},
 	admin: {
-		useAsTitle: "id",
+		useAsTitle: "name",
 	},
 	fields: [
 		{

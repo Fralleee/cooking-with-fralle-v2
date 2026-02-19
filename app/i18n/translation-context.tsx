@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, type PropsWithChildren, useContext } from "react";
+import { createContext, type PropsWithChildren, useContext, useMemo } from "react";
 import type { Locale } from "@/i18n-config";
 import type { translations } from "./translations";
 
@@ -25,8 +25,10 @@ export function TranslationProvider({
 	translations,
 	children,
 }: PropsWithChildren<TranslationProviderProps>) {
+	const value = useMemo(() => ({ t: translations, locale }), [translations, locale]);
+
 	return (
-		<TranslationContext.Provider value={{ t: translations, locale }}>
+		<TranslationContext.Provider value={value}>
 			{children}
 		</TranslationContext.Provider>
 	);

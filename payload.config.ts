@@ -31,7 +31,7 @@ export default buildConfig({
 		}),
 	],
 	editor: lexicalEditor(),
-	secret: process.env.PAYLOAD_SECRET || "",
+	secret: process.env.PAYLOAD_SECRET ?? (() => { throw new Error("PAYLOAD_SECRET environment variable is required"); })(),
 	typescript: {
 		outputFile: path.resolve(dirname, "types", "payload-types.ts"),
 	},
@@ -41,6 +41,6 @@ export default buildConfig({
 		fallback: true,
 	},
 	db: mongooseAdapter({
-		url: process.env.DATABASE_URI || "",
+		url: process.env.DATABASE_URI ?? (() => { throw new Error("DATABASE_URI environment variable is required"); })(),
 	}),
 });

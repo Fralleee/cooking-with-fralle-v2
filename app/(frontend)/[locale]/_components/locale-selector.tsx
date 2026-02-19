@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 import { Button } from "@/app/components/ui/button";
 import { useEscape } from "@/app/hooks/use-escape";
 import { useScroll } from "@/app/hooks/use-scroll";
+
 import { type Locale, locales } from "@/i18n-config";
 
 const flagMap: Record<Locale, string> = {
@@ -62,11 +63,6 @@ export default function LocaleSelector({ currentLocale }: Props) {
 					<div
 						className="fixed inset-0 bg-stone-950/30 blur-sm"
 						onClick={() => setIsOpen(false)}
-						onKeyDown={(e) => {
-							if (e.key === "Escape") {
-								setIsOpen(false);
-							}
-						}}
 					/>
 					<div className="flex gap-2">
 						{locales.map((locale) => (

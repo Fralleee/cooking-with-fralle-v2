@@ -42,9 +42,7 @@ export const Ingredients: CollectionConfig = {
 			hooks: {
 				beforeChange: [populateOtherLocales],
 			},
-			admin: {
-				description: {},
-			},
+			admin: {},
 		},
 		{
 			name: "namePlural",

@@ -27,8 +27,9 @@ export default function RecipeDynamic({
 	return (
 		<section className="flex flex-col">
 			<ServingsCalculator servings={servings} handleServings={handleServings} />
-			{Array.isArray(ingredientsGroups) &&
-				(ingredientsGroups as IngredientGroup[]).map((group) => (
+			{ingredientsGroups.map((group) => {
+				if (typeof group === "string") return null;
+				return (
 					<IngredientsList
 						key={group.name}
 						title={shouldShowGroupTitle ? group.name : ""}
@@ -55,7 +56,8 @@ export default function RecipeDynamic({
 							);
 						})}
 					</IngredientsList>
-				))}
+				);
+				})}
 		</section>
 	);
 }

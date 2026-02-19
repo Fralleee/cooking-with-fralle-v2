@@ -1,3 +1,5 @@
+"use client";
+
 import { Minus, Plus } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
 import NumberFlow from "@number-flow/react";

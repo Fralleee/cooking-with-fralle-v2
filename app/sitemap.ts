@@ -25,7 +25,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			const path = `${locale}/recipe/${recipe.slug}`;
 			sitemap.push({
 				url: `${baseUrl}/${path}`,
-				lastModified: new Date(),
+				lastModified: new Date(recipe.updatedAt),
 				changeFrequency: "yearly",
 				priority: 0.8,
 			});

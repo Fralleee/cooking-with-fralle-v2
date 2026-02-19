@@ -10,7 +10,7 @@ export function CSPostHogProvider({ children }: PropsWithChildren<unknown>) {
 		const host = process.env.NEXT_PUBLIC_POSTHOG_HOST;
 
 		if (!key || !host) {
-			console.error("❌ PostHog key or host missing", { key, host });
+			console.error("PostHog environment variables are not configured");
 			return;
 		}
 
