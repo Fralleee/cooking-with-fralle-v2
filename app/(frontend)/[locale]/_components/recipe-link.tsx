@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { cn } from "@/app/lib/utils";
-import { unstable_ViewTransition as ViewTransition } from "react";
+import { ViewTransition } from "react";
 import Link from "next/link";
 import type { Recipe } from "@/types/payload-types";
 import { useTranslation } from "@/app/i18n/translation-context";

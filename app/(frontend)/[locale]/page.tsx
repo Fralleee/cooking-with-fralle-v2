@@ -3,7 +3,7 @@ import config from "@/payload.config";
 import RecipeList from "./_components/recipe-list";
 import Header from "./_components/header";
 import { type Locale, locales } from "@/i18n-config";
-import { unstable_ViewTransition as ViewTransition } from "react";
+import { ViewTransition } from "react";
 
 export const dynamic = "error";
 export const revalidate = 3600;
@@ -13,12 +13,12 @@ export async function generateStaticParams() {
 }
 
 type Props = {
-	params: Promise<{ locale: Locale }>;
+	params: Promise<{ locale: string }>;
 };
 
 export default async function Page({ params }: Props) {
 	const payloadInstance = await getPayload({ config });
-	const { locale } = await params;
+	const { locale } = (await params) as { locale: Locale };
 
 	const recipes = await payloadInstance.find({
 		collection: "recipes",

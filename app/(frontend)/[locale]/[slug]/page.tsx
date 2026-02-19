@@ -7,13 +7,13 @@ import InstructionsList from "./_components/instructions-list";
 import { getPayload } from "payload";
 import type { Locale } from "@/i18n-config";
 import { RecipeMeta } from "./_components/recipe-meta";
-import { unstable_ViewTransition as ViewTransition } from "react";
+import { ViewTransition } from "react";
 
 export const dynamic = "error";
 export const revalidate = 3600;
 
 interface RouteProps {
-	params: Promise<{ slug: string; locale: Locale }>;
+	params: Promise<{ slug: string; locale: string }>;
 }
 
 export async function generateMetadata({ params }: RouteProps) {
@@ -45,7 +45,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: RouteProps) {
-	const { slug, locale } = await params;
+	const { slug, locale } = (await params) as { slug: string; locale: Locale };
 	const payloadInstance = await getPayload({ config });
 	const result = await payloadInstance.find({
 		collection: "recipes",

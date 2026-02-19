@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { unstable_ViewTransition as ViewTransition } from "react";
+import { ViewTransition } from "react";
 
 interface Props {
 	alt: string;

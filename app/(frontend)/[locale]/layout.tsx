@@ -3,7 +3,7 @@ import "@/app/globals.css";
 import type { Metadata } from "next";
 import { Oleo_Script, Roboto } from "next/font/google";
 import type { PropsWithChildren } from "react";
-import { unstable_ViewTransition as ViewTransition } from "react";
+import { ViewTransition } from "react";
 import { TranslationProvider } from "@/app/i18n/translation-context";
 import { translations } from "@/app/i18n/translations";
 import type { Locale } from "@/i18n-config";
@@ -71,14 +71,14 @@ export const metadata: Metadata = {
 };
 
 interface Props {
-	params: Promise<{ locale: Locale }>;
+	params: Promise<{ locale: string }>;
 }
 
 export default async function Layout({
 	children,
 	params,
 }: PropsWithChildren<Props>) {
-	const { locale } = await params;
+	const { locale } = (await params) as { locale: Locale };
 	return (
 		<html lang={locale}>
 			<body
