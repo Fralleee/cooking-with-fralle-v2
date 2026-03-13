@@ -48,7 +48,10 @@ export const getIngredient = (
 	base: number,
 	servings: number,
 ): { amount?: [string, Measurement | undefined]; label: string } => {
-	const { name, namePlural } = ingredient as Ingredient;
+	if (typeof ingredient === "string") {
+		return { label: ingredient };
+	}
+	const { name, namePlural } = ingredient;
 
 	const label = name ?? "Unknown";
 	if (amountRaw == null) return { label };

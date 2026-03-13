@@ -6,7 +6,7 @@ import type { PropsWithChildren } from "react";
 import { ViewTransition } from "react";
 import { TranslationProvider } from "@/app/i18n/translation-context";
 import { translations } from "@/app/i18n/translations";
-import type { Locale } from "@/i18n-config";
+import { type Locale, isSupportedLocale, defaultLocale } from "@/i18n-config";
 import { CSPostHogProvider } from "../../../providers/posthog";
 import LocaleSelector from "./_components/locale-selector";
 
@@ -78,7 +78,8 @@ export default async function Layout({
 	children,
 	params,
 }: PropsWithChildren<Props>) {
-	const { locale } = (await params) as { locale: Locale };
+	const { locale: rawLocale } = await params;
+	const locale: Locale = isSupportedLocale(rawLocale) ? rawLocale : defaultLocale;
 	return (
 		<html lang={locale}>
 			<body

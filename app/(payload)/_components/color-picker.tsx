@@ -10,9 +10,9 @@ const predefinedColors = Object.entries(tailwindColors)
 	.flatMap(([colorName, shades]) =>
 		desiredShades
 			.map((shade) => {
-				const colorShades = shades as Record<string, string>;
-				if (colorShades[shade]) {
-					return { label: `${colorName}-${shade}`, value: colorShades[shade] };
+				if (typeof shades === "object" && shades !== null && shade in shades) {
+					const colorValue = (shades as Record<string, string>)[shade];
+					return { label: `${colorName}-${shade}`, value: colorValue };
 				}
 				return null;
 			})
@@ -23,7 +23,7 @@ const predefinedColors = Object.entries(tailwindColors)
 
 const ColorSelect = ({ field, path }: TextFieldClientProps) => {
 	const { value, setValue } = useField<string>({ path });
-	const currentColor = (value as string) || predefinedColors[0].value;
+	const currentColor = (typeof value === "string" ? value : "") || predefinedColors[0].value;
 
 	return (
 		<div className="field-type text" style={{ flex: "1 1 auto" }}>

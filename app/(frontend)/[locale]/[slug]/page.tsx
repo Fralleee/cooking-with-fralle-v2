@@ -6,7 +6,7 @@ import RecipeDynamic from "./_components/recipe-dynamic";
 import { RecipeImage } from "./_components/recipe-image";
 import InstructionsList from "./_components/instructions-list";
 import { getPayload } from "payload";
-import type { Locale } from "@/i18n-config";
+import { type Locale, isSupportedLocale, defaultLocale } from "@/i18n-config";
 import { RecipeMeta } from "./_components/recipe-meta";
 import { ViewTransition } from "react";
 
@@ -53,7 +53,8 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: RouteProps) {
-	const { slug, locale } = (await params) as { slug: string; locale: Locale };
+	const { slug, locale: rawLocale } = await params;
+	const locale: Locale = isSupportedLocale(rawLocale) ? rawLocale : defaultLocale;
 	const result = await getRecipeBySlug(slug, locale);
 	const recipe = result?.docs[0];
 

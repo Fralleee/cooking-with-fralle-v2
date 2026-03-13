@@ -8,7 +8,7 @@ import { Button } from "@/app/components/ui/button";
 import { useEscape } from "@/app/hooks/use-escape";
 import { useScroll } from "@/app/hooks/use-scroll";
 
-import { type Locale, locales } from "@/i18n-config";
+import { type Locale, isSupportedLocale, locales } from "@/i18n-config";
 
 const flagMap: Record<Locale, string> = {
 	en: "/images/en.svg",
@@ -29,7 +29,7 @@ export default function LocaleSelector({ currentLocale }: Props) {
 
 	const handleValueChanged = (value: Locale) => {
 		const segments = pathname.split("/").filter(Boolean);
-		if (segments.length > 0 && locales.includes(segments[0] as Locale)) {
+		if (segments.length > 0 && isSupportedLocale(segments[0])) {
 			segments[0] = value;
 		} else {
 			segments.unshift(value);

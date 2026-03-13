@@ -1,7 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
 import {
 	defaultLocale,
-	type Locale,
 	isSupportedLocale,
 	locales,
 } from "./i18n-config";
@@ -13,7 +12,7 @@ function getLocale(request: NextRequest): string {
 	const preferred = acceptLang.split(",").map((l) => l.split(";")[0]);
 
 	for (const lang of preferred) {
-		const baseLang = lang.split("-")[0] as Locale;
+		const baseLang = lang.split("-")[0];
 		if (isSupportedLocale(baseLang)) {
 			return baseLang;
 		}
@@ -28,10 +27,11 @@ export function middleware(request: NextRequest) {
 		(locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
 	);
 
-	const cookieLocale = request.cookies.get("NEXT_LOCALE")?.value as Locale;
-	const preferredLocale = isSupportedLocale(cookieLocale)
-		? cookieLocale
-		: getLocale(request);
+	const cookieLocale = request.cookies.get("NEXT_LOCALE")?.value;
+	const preferredLocale =
+		cookieLocale && isSupportedLocale(cookieLocale)
+			? cookieLocale
+			: getLocale(request);
 
 	if (pathnameHasLocale) {
 		return NextResponse.next();
