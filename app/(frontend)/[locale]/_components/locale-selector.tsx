@@ -14,6 +14,11 @@ const flagMap: Record<Locale, string> = {
 	sv: "/images/sv.svg",
 };
 
+const labelMap: Record<Locale, string> = {
+	en: "English",
+	sv: "Svenska",
+};
+
 interface Props {
 	currentLocale: Locale;
 }
@@ -45,6 +50,7 @@ export default function LocaleSelector({ currentLocale }: Props) {
 					className="animate-locale-button"
 					onClick={() => setIsOpen(true)}
 					variant="outline"
+					aria-label="Change language"
 				>
 					<Image
 						alt={currentLocale}
@@ -70,6 +76,7 @@ export default function LocaleSelector({ currentLocale }: Props) {
 								key={locale}
 								onClick={() => handleValueChanged(locale)}
 								variant="outline"
+								aria-label={labelMap[locale]}
 							>
 								<Image
 									alt={locale}

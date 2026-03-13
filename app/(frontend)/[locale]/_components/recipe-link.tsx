@@ -39,7 +39,6 @@ const RecipeLink = ({ recipe, locale }: Props) => {
 							width={160}
 							height={160}
 							sizes="160px"
-							loading="eager"
 							draggable={false}
 							className="-mt-6 h-auto w-full transition-all duration-200 ease-OutBackLarge group-hover:scale-100 group-hover:opacity-100 group-active:scale-100 group-active:opacity-100 md:scale-90 md:opacity-70"
 						/>

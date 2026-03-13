@@ -19,6 +19,7 @@ const ServingsCalculator = ({ servings, handleServings }: Props) => {
 				disabled={servings <= 2}
 				className="group border-stone-300 bg-stone-50 transition-all ease-out hover:scale-110 hover:border-sky-600 active:scale-90"
 				onClick={() => handleServings(servings - 2)}
+				aria-label="Decrease servings"
 			>
 				<Minus />
 			</Button>
@@ -34,6 +35,7 @@ const ServingsCalculator = ({ servings, handleServings }: Props) => {
 				variant={"outline"}
 				className="group border-stone-300 bg-stone-50 transition-all ease-out hover:scale-110 hover:border-sky-600 active:scale-90"
 				onClick={() => handleServings(servings + 2)}
+				aria-label="Increase servings"
 			>
 				<Plus />
 			</Button>
