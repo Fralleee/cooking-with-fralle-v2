@@ -1,18 +1,16 @@
-"use client";
-
 import Image from "next/image";
 import { cn } from "@/app/lib/utils";
 import { ViewTransition } from "react";
 import Link from "next/link";
 import type { Recipe } from "@/types/payload-types";
-import { useTranslation } from "@/app/i18n/translation-context";
+import type { Locale } from "@/i18n-config";
 
 type Props = {
 	recipe: Recipe;
+	locale: Locale;
 };
 
-const RecipeLink = ({ recipe }: Props) => {
-	const { locale } = useTranslation();
+const RecipeLink = ({ recipe, locale }: Props) => {
 	const href = `/${locale}/${encodeURIComponent(recipe.slug)}`;
 	return (
 		<div>

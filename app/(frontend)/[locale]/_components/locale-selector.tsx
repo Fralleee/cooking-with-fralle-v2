@@ -1,6 +1,5 @@
 "use client";
 
-import Cookies from "js-cookie";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useRef, useState } from "react";
@@ -35,7 +34,7 @@ export default function LocaleSelector({ currentLocale }: Props) {
 			segments.unshift(value);
 		}
 		const newPath = `/${segments.join("/")}`;
-		Cookies.set("NEXT_LOCALE", value, { path: "/" });
+		document.cookie = `NEXT_LOCALE=${value}; path=/`;
 		window.location.replace(newPath);
 	};
 

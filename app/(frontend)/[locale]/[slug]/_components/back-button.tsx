@@ -1,12 +1,18 @@
-"use client";
-
 import Link from "next/link";
 import { buttonVariants } from "@/app/components/ui/button";
 import { cn } from "@/app/lib/utils";
-import { useTranslation } from "@/app/i18n/translation-context";
+import type { Locale } from "@/i18n-config";
+import type { Translations } from "@/app/i18n/translation-context";
+import { defaultLocale } from "@/i18n-config";
+import { translations } from "@/app/i18n/translations";
 
-const BackButton = ({ className }: { className?: string }) => {
-	const { locale, t } = useTranslation();
+interface Props {
+	className?: string;
+	locale?: Locale;
+	t?: Translations;
+}
+
+const BackButton = ({ className, locale = defaultLocale, t = translations[defaultLocale] }: Props) => {
 	return (
 		<Link
 			href={`/${locale}`}

@@ -7,6 +7,7 @@ import { RecipeImage } from "./_components/recipe-image";
 import InstructionsList from "./_components/instructions-list";
 import { getPayload } from "payload";
 import { type Locale, isSupportedLocale, defaultLocale } from "@/i18n-config";
+import { translations } from "@/app/i18n/translations";
 import { RecipeMeta } from "./_components/recipe-meta";
 import { ViewTransition } from "react";
 
@@ -68,7 +69,7 @@ export default async function Page({ params }: RouteProps) {
 				<div className="flex min-h-screen flex-col bg-header">
 					<RecipeTitle title={recipe.name} />
 					<main className="relative mx-auto flex w-full max-w-2xl flex-auto flex-col rounded-3xl rounded-b-none bg-stone-100 px-2 py-6 pb-12 text-stone-700 transition-all sm:px-8">
-						<RecipeMeta recipe={recipe} />
+						<RecipeMeta recipe={recipe} locale={locale} t={translations[locale]} />
 						<div className="flex flex-col-reverse items-center md:flex-row md:items-start md:justify-between">
 							<RecipeDynamic
 								defaultServings={recipe.defaultServings}
