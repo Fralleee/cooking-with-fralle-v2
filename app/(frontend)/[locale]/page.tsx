@@ -22,9 +22,9 @@ export async function generateStaticParams() {
 	return locales.map((locale) => ({ locale }));
 }
 
-type Props = {
+interface Props {
 	params: Promise<{ locale: string }>;
-};
+}
 
 export default async function Page({ params }: Props) {
 	const { locale: rawLocale } = await params;

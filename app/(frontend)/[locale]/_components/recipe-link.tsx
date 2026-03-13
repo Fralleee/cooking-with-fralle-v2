@@ -5,10 +5,10 @@ import Link from "next/link";
 import type { Recipe } from "@/types/payload-types";
 import type { Locale } from "@/i18n-config";
 
-type Props = {
+interface Props {
 	recipe: Recipe;
 	locale: Locale;
-};
+}
 
 const RecipeLink = ({ recipe, locale }: Props) => {
 	const href = `/${locale}/${encodeURIComponent(recipe.slug)}`;
