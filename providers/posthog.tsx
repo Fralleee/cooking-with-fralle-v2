@@ -1,7 +1,5 @@
 "use client";
 
-import posthog from "posthog-js";
-import { PostHogProvider } from "posthog-js/react";
 import { useEffect, type PropsWithChildren } from "react";
 
 export function CSPostHogProvider({ children }: PropsWithChildren<unknown>) {
@@ -10,15 +8,17 @@ export function CSPostHogProvider({ children }: PropsWithChildren<unknown>) {
 		const host = process.env.NEXT_PUBLIC_POSTHOG_HOST;
 
 		if (!key || !host) {
-			console.error("PostHog environment variables are not configured");
 			return;
 		}
 
-		posthog.init(key, {
-			api_host: host,
-			capture_pageview: true,
-			person_profiles: "identified_only",
+		import("posthog-js").then((posthogModule) => {
+			posthogModule.default.init(key, {
+				api_host: host,
+				capture_pageview: true,
+				person_profiles: "identified_only",
+			});
 		});
 	}, []);
-	return <PostHogProvider client={posthog}>{children}</PostHogProvider>;
+
+	return <>{children}</>;
 }

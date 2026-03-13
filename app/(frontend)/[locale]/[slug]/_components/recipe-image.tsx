@@ -16,6 +16,7 @@ export const RecipeImage = ({ alt, slug, src }: Props) => {
 				alt={alt}
 				width={256}
 				height={256}
+				sizes="256px"
 				priority
 			/>
 		</ViewTransition>

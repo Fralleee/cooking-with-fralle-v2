@@ -1,5 +1,3 @@
-"use client";
-
 import RecipeLink from "./recipe-link";
 import type { Recipe } from "@/types/payload-types";
 

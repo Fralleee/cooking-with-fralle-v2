@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { notFound } from "next/navigation";
 import config from "@/payload.config";
 import RecipeTitle from "./_components/recipe-title";
@@ -12,18 +13,25 @@ import { ViewTransition } from "react";
 export const dynamic = "error";
 export const revalidate = 3600;
 
+const getRecipeBySlug = cache(async (slug: string, locale?: Locale) => {
+	const payloadInstance = await getPayload({ config });
+	return payloadInstance.find({
+		collection: "recipes",
+		where: { slug: { equals: slug } },
+		limit: 1,
+		depth: 2,
+		locale: locale ?? "en",
+		fallbackLocale: "en",
+	});
+});
+
 interface RouteProps {
 	params: Promise<{ slug: string; locale: string }>;
 }
 
 export async function generateMetadata({ params }: RouteProps) {
 	const { slug } = await params;
-	const payloadInstance = await getPayload({ config });
-	const result = await payloadInstance.find({
-		collection: "recipes",
-		where: { slug: { equals: slug } },
-		limit: 1,
-	});
+	const result = await getRecipeBySlug(slug);
 	const recipe = result?.docs[0];
 
 	if (!recipe) {
@@ -46,15 +54,7 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: RouteProps) {
 	const { slug, locale } = (await params) as { slug: string; locale: Locale };
-	const payloadInstance = await getPayload({ config });
-	const result = await payloadInstance.find({
-		collection: "recipes",
-		where: { slug: { equals: slug } },
-		limit: 1,
-		depth: 2,
-		locale,
-		fallbackLocale: "en",
-	});
+	const result = await getRecipeBySlug(slug, locale);
 	const recipe = result?.docs[0];
 
 	if (!recipe) {
@@ -78,7 +78,7 @@ export default async function Page({ params }: RouteProps) {
 								src={
 									typeof recipe.image === "string"
 										? recipe.image
-										: recipe.image.url || "/placeholder-image.jpg"
+										: recipe.image.url || "/images/notfound.webp"
 								}
 								alt={
 									typeof recipe.image === "string"
