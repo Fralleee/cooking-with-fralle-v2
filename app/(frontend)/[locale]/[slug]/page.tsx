@@ -2,9 +2,7 @@ import { cache } from "react";
 import { notFound } from "next/navigation";
 import config from "@/payload.config";
 import RecipeTitle from "./_components/recipe-title";
-import nextDynamic from "next/dynamic";
-
-const RecipeDynamic = nextDynamic(() => import("./_components/recipe-dynamic"));
+import RecipeDynamic from "./_components/recipe-dynamic";
 import { RecipeImage } from "./_components/recipe-image";
 import InstructionsList from "./_components/instructions-list";
 import { getPayload } from "payload";

@@ -14,7 +14,7 @@ const RecipeLink = ({ recipe, locale }: Props) => {
 	const href = `/${locale}/${encodeURIComponent(recipe.slug)}`;
 	return (
 		<div>
-			<Link prefetch href={href}>
+			<Link href={href}>
 				<div
 					className={cn(
 						"group relative grid h-64 w-64 transform-none place-items-center rounded-3xl p-8 shadow-none transition-all duration-200 ease-OutBackLarge",
