@@ -3,7 +3,7 @@ import { getPayload } from "payload";
 import config from "@/payload.config";
 import RecipeList from "./_components/recipe-list";
 import Header from "./_components/header";
-import { type Locale, isSupportedLocale, defaultLocale, locales } from "@/i18n-config";
+import { type Locale, isSupportedLocale, defaultLocale } from "@/i18n-config";
 import { ViewTransition } from "react";
 
 export const dynamic = "error";
@@ -16,10 +16,6 @@ const getRecipes = cache(async (locale: Locale) => {
 		fallbackLocale: "en",
 	});
 });
-
-export async function generateStaticParams() {
-	return locales.map((locale) => ({ locale }));
-}
 
 interface Props {
 	params: Promise<{ locale: string }>;

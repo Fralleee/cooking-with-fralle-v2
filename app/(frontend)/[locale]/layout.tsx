@@ -6,9 +6,13 @@ import type { PropsWithChildren } from "react";
 import { ViewTransition } from "react";
 import { TranslationProvider } from "@/app/i18n/translation-context";
 import { translations } from "@/app/i18n/translations";
-import { type Locale, isSupportedLocale, defaultLocale } from "@/i18n-config";
+import { type Locale, isSupportedLocale, defaultLocale, locales } from "@/i18n-config";
 import { CSPostHogProvider } from "../../../providers/posthog";
 import LocaleSelector from "./_components/locale-selector";
+
+export async function generateStaticParams() {
+	return locales.map((locale) => ({ locale }));
+}
 
 const font = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 const titleFont = Oleo_Script({
