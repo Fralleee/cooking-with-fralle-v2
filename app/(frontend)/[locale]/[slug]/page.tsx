@@ -12,7 +12,6 @@ import { RecipeMeta } from "./_components/recipe-meta";
 import { ViewTransition } from "react";
 
 export const dynamic = "error";
-export const revalidate = 3600;
 
 const getRecipeBySlug = cache(async (slug: string, locale?: Locale) => {
 	const payloadInstance = await getPayload({ config });

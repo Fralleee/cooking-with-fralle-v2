@@ -7,7 +7,6 @@ import { type Locale, isSupportedLocale, defaultLocale, locales } from "@/i18n-c
 import { ViewTransition } from "react";
 
 export const dynamic = "error";
-export const revalidate = 3600;
 
 const getRecipes = cache(async (locale: Locale) => {
 	const payloadInstance = await getPayload({ config });
